@@ -49,7 +49,10 @@ exports.sendContactToSlack = onRequest(
             { type: 'mrkdwn', text: `*Name:*\n${sanitize(name)}` },
             { type: 'mrkdwn', text: `*Email:*\n<mailto:${sanitize(email)}|${sanitize(email)}>` },
             { type: 'mrkdwn', text: `*Subject:*\n${sanitize(subject || 'N/A')}` },
-            { type: 'mrkdwn', text: `*Time:*\n${new Date(timestamp || Date.now()).toLocaleString('en-PH', { timeZone: 'Asia/Manila' })}` },
+            {
+              type: 'mrkdwn',
+              text: `*Time:*\n${new Date(timestamp || Date.now()).toLocaleString('en-PH', { timeZone: 'Asia/Manila' })}`,
+            },
           ],
         },
         {
@@ -88,13 +91,16 @@ exports.sendContactToSlack = onRequest(
       }
 
       // Also store in Firestore for record
-      await admin.firestore().collection('contact_messages').add({
-        name,
-        email,
-        subject: subject || '',
-        message,
-        createdAt: admin.firestore.FieldValue.serverTimestamp(),
-      });
+      await admin
+        .firestore()
+        .collection('contact_messages')
+        .add({
+          name,
+          email,
+          subject: subject || '',
+          message,
+          createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        });
 
       res.json({ success: true });
     } catch (error) {

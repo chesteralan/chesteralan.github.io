@@ -5,10 +5,13 @@ import ScrollToTop from './ScrollToTop';
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       <ScrollToTop />
       <Navbar />
-      <main className="flex-1 pt-16 md:pt-20">
+      <main id="main-content" className="flex-1 pt-16 md:pt-20">
         <Outlet />
       </main>
       <Footer />

@@ -8,10 +8,10 @@ export default function Projects() {
       <section>
         <div className="section-container">
           <ScrollReveal>
-            <p className="text-sm font-medium text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-4">
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary-600 dark:text-primary-400">
               My Work
             </p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
               Projects
             </h1>
             <p className="section-subtitle mb-12">
@@ -19,7 +19,7 @@ export default function Projects() {
             </p>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-6 md:grid-cols-2">
             {projects.map((project) => (
               <ScrollReveal key={project.id}>
                 <ProjectCard project={project} />
