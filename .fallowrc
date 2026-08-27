@@ -1,0 +1,10 @@
+{
+  "include": ["src"],
+  "exclude": ["dist", "docs", "functions", "node_modules", "public"],
+  "dead-code": {
+    "include": ["src/**/*.ts", "src/**/*.tsx"]
+  },
+  "health": {
+    "include": ["src"]
+  }
+}

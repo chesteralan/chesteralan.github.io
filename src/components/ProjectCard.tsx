@@ -5,7 +5,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <div className="card-hover group">
       {/* Tags */}
-      <div className="flex flex-wrap gap-2 mb-3">
+      <div className="mb-3 flex flex-wrap gap-2">
         {project.tags.slice(0, 3).map((tag) => (
           <span key={tag} className="tag text-xs">
             {tag}
@@ -14,12 +14,12 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* Title */}
-      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+      <h3 className="mb-2 text-lg font-semibold text-gray-900 transition-colors group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400">
         {project.title}
       </h3>
 
       {/* Description */}
-      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4 line-clamp-3">
+      <p className="mb-4 line-clamp-3 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
         {project.description}
       </p>
 
@@ -30,9 +30,9 @@ export default function ProjectCard({ project }: { project: Project }) {
             href={project.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
           >
-            <Code2 className="w-4 h-4" />
+            <Code2 className="h-4 w-4" />
             Source
           </a>
         )}
@@ -41,9 +41,9 @@ export default function ProjectCard({ project }: { project: Project }) {
             href={project.links.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-primary-600 transition-colors hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
           >
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink className="h-4 w-4" />
             Live Demo
           </a>
         )}
@@ -52,9 +52,9 @@ export default function ProjectCard({ project }: { project: Project }) {
             href={project.links.chrome}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-primary-600 transition-colors hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
           >
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink className="h-4 w-4" />
             Chrome Store
           </a>
         )}
@@ -62,8 +62,8 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       {/* Featured badge */}
       {project.featured && (
-        <div className="absolute top-4 right-4">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-2 py-0.5 rounded-full">
+        <div className="absolute right-4 top-4">
+          <span className="rounded-full bg-primary-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary-500 dark:bg-primary-900/20 dark:text-primary-400">
             Featured
           </span>
         </div>

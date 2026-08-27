@@ -28,17 +28,6 @@ export interface Skill {
 
 export const projects: Project[] = [
   {
-    id: 'pinas',
-    title: 'Pinas.cc',
-    description:
-      'A comprehensive gateway to the Philippines — your portal for exploring Filipino culture, destinations, and resources. Built with React and Firebase.',
-    tags: ['React', 'Firebase', 'Tailwind CSS'],
-    links: {
-      live: 'https://pinas.cc/',
-    },
-    featured: true,
-  },
-  {
     id: 'anc',
     title: 'Archdiocesan Nourishment Center',
     description:
@@ -61,39 +50,6 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 'create-agent-docs',
-    title: 'Create Agent Docs',
-    description:
-      'A CLI tool that scaffolds AI-ready documentation systems to help developers and teams build better documentation for their AI agents.',
-    tags: ['TypeScript', 'CLI', 'Documentation', 'AI'],
-    links: {
-      github: 'https://github.com/chesteralan/create-agent-docs',
-    },
-    featured: true,
-  },
-  {
-    id: 'agent-docs-template',
-    title: 'Agent Docs Template',
-    description:
-      'Reusable AI-ready documentation templates for developers and teams building agentic applications.',
-    tags: ['Documentation', 'Templates', 'AI'],
-    links: {
-      github: 'https://github.com/chesteralan/agent-docs-template',
-    },
-    featured: false,
-  },
-  {
-    id: 'digital-architect',
-    title: 'Digital Architect Template',
-    description:
-      'A design-to-code workflow template — stitch your designs in a studio and generate production-ready code.',
-    tags: ['TypeScript', 'Design', 'AI Studio'],
-    links: {
-      github: 'https://github.com/chesteralan/digital-architect-web-template',
-    },
-    featured: false,
-  },
-  {
     id: 'tailwind-portfolio',
     title: 'Tailwind Cards Portfolio',
     description:
@@ -111,7 +67,7 @@ export const projects: Project[] = [
       'A community site dedicated to JavaScript and its awesome ecosystem. Contributions and resources for JS developers since 2015.',
     tags: ['JavaScript', 'Community', 'Documentation'],
     links: {
-      github: 'https://github.com/chesteralan/altrugenix.js.org',
+      github: 'https://github.com/Altrugenix/ui',
     },
     featured: false,
   },
@@ -140,7 +96,7 @@ export const extensions: Extension[] = [
     description:
       'Simplify your web development workflow — find Tailwind CSS class names in a flash with this handy Chrome extension.',
     tags: ['Tailwind CSS', 'Productivity', 'Cheatsheet'],
-    link: 'https://chromewebstore.google.com/detail/tailwind-cheatsheet/',
+    link: 'https://chromewebstore.google.com/detail/tailwind-css-cheat-sheet/fndbnfnjnhldjeppmglocapmfjdjkleh',
   },
 ];
 

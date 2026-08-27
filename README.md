@@ -4,13 +4,13 @@ A modern, minimal portfolio website built with React + TypeScript + Tailwind CSS
 
 ## 🚀 Tech Stack
 
-| Layer | Technology |
-|---|---|
-| **Frontend** | React 18, TypeScript, Vite |
-| **Styling** | Tailwind CSS, Lucide Icons |
-| **Routing** | React Router v6 |
-| **Backend** | Firebase (Hosting + Functions + Firestore) |
-| **Contact Form** | Firebase Function → Slack Webhook |
+| Layer            | Technology                                 |
+| ---------------- | ------------------------------------------ |
+| **Frontend**     | React 18, TypeScript, Vite                 |
+| **Styling**      | Tailwind CSS, Lucide Icons                 |
+| **Routing**      | React Router v6                            |
+| **Backend**      | Firebase (Hosting + Functions + Firestore) |
+| **Contact Form** | Firebase Function → Slack Webhook          |
 
 ## 📁 Project Structure
 
@@ -100,17 +100,18 @@ firebase deploy
 
 ## 📄 Pages
 
-| Route | Page |
-|---|---|
-| `/` | Home — Hero, featured projects, skills, CTA |
-| `/about` | About — Bio, experience, timeline, all skills |
-| `/projects` | Projects — Full project grid |
-| `/extensions` | Extensions — Chrome extension showcase |
-| `/contact` | Contact — Form with Slack integration |
+| Route         | Page                                          |
+| ------------- | --------------------------------------------- |
+| `/`           | Home — Hero, featured projects, skills, CTA   |
+| `/about`      | About — Bio, experience, timeline, all skills |
+| `/projects`   | Projects — Full project grid                  |
+| `/extensions` | Extensions — Chrome extension showcase        |
+| `/contact`    | Contact — Form with Slack integration         |
 
 ## 🎨 Customization
 
 All portfolio content lives in `src/data/portfolio.ts`:
+
 - **Projects**: Add/modify project entries
 - **Extensions**: Add/modify Chrome extension entries
 - **Skills**: Add/modify skills/tags

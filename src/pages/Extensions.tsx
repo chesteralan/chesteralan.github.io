@@ -8,10 +8,10 @@ export default function Extensions() {
       <section>
         <div className="section-container">
           <ScrollReveal>
-            <p className="text-sm font-medium text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-4">
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary-600 dark:text-primary-400">
               Chrome Extensions
             </p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
               Browser Tools
             </h1>
             <p className="section-subtitle mb-12">
@@ -19,7 +19,7 @@ export default function Extensions() {
             </p>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid gap-6 md:grid-cols-3">
             {extensions.map((ext) => (
               <ScrollReveal key={ext.id}>
                 <a
@@ -29,22 +29,22 @@ export default function Extensions() {
                   className="card-hover group block"
                 >
                   {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/30 dark:to-accent-900/30 flex items-center justify-center mb-4">
-                    <Globe className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/30 dark:to-accent-900/30">
+                    <Globe className="h-6 w-6 text-primary-600 dark:text-primary-400" />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  <h3 className="mb-2 text-lg font-semibold text-gray-900 transition-colors group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400">
                     {ext.title}
                   </h3>
 
                   {/* Desc */}
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                  <p className="mb-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                     {ext.description}
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="mb-4 flex flex-wrap gap-2">
                     {ext.tags.map((tag) => (
                       <span key={tag} className="tag text-xs">
                         {tag}
@@ -54,7 +54,7 @@ export default function Extensions() {
 
                   {/* Link */}
                   <span className="inline-flex items-center gap-1.5 text-xs font-medium text-primary-600 dark:text-primary-400">
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="h-4 w-4" />
                     View in Chrome Web Store
                   </span>
                 </a>
