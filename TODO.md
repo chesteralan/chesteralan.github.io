@@ -55,3 +55,22 @@
 - [x] Achieve 100% test coverage across components and pages
 - [x] Install fallow for static analysis (dead code, duplication, complexity)
 - [x] Install knip for unused exports/dependencies detection
+
+## Contact Form Backend
+
+- [ ] Replace Firebase Cloud Function (`functions/`) with Cloudflare Worker for sending contact form submissions to Viber
+- [ ] Remove `@functions/` directory and Firebase Functions dependencies
+
+## Features to Add
+
+- [ ] Add blog section for articles/tutorials
+- [ ] Add project filtering/search by tech stack
+- [ ] Add reading time estimates on project cards
+- [ ] Add RSS feed for blog posts
+- [ ] Add sitemap.xml generation
+- [ ] Add analytics integration (Plausible, Umami, or similar privacy-focused)
+- [ ] Add loading states/skeleton screens for route transitions
+- [ ] Add back-to-top button
+- [ ] Add project detail pages with expanded descriptions
+- [ ] Add testimonials section
+- [ ] Add skills/tech stack visualization page
