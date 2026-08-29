@@ -1,5 +1,7 @@
 # Alchie Tagudin — Portfolio
 
+Last updated: **August 29, 2026**
+
 A modern, minimal portfolio website built with React + TypeScript + Tailwind CSS + Firebase.
 
 ## 🚀 Tech Stack
