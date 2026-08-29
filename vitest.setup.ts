@@ -25,10 +25,7 @@ class MockIntersectionObserver implements IntersectionObserver {
   }
 
   observe(target: Element): void {
-    this.callback(
-      [{ isIntersecting: true, target } as IntersectionObserverEntry],
-      this,
-    );
+    this.callback([{ isIntersecting: true, target } as IntersectionObserverEntry], this);
   }
 
   unobserve(): void {}
@@ -39,4 +36,5 @@ class MockIntersectionObserver implements IntersectionObserver {
 }
 
 vi.stubGlobal('IntersectionObserver', MockIntersectionObserver);
-globalThis.IntersectionObserver = MockIntersectionObserver as unknown as typeof IntersectionObserver;
+globalThis.IntersectionObserver =
+  MockIntersectionObserver as unknown as typeof IntersectionObserver;
