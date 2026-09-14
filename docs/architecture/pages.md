@@ -27,7 +27,6 @@
 
 ### Projects (`/projects`)
 - Full project grid
-- Filter/search functionality
 - Project cards with images
 
 ### Extensions (`/extensions`)
@@ -37,8 +36,7 @@
 
 ### Contact (`/contact`)
 - Contact form with validation
-- Firebase backend integration
-- Slack webhook notifications
+- Firebase Cloud Function backend (sends to Slack)
 
 ### NotFound (`*`)
 - 404 error page

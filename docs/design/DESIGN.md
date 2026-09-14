@@ -1,5 +1,10 @@
 # DESIGN.md - Portfolio Redesign Context
 
+> **Spec note:** The original spec (`2026-09-14-stitch-redesign-design.md`) called for `design-system.md`.
+> This file (`DESIGN.md`) was created instead because it serves the Stitch context extraction
+> purpose directly — Stitch expects a DESIGN.md input format. The `stitch-output/` directory
+> will contain Stitch-generated exports.
+
 ## Brand Identity
 
 **Name:** Alchie Tagudin
@@ -12,9 +17,12 @@
 2. **Whitespace:** Generous spacing for readability
 3. **Consistency:** Uniform patterns across all pages
 4. **Motion:** Subtle animations enhance UX
-5. **Mobile-first:** Responsive design优先
+5. **Mobile-first:** Mobile-first responsive design
 
 ## Color Palette
+
+> These are target colors for the Stitch redesign, not the current implementation.
+> Current implementation uses Blue-600 (#0052e6) primary and Orange-Red-500 (#e05a3c) accent.
 
 ### Primary
 - Cyan-600: #0891b2 (CTAs, links, accents)
