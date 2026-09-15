@@ -14,25 +14,25 @@ describe('About', () => {
 
   it('renders bio section', () => {
     renderAbout();
-    expect(screen.getByText(/About Me/)).toBeInTheDocument();
-    expect(screen.getByText(/I craft digital experiences from/)).toBeInTheDocument();
+    expect(screen.getByText(/About Me & Engineering Philosophy/)).toBeInTheDocument();
+    expect(screen.getByText(/Full-stack software architect/)).toBeInTheDocument();
   });
 
-  it('renders experience section', () => {
+  it('renders career timeline section', () => {
     renderAbout();
-    expect(screen.getByText(/Experience/)).toBeInTheDocument();
+    expect(screen.getByText(/Career Timeline & Experience/)).toBeInTheDocument();
     expect(screen.getAllByText('Freelance Web Developer').length).toBeGreaterThan(0);
   });
 
-  it('renders timeline section', () => {
+  it('renders technical skills matrix', () => {
     renderAbout();
-    expect(screen.getByText(/Timeline/)).toBeInTheDocument();
-    expect(screen.getByText('Started GitHub journey')).toBeInTheDocument();
+    expect(screen.getByText(/Technical Skills Matrix/)).toBeInTheDocument();
+    expect(screen.getAllByText('TypeScript').length).toBeGreaterThan(0);
   });
 
-  it('renders skills section', () => {
+  it('renders engineering values', () => {
     renderAbout();
-    expect(screen.getByText(/Full Stack/)).toBeInTheDocument();
-    expect(screen.getByText('TypeScript')).toBeInTheDocument();
+    expect(screen.getByText(/Engineering Values & Principles/)).toBeInTheDocument();
+    expect(screen.getByText('Scalability by Design')).toBeInTheDocument();
   });
 });

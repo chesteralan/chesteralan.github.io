@@ -15,24 +15,22 @@ describe('Home', () => {
   it('renders hero section with name', () => {
     renderHome();
     expect(screen.getByText(/Alchie Tagudin/)).toBeInTheDocument();
-    expect(screen.getByText(/Frontend Developer/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Frontend Developer/).length).toBeGreaterThan(0);
   });
 
-  it('renders featured projects section', () => {
+  it('renders selected work section', () => {
     renderHome();
-    expect(screen.getByText(/Featured Projects/)).toBeInTheDocument();
-    expect(screen.getByText('Archdiocesan Nourishment Center')).toBeInTheDocument();
-    expect(screen.getByText('PayrollPH')).toBeInTheDocument();
+    expect(screen.getByText(/Selected Work/)).toBeInTheDocument();
   });
 
-  it('renders skills section', () => {
+  it('renders stats section', () => {
     renderHome();
-    expect(screen.getByText(/Skills & Tools/)).toBeInTheDocument();
-    expect(screen.getAllByText('React').length).toBeGreaterThan(0);
+    expect(screen.getByText(/Years Experience/)).toBeInTheDocument();
+    expect(screen.getByText(/Projects Shipped/)).toBeInTheDocument();
   });
 
   it('renders CTA section', () => {
     renderHome();
-    expect(screen.getByText(/Let's Build Something Together/)).toBeInTheDocument();
+    expect(screen.getByText(/Have a project in mind/)).toBeInTheDocument();
   });
 });

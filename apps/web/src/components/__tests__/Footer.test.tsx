@@ -12,10 +12,9 @@ function renderFooter() {
 }
 
 describe('Footer', () => {
-  it('renders copyright year', () => {
+  it('renders brand name', () => {
     renderFooter();
-    const year = new Date().getFullYear();
-    expect(screen.getByText(new RegExp(`${year}.*Alchie Tagudin`))).toBeInTheDocument();
+    expect(screen.getByText('Alchie Tagudin')).toBeInTheDocument();
   });
 
   it('renders social links (github, linkedin, email)', () => {
@@ -35,7 +34,6 @@ describe('Footer', () => {
     expect(screen.getByText('Home').closest('a')).toHaveAttribute('href', '/');
     expect(screen.getByText('About').closest('a')).toHaveAttribute('href', '/about');
     expect(screen.getByText('Projects').closest('a')).toHaveAttribute('href', '/projects');
-    expect(screen.getByText('Extensions').closest('a')).toHaveAttribute('href', '/extensions');
     expect(screen.getByText('Contact').closest('a')).toHaveAttribute('href', '/contact');
   });
 });

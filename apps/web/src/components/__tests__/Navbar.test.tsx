@@ -12,7 +12,7 @@ function renderNavbar(initialRoute = '/') {
 }
 
 function getDesktopNav(container: HTMLElement) {
-  return container.querySelector('.hidden.items-center.gap-1') as HTMLElement;
+  return container.querySelector('.hidden.items-center.gap-1.rounded-xl') as HTMLElement;
 }
 
 describe('Navbar', () => {
@@ -26,7 +26,6 @@ describe('Navbar', () => {
     expect(within(desktop).getByText('Home')).toBeInTheDocument();
     expect(within(desktop).getByText('About')).toBeInTheDocument();
     expect(within(desktop).getByText('Projects')).toBeInTheDocument();
-    expect(within(desktop).getByText('Extensions')).toBeInTheDocument();
     expect(within(desktop).getByText('Contact')).toBeInTheDocument();
   });
 
@@ -34,18 +33,18 @@ describe('Navbar', () => {
     const { container } = renderNavbar('/about');
     const desktop = getDesktopNav(container);
     const aboutLink = within(desktop).getByText('About');
-    expect(aboutLink.className).toMatch(/bg-primary-50/);
+    expect(aboutLink.className).toMatch(/bg-white/);
   });
 
   it('toggles mobile menu open and closed', () => {
     renderNavbar();
     const toggleButton = screen.getByRole('button', { name: /toggle menu/i });
-    const mobileMenu = document.querySelector('.overflow-hidden') as HTMLElement;
+    const mobileMenu = document.querySelector('.overflow-hidden.transition-all') as HTMLElement;
 
     act(() => {
       fireEvent.click(toggleButton);
     });
-    expect(mobileMenu.className).toMatch(/max-h-96/);
+    expect(mobileMenu.className).toMatch(/max-h-64/);
 
     act(() => {
       fireEvent.click(toggleButton);
@@ -55,12 +54,12 @@ describe('Navbar', () => {
 
   it('applies scrolled styles when page is scrolled', () => {
     const { container } = renderNavbar();
-    const nav = container.querySelector('nav')!;
+    const header = container.querySelector('header')!;
     act(() => {
       Object.defineProperty(window, 'scrollY', { value: 100, writable: true, configurable: true });
       window.dispatchEvent(new Event('scroll'));
     });
-    expect(nav.className).toMatch(/backdrop-blur-lg/);
+    expect(header.className).toMatch(/backdrop-blur-md/);
   });
 
   it('calls closeMenu when mobile link is clicked', () => {
@@ -73,7 +72,7 @@ describe('Navbar', () => {
     act(() => {
       fireEvent.click(mobileAbout);
     });
-    const nav = document.querySelector('nav')!;
-    expect(nav).toBeInTheDocument();
+    const header = document.querySelector('header')!;
+    expect(header).toBeInTheDocument();
   });
 });

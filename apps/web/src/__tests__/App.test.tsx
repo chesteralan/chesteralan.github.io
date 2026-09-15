@@ -11,8 +11,7 @@ describe('App', () => {
 
   it('renders the layout with navbar and footer', () => {
     render(<App />);
-    expect(screen.getByRole('navigation')).toBeInTheDocument();
-    expect(screen.getByText(/All rights reserved/)).toBeInTheDocument();
-    expect(screen.getByText(/Frontend Developer/)).toBeInTheDocument();
+    expect(screen.getAllByRole('navigation').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Alchie Tagudin').length).toBeGreaterThan(0);
   });
 });

@@ -15,7 +15,7 @@ describe('Projects', () => {
 
   it('renders page title', () => {
     renderProjects();
-    expect(screen.getByRole('heading', { name: 'Projects' })).toBeInTheDocument();
+    expect(screen.getByText(/Featured Work & Engineering Projects/)).toBeInTheDocument();
   });
 
   it('renders all projects from portfolio data', () => {
