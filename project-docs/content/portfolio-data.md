@@ -88,7 +88,7 @@ export const socialLinks = {
 - GitHub: github.com/chesteralan
 - LinkedIn: linkedin.com/in/chesteralan
 - Website: alchie.cc
-- Email: hello@alchie.cc
+- Email: tagudinalchie@gmail.com
 
 ## Updating Content
 

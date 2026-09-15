@@ -271,5 +271,5 @@ export const socialLinks = {
   github: 'https://github.com/chesteralan',
   linkedin: 'https://www.linkedin.com/in/chesteralan/',
   website: 'https://alchie.cc',
-  email: 'hello@alchie.cc',
+  email: 'tagudinalchie@gmail.com',
 };

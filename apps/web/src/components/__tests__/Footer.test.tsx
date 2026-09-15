@@ -26,7 +26,7 @@ describe('Footer', () => {
     expect(linkedin).toHaveAttribute('href', 'https://www.linkedin.com/in/chesteralan/');
 
     const email = screen.getByLabelText('Email').closest('a');
-    expect(email).toHaveAttribute('href', 'mailto:hello@alchie.cc');
+    expect(email).toHaveAttribute('href', 'mailto:tagudinalchie@gmail.com');
   });
 
   it('renders navigation links', () => {

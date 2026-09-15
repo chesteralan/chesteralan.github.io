@@ -303,7 +303,7 @@ export default function Projects() {
                   <span className="material-symbols-outlined text-[14px]">chat_bubble_outline</span>
                 </Link>
                 <a
-                  href="mailto:hello@alchie.cc"
+                  href="mailto:tagudinalchie@gmail.com"
                   className="px-4 py-2.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-lg text-xs font-medium shadow-xs flex items-center space-x-2 transition-all"
                 >
                   <span>Direct Email</span>
