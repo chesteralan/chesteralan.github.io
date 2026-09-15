@@ -21,7 +21,7 @@ describe('About', () => {
   it('renders experience section', () => {
     renderAbout();
     expect(screen.getByText(/Experience/)).toBeInTheDocument();
-    expect(screen.getByText('PetLabCo.')).toBeInTheDocument();
+    expect(screen.getAllByText('Freelance Web Developer').length).toBeGreaterThan(0);
   });
 
   it('renders timeline section', () => {

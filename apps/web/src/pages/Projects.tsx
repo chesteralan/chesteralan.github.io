@@ -8,12 +8,10 @@ export default function Projects() {
       <section>
         <div className="section-container">
           <ScrollReveal>
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary-600 dark:text-primary-400">
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary-500">
               My Work
             </p>
-            <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
-              Projects
-            </h1>
+            <h1 className="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">Projects</h1>
             <p className="section-subtitle mb-12">
               A collection of things I've built — from web apps to developer tools.
             </p>

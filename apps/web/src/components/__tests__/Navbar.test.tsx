@@ -3,10 +3,6 @@ import { render, screen, fireEvent, within, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Navbar from '../Navbar';
 
-vi.mock('../ThemeToggle', () => ({
-  default: () => <button aria-label="Toggle dark mode">Theme</button>,
-}));
-
 function renderNavbar(initialRoute = '/') {
   return render(
     <MemoryRouter initialEntries={[initialRoute]}>
@@ -55,11 +51,6 @@ describe('Navbar', () => {
       fireEvent.click(toggleButton);
     });
     expect(mobileMenu.className).toMatch(/max-h-0/);
-  });
-
-  it('shows theme toggle', () => {
-    renderNavbar();
-    expect(screen.getAllByLabelText('Toggle dark mode').length).toBeGreaterThanOrEqual(1);
   });
 
   it('applies scrolled styles when page is scrolled', () => {

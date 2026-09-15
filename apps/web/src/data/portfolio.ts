@@ -10,6 +10,7 @@ export interface Project {
     chrome?: string;
   };
   featured?: boolean;
+  category?: 'web' | 'mobile' | 'extension' | 'tool';
 }
 
 export interface Extension {
@@ -26,6 +27,29 @@ export interface Skill {
   category: 'frontend' | 'backend' | 'tools' | 'cloud';
 }
 
+export interface Experience {
+  id: string;
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+  highlights: string[];
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  content: string;
+}
+
+export interface Stats {
+  projectsCompleted: number;
+  yearsExperience: number;
+  extensionsPublished: number;
+  happyClients: number;
+}
+
 export const projects: Project[] = [
   {
     id: 'anc',
@@ -37,6 +61,7 @@ export const projects: Project[] = [
       live: 'https://www.ancdavao.com/',
     },
     featured: true,
+    category: 'web',
   },
   {
     id: 'payrollph',
@@ -48,6 +73,7 @@ export const projects: Project[] = [
       github: 'https://github.com/chesteralan/payrollph-react-firebase',
     },
     featured: true,
+    category: 'web',
   },
   {
     id: 'tailwind-portfolio',
@@ -59,6 +85,7 @@ export const projects: Project[] = [
       github: 'https://github.com/chesteralan/tailwind-cards-portfolio-site',
     },
     featured: false,
+    category: 'web',
   },
   {
     id: 'altrugenix',
@@ -70,6 +97,7 @@ export const projects: Project[] = [
       github: 'https://github.com/Altrugenix/ui',
     },
     featured: false,
+    category: 'web',
   },
 ];
 
@@ -116,10 +144,41 @@ export const skills: Skill[] = [
   { name: 'VS Code', category: 'tools' },
   { name: 'Chrome Extensions', category: 'tools' },
   { name: 'CLI Tools', category: 'tools' },
-  { name: 'Firebase', category: 'cloud' },
+  { name: 'Firebase Hosting', category: 'cloud' },
   { name: 'Netlify', category: 'cloud' },
   { name: 'Vercel', category: 'cloud' },
 ];
+
+export const experience: Experience[] = [
+  {
+    id: 'freelance',
+    role: 'Freelance Web Developer',
+    company: 'Self-Employed',
+    period: '2015 – Present',
+    description: 'Building web applications, Chrome extensions, and digital solutions for clients and personal projects.',
+    highlights: [
+      'Developed and published 3+ Chrome extensions with thousands of users',
+      'Built charity platforms serving underprivileged communities',
+      'Created payroll management systems for local businesses',
+    ],
+  },
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    id: 'test1',
+    name: 'Client',
+    role: 'ANC Davao',
+    content: 'Working with Chester was a great experience. He delivered a professional website that perfectly captured our mission.',
+  },
+];
+
+export const stats: Stats = {
+  projectsCompleted: 15,
+  yearsExperience: 8,
+  extensionsPublished: 3,
+  happyClients: 10,
+};
 
 export const socialLinks = {
   github: 'https://github.com/chesteralan',

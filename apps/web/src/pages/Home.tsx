@@ -2,29 +2,13 @@ import { ArrowDown, ExternalLink, Code2, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
 import ProjectCard from '../components/ProjectCard';
-import { projects, skills, socialLinks } from '../data/portfolio';
+import { projects, skills, socialLinks, stats } from '../data/portfolio';
 
 const skillCategories = [
-  {
-    key: 'frontend',
-    label: 'Frontend',
-    color: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300',
-  },
-  {
-    key: 'backend',
-    label: 'Backend',
-    color: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300',
-  },
-  {
-    key: 'tools',
-    label: 'Tools',
-    color: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300',
-  },
-  {
-    key: 'cloud',
-    label: 'Cloud',
-    color: 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300',
-  },
+  { key: 'frontend', label: 'Frontend', color: 'bg-primary-50 text-primary-700' },
+  { key: 'backend', label: 'Backend', color: 'bg-green-50 text-green-700' },
+  { key: 'tools', label: 'Tools', color: 'bg-accent-50 text-accent-700' },
+  { key: 'cloud', label: 'Cloud', color: 'bg-amber-50 text-amber-700' },
 ] as const;
 
 export default function Home() {
@@ -32,28 +16,26 @@ export default function Home() {
 
   return (
     <div>
-      {/* ─── Hero Section ─── */}
+      {/* Hero */}
       <section className="relative flex min-h-[90vh] items-center overflow-hidden">
-        <div className="dark:from-primary-950/20 dark:to-accent-950/20 pointer-events-none absolute inset-0 bg-gradient-to-br from-primary-50/40 via-transparent to-accent-50/30 dark:via-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary-50/40 via-transparent to-accent-50/30" />
         <div className="section-container w-full">
           <div className="max-w-3xl">
             <ScrollReveal>
-              <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary-600 dark:text-primary-400">
+              <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary-500">
                 Frontend Developer
               </p>
             </ScrollReveal>
             <ScrollReveal>
-              <h1 className="mb-6 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              <h1 className="mb-6 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl">
                 Hi, I'm <span className="gradient-text">Alchie Tagudin</span>
               </h1>
             </ScrollReveal>
             <ScrollReveal>
-              <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400 sm:text-xl">
+              <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
                 I build clean, performant web experiences from{' '}
-                <span className="font-medium text-gray-800 dark:text-gray-200">
-                  Davao City, Philippines
-                </span>
-                . Specializing in React, TypeScript, and crafting tools that make developers' lives
+                <span className="font-medium text-gray-800">Davao City, Philippines</span>.
+                Specializing in React, TypeScript, and crafting tools that make developers' lives
                 easier.
               </p>
             </ScrollReveal>
@@ -71,7 +53,7 @@ export default function Home() {
                     href={socialLinks.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-xl p-2.5 text-gray-500 transition-all hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+                    className="rounded-xl p-2.5 text-gray-500 transition-all hover:bg-gray-100 hover:text-gray-700"
                     aria-label="GitHub"
                   >
                     <Code2 className="h-5 w-5" />
@@ -80,7 +62,7 @@ export default function Home() {
                     href={socialLinks.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-xl p-2.5 text-gray-500 transition-all hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+                    className="rounded-xl p-2.5 text-gray-500 transition-all hover:bg-gray-100 hover:text-gray-700"
                     aria-label="LinkedIn"
                   >
                     <UserRound className="h-5 w-5" />
@@ -90,15 +72,34 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </div>
-
-        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <ArrowDown className="h-5 w-5 text-gray-400" />
         </div>
       </section>
 
-      {/* ─── Featured Projects ─── */}
-      <section className="bg-gray-50/50 dark:bg-surface-dark-card/50">
+      {/* Stats */}
+      <section className="border-y border-gray-100 bg-white">
+        <div className="section-container py-12">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+            {[
+              { value: `${stats.projectsCompleted}+`, label: 'Projects' },
+              { value: `${stats.yearsExperience}+`, label: 'Years' },
+              { value: `${stats.extensionsPublished}`, label: 'Extensions' },
+              { value: `${stats.happyClients}+`, label: 'Clients' },
+            ].map((stat) => (
+              <ScrollReveal key={stat.label}>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-primary-500">{stat.value}</p>
+                  <p className="mt-1 text-sm text-gray-500">{stat.label}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects */}
+      <section className="bg-gray-50/50">
         <div className="section-container">
           <ScrollReveal>
             <h2 className="section-title">Featured Projects</h2>
@@ -109,9 +110,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-2">
             {featuredProjects.map((project) => (
               <ScrollReveal key={project.id}>
-                <div className="relative">
-                  <ProjectCard project={project} />
-                </div>
+                <ProjectCard project={project} />
               </ScrollReveal>
             ))}
           </div>
@@ -125,7 +124,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Skills ─── */}
+      {/* Skills */}
       <section>
         <div className="section-container">
           <ScrollReveal>
@@ -157,8 +156,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
-      <section className="bg-gradient-to-br from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900">
+      {/* CTA */}
+      <section className="bg-gradient-to-br from-primary-500 to-primary-700">
         <div className="section-container text-center">
           <ScrollReveal>
             <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
@@ -169,7 +168,7 @@ export default function Home() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3 font-semibold text-primary-700 transition-all duration-200 hover:bg-primary-50 active:scale-95"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3 font-semibold text-primary-600 transition-all duration-200 hover:bg-primary-50 active:scale-95"
             >
               Get in Touch
             </Link>

@@ -3,10 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Layout from '../Layout';
 
-vi.mock('../ThemeToggle', () => ({
-  default: () => <button aria-label="Toggle dark mode">Theme</button>,
-}));
-
 vi.mock('../Navbar', () => ({
   default: () => <nav data-testid="navbar">Navbar</nav>,
 }));
