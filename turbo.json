@@ -13,7 +13,7 @@
     "test": {
       "dependsOn": ["^build"]
     },
-    "deploy:worker": {
+    "deploy": {
       "dependsOn": ["build"]
     }
   }
