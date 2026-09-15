@@ -333,8 +333,8 @@ export default function About() {
         {/* Bottom Row: 2 cards in 5/7 layout */}
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-12">
           {/* Card 4 */}
-          <ScrollReveal>
-            <div className="lg:col-span-5 card flex flex-col justify-between">
+          <ScrollReveal className="lg:col-span-5">
+            <div className="card flex flex-col justify-between h-full">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-[#0891b2]">
@@ -373,8 +373,8 @@ export default function About() {
           </ScrollReveal>
 
           {/* Card 5: Tools & DevOps (wider) */}
-          <ScrollReveal>
-            <div className="lg:col-span-7 card flex flex-col justify-between">
+          <ScrollReveal className="lg:col-span-7">
+            <div className="card flex flex-col justify-between h-full">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -552,10 +552,15 @@ export default function About() {
                 </p>
               </div>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-                <span className="btn-primary shadow-sm opacity-60 cursor-not-allowed">
+                <a
+                  href="https://cdn.alchie.cc/resume/Alchie%20Tagudin%20Resume%209.2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary shadow-sm"
+                >
                   <span className="material-symbols-outlined text-[18px]">download</span>
-                  <span>Resume Coming Soon</span>
-                </span>
+                  <span>Download Resume (PDF)</span>
+                </a>
                 <Link to="/contact" className="btn-outline">
                   <span>Get in Touch</span>
                   <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
