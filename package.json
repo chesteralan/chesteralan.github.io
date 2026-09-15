@@ -2,7 +2,7 @@
   "name": "alchie-monorepo",
   "private": true,
   "scripts": {
-    "dev": "turbo dev",
+    "dev": "turbo dev --filter=web",
     "build": "turbo build",
     "lint": "turbo lint",
     "test": "turbo test",
