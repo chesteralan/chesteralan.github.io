@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact - Alchie Tagudin | Full-stack Developer</title>
+<!-- Tailwind CSS v3 with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#005f73',
+              'teal-hover': '#0a4f5f',
+              blue: '#0a84ff',
+              lightBlue: '#eef2ff',
+              dark: '#0f172a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles -->
+<style data-purpose="base-styling">
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      background-color: #f8fafc;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between bg-[#f8fafc] text-slate-800">
+<!-- BEGIN: MainHeader -->
+<header class="w-full bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
+<!-- Brand & Status -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="w-9 h-9 rounded-lg bg-[#0f172a] text-white flex items-center justify-center font-bold text-lg tracking-tight shadow-sm">
+            A
+          </div>
+<span class="font-bold text-base text-slate-900 tracking-tight">Alchie Tagudin</span>
+</a>
+<div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100/90 border border-slate-200/60 text-xs font-medium text-slate-600">
+<span class="w-2 h-2 rounded-full bg-[#0a84ff] animate-pulse"></span>
+<span>Available for work</span>
+</div>
+</div>
+<!-- Navigation & Action -->
+<div class="flex items-center gap-8">
+<nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+<a class="hover:text-slate-900 transition-colors" href="#">Home</a>
+<a class="hover:text-slate-900 transition-colors" href="#">Projects</a>
+<a class="hover:text-slate-900 transition-colors" href="#">About</a>
+<a class="px-3.5 py-1.5 rounded-lg bg-[#005f73] text-white font-medium hover:bg-[#084c5b] transition-all" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-3">
+<a class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-[#005f73] hover:bg-[#084c5b] transition-all shadow-sm" href="#inquiry-form">
+            Get in Touch
+          </a>
+<div class="relative w-9 h-9 rounded-full overflow-hidden border border-slate-200 flex-shrink-0">
+<img alt="Alchie Tagudin Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCUe-5YiiHmYT6bzw4oN93j7RIOtMfQ9UZKcvbZ--k4WIDM5l51Il5zg_0SwbFBEt6uY2vWIVaT5s_Fw62srKXiMj-FGDcVfyoTEPPLVEd5Su3CiZuXg3r2MOQ8CmSmOE0lX3S3dUpXVoYLQGDvRC4Cn5G3P7bJ3ezc62EUlXA9wTGFKpJpXe-FB0Z8WrvShORiTf3tFn-p9r1wIyOT0BPt_NVMyZCCXxX1tpzrdX3C4UL5BQ906cA"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-6 sm:px-8 pt-10 pb-20">
+<!-- Hero Title Section -->
+<section class="max-w-3xl mb-12" data-purpose="hero-heading">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-semibold text-[#0a84ff] uppercase tracking-wider mb-4">
+<span class="w-1.5 h-1.5 rounded-full bg-[#0a84ff]"></span>
+        GET IN TOUCH
+      </div>
+<h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-4">
+        Let's Build Something Exceptional
+      </h1>
+<p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
+        Currently available for select freelance engineering contracts, architectural consulting, and full-time senior engineering leadership roles.
+      </p>
+</section>
+<!-- 2-Column Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- BEGIN: LeftColumn (Direct Channels & Info) -->
+<aside class="lg:col-span-5 space-y-6" data-purpose="contact-channels">
+<!-- Status Card -->
+<div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm space-y-2">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#0a84ff]"></span>
+<span class="font-bold text-slate-900 text-sm sm:text-base">Available for Q3/Q4 Projects</span>
+</div>
+<span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-blue-50 text-[#005f73] border border-blue-100/60">Remote &amp; Hybrid</span>
+</div>
+<p class="text-xs sm:text-sm text-slate-500 leading-relaxed pt-1">
+            Accepting scoped deliverables, venture buildouts, and senior architectural retainers.
+          </p>
+</div>
+<!-- Contact Methods Stack -->
+<div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm space-y-5">
+<!-- Direct Email Item -->
+<div class="flex items-start justify-between gap-4 pb-4 border-b border-slate-100">
+<div class="flex items-start gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-blue-50 text-[#005f73] flex items-center justify-center flex-shrink-0 mt-0.5 text-base font-semibold">
+                @
+              </div>
+<div>
+<span class="block text-[11px] uppercase tracking-wider font-semibold text-slate-400">DIRECT EMAIL</span>
+<span class="text-sm sm:text-base font-bold text-slate-900">alchie@tagudin.dev</span>
+</div>
+</div>
+<button class="inline-flex items-center gap-1 text-xs font-medium text-slate-500 hover:text-slate-800 bg-slate-50 hover:bg-slate-100 px-2.5 py-1.5 rounded-md border border-slate-200 transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Copy</span>
+</button>
+</div>
+<!-- Working Hours Item -->
+<div class="flex items-start gap-3.5 pb-4 border-b border-slate-100">
+<div class="w-9 h-9 rounded-xl bg-blue-50 text-[#005f73] flex items-center justify-center flex-shrink-0 mt-0.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<span class="block text-[11px] uppercase tracking-wider font-semibold text-slate-400">LOCATION &amp; WORKING HOURS</span>
+<p class="text-sm font-bold text-slate-900 leading-snug">Remote Friendly (UTC-8 to UTC+8 overlap)</p>
+</div>
+</div>
+<!-- Response Window Item -->
+<div class="flex items-start gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-blue-50 text-[#005f73] flex items-center justify-center flex-shrink-0 mt-0.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<span class="block text-[11px] uppercase tracking-wider font-semibold text-slate-400">RESPONSE WINDOW</span>
+<p class="text-sm font-bold text-slate-900 leading-snug">Typically responds within 24 hours</p>
+</div>
+</div>
+</div>
+<!-- Social Handles / Developer Presence -->
+<div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm space-y-3">
+<span class="block text-[11px] uppercase tracking-wider font-semibold text-slate-400 mb-2">DEVELOPER PRESENCE</span>
+<div class="grid grid-cols-2 gap-3">
+<a class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-100" href="#">
+<span class="w-7 h-7 rounded-lg bg-blue-100/60 text-[#005f73] flex items-center justify-center text-xs font-mono font-bold">&gt;_</span>
+<div class="overflow-hidden">
+<span class="block text-xs font-bold text-slate-900 truncate">GitHub</span>
+<span class="block text-[11px] text-slate-500 truncate">@alchietagudin</span>
+</div>
+</a>
+<a class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-100" href="#">
+<span class="w-7 h-7 rounded-lg bg-blue-100/60 text-[#005f73] flex items-center justify-center text-xs font-bold">in</span>
+<div class="overflow-hidden">
+<span class="block text-xs font-bold text-slate-900 truncate">LinkedIn</span>
+<span class="block text-[11px] text-slate-500 truncate">in/alchietagudin</span>
+</div>
+</a>
+<a class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-100" href="#">
+<span class="w-7 h-7 rounded-lg bg-blue-100/60 text-[#005f73] flex items-center justify-center text-xs font-bold">#</span>
+<div class="overflow-hidden">
+<span class="block text-xs font-bold text-slate-900 truncate">X / Twitter</span>
+<span class="block text-[11px] text-slate-500 truncate">@tagudin_dev</span>
+</div>
+</a>
+<a class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-100" href="#">
+<span class="w-7 h-7 rounded-lg bg-blue-100/60 text-[#005f73] flex items-center justify-center text-xs">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<div class="overflow-hidden">
+<span class="block text-xs font-bold text-slate-900 truncate">Discord</span>
+<span class="block text-[11px] text-slate-500 truncate">alchie#9021</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Core Areas of Engagement -->
+<div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm space-y-4">
+<div class="flex items-center gap-2">
+<svg class="w-4 h-4 text-[#005f73]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<h2 class="text-sm font-bold text-slate-900">Core Areas of Engagement</h2>
+</div>
+<ul class="space-y-3">
+<li class="flex items-start gap-2.5 text-xs text-slate-600">
+<span class="w-4 h-4 rounded-full bg-blue-50 text-[#005f73] flex items-center justify-center flex-shrink-0 mt-0.5 text-[10px]">✓</span>
+<span>Full-stack web application development (MVP to multi-tenant scale)</span>
+</li>
+<li class="flex items-start gap-2.5 text-xs text-slate-600">
+<span class="w-4 h-4 rounded-full bg-blue-50 text-[#005f73] flex items-center justify-center flex-shrink-0 mt-0.5 text-[10px]">✓</span>
+<span>High-performance API design, caching layers, and database optimization</span>
+</li>
+<li class="flex items-start gap-2.5 text-xs text-slate-600">
+<span class="w-4 h-4 rounded-full bg-blue-50 text-[#005f73] flex items-center justify-center flex-shrink-0 mt-0.5 text-[10px]">✓</span>
+<span>Frontend architecture, design system engineering &amp; Core Web Vitals audits</span>
+</li>
+<li class="flex items-start gap-2.5 text-xs text-slate-600">
+<span class="w-4 h-4 rounded-full bg-blue-50 text-[#005f73] flex items-center justify-center flex-shrink-0 mt-0.5 text-[10px]">✓</span>
+<span>Cloud infrastructure (AWS/GCP), containerization, and zero-downtime CI/CD</span>
+</li>
+</ul>
+</div>
+</aside>
+<!-- END: LeftColumn -->
+<!-- BEGIN: RightColumn (Interactive Inquiry Form) -->
+<section class="lg:col-span-7" data-purpose="inquiry-form-section">
+<div class="bg-white rounded-2xl p-6 sm:p-9 border border-slate-100 shadow-sm" id="inquiry-form">
+<div class="mb-7">
+<h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Send a Project Inquiry</h2>
+<p class="text-xs sm:text-sm text-slate-500 mt-1">
+              Fill out the details below. For urgent requirements, feel free to contact directly via email.
+            </p>
+</div>
+<form action="#" class="space-y-6" method="POST" onsubmit="event.preventDefault();">
+<!-- First Name & Last Name -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5" for="first-name">
+                  First Name <span class="text-red-500">*</span>
+</label>
+<input class="w-full rounded-xl bg-slate-50/70 border-slate-200 text-slate-800 text-sm px-3.5 py-2.5 focus:bg-white focus:ring-2 focus:ring-[#005f73] focus:border-transparent transition-all" id="first-name" name="first-name" type="text" value="Jane"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5" for="last-name">
+                  Last Name <span class="text-red-500">*</span>
+</label>
+<input class="w-full rounded-xl bg-slate-50/70 border-slate-200 text-slate-800 text-sm px-3.5 py-2.5 focus:bg-white focus:ring-2 focus:ring-[#005f73] focus:border-transparent transition-all" id="last-name" name="last-name" type="text" value="Doe"/>
+</div>
+</div>
+<!-- Work Email Address -->
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5" for="email">
+                Work Email Address <span class="text-red-500">*</span>
+</label>
+<input class="w-full rounded-xl bg-slate-50/70 border-slate-200 text-slate-800 text-sm px-3.5 py-2.5 focus:bg-white focus:ring-2 focus:ring-[#005f73] focus:border-transparent transition-all" id="email" name="email" type="email" value="jane@company.com"/>
+</div>
+<!-- Project Scope / Engagement Type -->
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-2">Project Scope / Engagement Type</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-xl text-xs font-semibold bg-[#005f73] text-white shadow-sm transition-colors" type="button">
+                  Full-stack App
+                </button>
+<button class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors" type="button">
+                  Architecture Consulting
+                </button>
+<button class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors" type="button">
+                  Contract / Freelance
+                </button>
+<button class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors" type="button">
+                  Other
+                </button>
+</div>
+</div>
+<!-- Estimated Timeline -->
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5" for="timeline">Estimated Timeline</label>
+<div class="relative">
+<select class="w-full appearance-none rounded-xl bg-slate-50/70 border-slate-200 text-slate-800 text-sm px-3.5 py-2.5 pr-8 focus:bg-white focus:ring-2 focus:ring-[#005f73] focus:border-transparent transition-all" id="timeline" name="timeline">
+<option selected="">1 - 3 months</option>
+<option>&lt; 1 month (urgent sprint)</option>
+<option>3 - 6 months</option>
+<option>6+ months retainer</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</div>
+<!-- Approximate Budget (USD) -->
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-2">Approximate Budget (USD)</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+<button class="py-2.5 px-3 text-xs font-semibold rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors text-center" type="button">
+                  $5k - $10k
+                </button>
+<button class="py-2.5 px-3 text-xs font-semibold rounded-xl bg-[#005f73] text-white shadow-sm transition-colors text-center" type="button">
+                  $10k - $25k
+                </button>
+<button class="py-2.5 px-3 text-xs font-semibold rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors text-center" type="button">
+                  $25k+
+                </button>
+<button class="py-2.5 px-3 text-xs font-semibold rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors text-center" type="button">
+                  Undisclosed
+                </button>
+</div>
+</div>
+<!-- Project Details Textarea -->
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5" for="details">
+                Project Details <span class="text-red-500">*</span>
+</label>
+<textarea class="w-full rounded-xl bg-slate-50/70 border-slate-200 text-slate-800 text-sm p-3.5 focus:bg-white focus:ring-2 focus:ring-[#005f73] focus:border-transparent transition-all placeholder:text-slate-400 resize-y" id="details" name="details" placeholder="Tell me about your project, goals, tech stack, and timeline..." rows="4"></textarea>
+</div>
+<!-- Submit Button & Disclaimer -->
+<div class="space-y-3 pt-2">
+<button class="w-full py-3.5 px-6 rounded-xl bg-[#005f73] hover:bg-[#074c5c] text-white text-sm font-semibold tracking-wide flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.99]" type="submit">
+<span>Send Message</span>
+<span class="text-xs">►</span>
+</button>
+<div class="flex items-center justify-center gap-1.5 text-xs text-slate-400">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Your information is kept strictly confidential and will never be shared.</span>
+</div>
+</div>
+</form>
+</div>
+</section>
+<!-- END: RightColumn -->
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: Footer -->
+<footer class="w-full bg-white border-t border-slate-100 py-10">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Brand & Description -->
+<div class="space-y-1.5 text-center md:text-left max-w-md">
+<div class="flex items-center justify-center md:justify-start gap-2">
+<span class="font-bold text-slate-900 text-sm tracking-tight">Alchie Tagudin</span>
+<span class="text-xs font-semibold text-[#005f73]">Full-stack Developer</span>
+</div>
+<p class="text-xs text-slate-500 leading-relaxed">
+          Crafting clean, accessible, and high-performance digital experiences across the web with modern architectures and meticulous craft.
+        </p>
+</div>
+<!-- Links & Social Icons -->
+<div class="flex items-center gap-8 text-xs font-medium text-slate-500">
+<nav class="flex items-center gap-5">
+<a class="hover:text-slate-900 transition-colors" href="#">Home</a>
+<a class="hover:text-slate-900 transition-colors" href="#">Projects</a>
+<a class="hover:text-slate-900 transition-colors" href="#">About</a>
+<a class="hover:text-slate-900 transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-3 border-l border-slate-200 pl-6 text-slate-600">
+<a class="p-1.5 hover:text-slate-900 transition-colors" href="#" title="Source Code">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+<a class="p-1.5 hover:text-slate-900 transition-colors" href="#" title="Share Profile">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+<a class="p-1.5 hover:text-slate-900 transition-colors" href="mailto:alchie@tagudin.dev" title="Send Email">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>
