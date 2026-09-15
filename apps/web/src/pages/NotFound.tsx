@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Home } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
 
 export default function NotFound() {
@@ -12,7 +11,7 @@ export default function NotFound() {
             This page doesn't exist yet.
           </p>
           <Link to="/" className="btn-primary">
-            <Home className="h-4 w-4" />
+            <span className="material-symbols-outlined text-[18px]">home</span>
             Back to Home
           </Link>
         </ScrollReveal>
