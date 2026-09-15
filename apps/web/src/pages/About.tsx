@@ -459,8 +459,7 @@ export default function About() {
                     <div>
                       <h3 className="text-lg font-bold text-slate-900">{exp.role}</h3>
                       <div className="text-sm font-semibold text-[#0891b2]">
-                        {exp.company}{' '}
-                        <span className="font-normal text-slate-400">&bull; Freelance</span>
+                        {exp.company}
                       </div>
                     </div>
                     <span className="self-start rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 sm:self-auto">
@@ -553,10 +552,10 @@ export default function About() {
                 </p>
               </div>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-                <a href="#" className="btn-primary shadow-sm">
+                <span className="btn-primary shadow-sm opacity-60 cursor-not-allowed">
                   <span className="material-symbols-outlined text-[18px]">download</span>
-                  <span>Download Resume (PDF)</span>
-                </a>
+                  <span>Resume Coming Soon</span>
+                </span>
                 <Link to="/contact" className="btn-outline">
                   <span>Get in Touch</span>
                   <span className="material-symbols-outlined text-[18px]">arrow_forward</span>

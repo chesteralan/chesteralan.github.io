@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { socialLinks } from '../data/portfolio';
 
 export default function Footer() {
@@ -20,10 +21,10 @@ export default function Footer() {
         {/* Links & Socials */}
         <div className="flex items-center gap-8">
           <nav className="flex items-center gap-6 text-xs font-semibold text-slate-600">
-            <a href="/" className="hover:text-slate-900 transition-colors">Home</a>
-            <a href="/projects" className="hover:text-slate-900 transition-colors">Projects</a>
-            <a href="/about" className="hover:text-slate-900 transition-colors">About</a>
-            <a href="/contact" className="hover:text-slate-900 transition-colors">Contact</a>
+            <Link to="/" className="hover:text-slate-900 transition-colors">Home</Link>
+            <Link to="/projects" className="hover:text-slate-900 transition-colors">Projects</Link>
+            <Link to="/about" className="hover:text-slate-900 transition-colors">About</Link>
+            <Link to="/contact" className="hover:text-slate-900 transition-colors">Contact</Link>
           </nav>
           <div className="flex items-center gap-3 border-l border-slate-200 pl-6 text-slate-400">
             <a

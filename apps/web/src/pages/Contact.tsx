@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
 import { socialLinks } from '../data/portfolio';
 
@@ -445,7 +444,7 @@ export default function Contact() {
                   {/* Status Messages */}
                   {status === 'success' && (
                     <div className="flex items-start gap-3 rounded-xl border border-green-200 bg-green-50 p-4">
-                      <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
+                      <span className="material-symbols-outlined mt-0.5 h-5 w-5 shrink-0 text-green-500">check_circle</span>
                       <div>
                         <p className="text-sm font-medium text-green-800">Message sent!</p>
                         <p className="text-sm text-green-600">Thanks for reaching out. I'll get back to you soon!</p>
@@ -454,7 +453,7 @@ export default function Contact() {
                   )}
                   {status === 'error' && (
                     <div className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4">
-                      <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
+                      <span className="material-symbols-outlined mt-0.5 h-5 w-5 shrink-0 text-red-500">error</span>
                       <p className="text-sm text-red-700">{errorMsg}</p>
                     </div>
                   )}
@@ -468,13 +467,13 @@ export default function Contact() {
                     >
                       {status === 'sending' ? (
                         <>
-                          <Loader2 className="h-4 w-4 animate-spin" />
+                          <span className="material-symbols-outlined h-4 w-4 animate-spin">hourglass_top</span>
                           <span>Sending...</span>
                         </>
                       ) : (
                         <>
                           <span>Send Message</span>
-                          <Send className="h-4 w-4" />
+                          <span className="material-symbols-outlined h-4 w-4">send</span>
                         </>
                       )}
                     </button>
