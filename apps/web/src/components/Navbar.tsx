@@ -74,11 +74,7 @@ export default function Navbar() {
           <Link to="/contact" className="btn-primary hidden sm:inline-flex">
             Get in Touch
           </Link>
-          <div className="relative h-9 w-9 overflow-hidden rounded-full border border-slate-200 bg-slate-100">
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#0891b2] to-cyan-400 text-xs font-bold text-white">
-              AT
-            </div>
-          </div>
+          
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
