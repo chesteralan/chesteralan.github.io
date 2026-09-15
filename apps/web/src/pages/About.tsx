@@ -1,183 +1,570 @@
-import { MapPin, Briefcase, Code2, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
-import { skills, experience } from '../data/portfolio';
+import { skillCategories, experience } from '../data/portfolio';
 
-const timeline = [
-  { year: '2012', event: 'Started GitHub journey', description: 'Joined GitHub — began contributing to open source and building side projects.' },
-  { year: '2015', event: 'Launched Altrugenix.js.org', description: 'Created a community hub dedicated to JavaScript developers and resources.' },
-  { year: '2020', event: 'First Chrome Extension', description: 'Published Bootstrap 3.3.x Offline Guide on the Chrome Web Store.' },
-  { year: '2024', event: 'PayrollPH', description: 'Built a payroll management system for Philippine businesses.' },
+const pillars = [
+  {
+    title: 'Pragmatic Architecture',
+    description: 'Simple architectures that outlive hype cycles and scale without operational bloat.',
+    icon: 'code',
+  },
+  {
+    title: 'Obsessive DX & Quality',
+    description: 'Strict type safety, self-documenting APIs, and end-to-end telemetry embedded by default.',
+    icon: 'science',
+  },
+  {
+    title: 'Reliability at Scale',
+    description: 'Fault-tolerant distributed pipelines, predictable degradation, and graceful failovers.',
+    icon: 'verified',
+  },
 ];
 
+const values = [
+  {
+    title: 'Scalability by Design',
+    description:
+      'Building systems ready to accommodate 10x traffic expansion without premature complexity. Clear data boundaries, decoupled queue workers, and defensive caching are standard table stakes.',
+    icon: 'trending_up',
+    footer: 'Measurable scalability',
+    color: 'bg-cyan-100 text-cyan-800',
+    footerColor: 'text-[#0891b2]',
+  },
+  {
+    title: 'User-Centric Craft',
+    description:
+      'Speed, accessibility (a11y), and buttery micro-interactions matter just as much as backend fault tolerance. A fast, intuitive UI conveys trust and respect for end-user attention.',
+    icon: 'mood',
+    footer: 'Uncompromising UX',
+    color: 'bg-purple-100 text-purple-800',
+    footerColor: 'text-purple-700',
+  },
+  {
+    title: 'Continuous Learning',
+    description:
+      'Technology is never static. An active open-source contributor and technical mentor who cultivates curiosity, conducts constructive code reviews, and experiments with emerging runtimes.',
+    icon: 'science',
+    footer: 'Mentorship & Open Source',
+    color: 'bg-cyan-100 text-cyan-800',
+    footerColor: 'text-[#0891b2]',
+  },
+];
+
+const iconColorMap: Record<string, string> = {
+  frontend: 'bg-cyan-50 text-cyan-700',
+  backend: 'bg-purple-50 text-purple-700',
+  tools: 'bg-slate-100 text-slate-700',
+  cloud: 'bg-cyan-50 text-cyan-700',
+};
+
+const badgeColorMap: Record<string, string> = {
+  'Core Mastery': 'bg-purple-50 text-purple-700 border-purple-100',
+  Distributed: 'bg-slate-100 text-slate-700 border-slate-200',
+  Tooling: 'bg-slate-100 text-slate-700 border-slate-200',
+  Infrastructure: 'bg-cyan-50 text-cyan-700 border-cyan-100',
+};
+
 export default function About() {
+  const totalCategories = 4;
+
   return (
     <div>
-      {/* Bio */}
-      <section>
-        <div className="section-container">
-          <div className="grid items-start gap-12 lg:grid-cols-5">
-            <div className="lg:col-span-3">
-              <ScrollReveal>
-                <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary-500">
-                  About Me
-                </p>
-              </ScrollReveal>
-              <ScrollReveal>
-                <h1 className="mb-6 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  I craft digital experiences from <span className="gradient-text">Davao City</span>
-                </h1>
-              </ScrollReveal>
-              <ScrollReveal>
-                <div className="space-y-4 leading-relaxed text-gray-600">
-                  <p>
-                    I'm a frontend developer with a passion for building clean, intuitive, and
-                    performant web applications. Based in Davao City, Philippines, I specialize in
-                    React, TypeScript, and modern CSS frameworks like Tailwind.
-                  </p>
-                  <p>
-                    Over the years, I've built everything from charity platforms and payroll systems
-                    to developer tools and Chrome extensions. I believe in writing code that's not
-                    just functional, but also maintainable and delightful to work with.
-                  </p>
-                  <p>
-                    When I'm not coding, you'll find me exploring the latest in web technologies,
-                    contributing to open source, or finding ways to make developer workflows
-                    smoother through CLI tools and browser extensions.
-                  </p>
-                </div>
-              </ScrollReveal>
+      {/* Hero Section */}
+      <section className="section-container !pb-0">
+        <ScrollReveal>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0891b2]">
+            <span className="material-symbols-outlined text-[16px]">info</span>
+            About Alchie Tagudin
+          </div>
+        </ScrollReveal>
+        <ScrollReveal>
+          <h1 className="mb-4 max-w-4xl text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl">
+            About Me & Engineering Philosophy
+          </h1>
+        </ScrollReveal>
+        <ScrollReveal>
+          <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
+            Full-stack software architect with 8+ years of experience engineering high-throughput web
+            applications, developer platforms, and resilient cloud infrastructure.
+          </p>
+        </ScrollReveal>
+      </section>
 
-              <ScrollReveal>
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  <div className="card flex items-center gap-3">
-                    <MapPin className="h-5 w-5 shrink-0 text-primary-500" />
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">Location</p>
-                      <p className="text-sm text-gray-500">Davao City, Philippines</p>
-                    </div>
+      {/* Journey & Quick Profile */}
+      <section className="section-container !pt-12">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          {/* Left Column: Journey */}
+          <div className="space-y-6 lg:col-span-7">
+            <ScrollReveal>
+              <div className="card !p-8">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0891b2]">
+                    <span className="material-symbols-outlined text-[16px]">code</span>
+                    The Journey
                   </div>
-                  <div className="card flex items-center gap-3">
-                    <Briefcase className="h-5 w-5 shrink-0 text-primary-500" />
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">Role</p>
-                      <p className="text-sm text-gray-500">Freelance Web Developer</p>
-                    </div>
+                  <h2 className="text-2xl font-bold leading-snug text-slate-900 sm:text-3xl">
+                    Crafting dependable systems through systematic craft
+                  </h2>
+                  <div className="space-y-4 text-[15px] leading-relaxed text-slate-600">
+                    <p>
+                      My foundation began in core computer science, diving deep into data structures,
+                      algorithms, and the mechanics of web technologies. Over the past eight years, that
+                      theoretical rigor evolved into real-world production engineering across charity
+                      platforms, payroll systems, and developer tools.
+                    </p>
+                    <p>
+                      I view software engineering not as simply gluing frameworks together, but as
+                      constructing transparent, highly observable applications. Every architectural
+                      choice — from state management strategies to component organization — must serve
+                      measurable performance and bulletproof reliability.
+                    </p>
                   </div>
-                  <div className="card flex items-center gap-3">
-                    <Code2 className="h-5 w-5 shrink-0 text-primary-500" />
+                  {/* Quick Metrics */}
+                  <div className="grid grid-cols-3 gap-4 border-t border-slate-100 pt-4">
                     <div>
-                      <p className="text-sm font-medium text-gray-900">GitHub</p>
-                      <p className="text-sm text-gray-500">chesteralan · 77+ repos</p>
-                    </div>
-                  </div>
-                  <div className="card flex items-center gap-3">
-                    <Calendar className="h-5 w-5 shrink-0 text-primary-500" />
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">Building since</p>
-                      <p className="text-sm text-gray-500">2012 and counting</p>
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>
-            </div>
-
-            <div className="lg:sticky lg:top-24 lg:col-span-2">
-              <ScrollReveal>
-                <div className="card overflow-hidden p-0">
-                  <div className="flex aspect-square items-center justify-center bg-gradient-to-br from-primary-100 via-accent-50 to-primary-50">
-                    <div className="p-8 text-center">
-                      <div className="mx-auto mb-4 flex h-32 w-32 items-center justify-center rounded-full bg-white shadow-lg">
-                        <span className="gradient-text text-4xl font-bold">AT</span>
+                      <div className="text-2xl font-extrabold text-[#0891b2] sm:text-3xl">8+</div>
+                      <div className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                        Years Experience
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900">Alchie Tagudin</h3>
-                      <p className="text-sm text-gray-500">@chesteralan</p>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-extrabold text-[#0891b2] sm:text-3xl">15+</div>
+                      <div className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                        Projects Shipped
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-extrabold text-[#0891b2] sm:text-3xl">3</div>
+                      <div className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                        Extensions Published
+                      </div>
                     </div>
                   </div>
                 </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </div>
-      </section>
+              </div>
+            </ScrollReveal>
 
-      {/* Experience */}
-      <section className="bg-gray-50/50">
-        <div className="section-container">
-          <ScrollReveal>
-            <h2 className="section-title">Experience</h2>
-            <p className="section-subtitle mb-12">Where I've been and what I've been up to.</p>
-          </ScrollReveal>
-          <div className="space-y-6">
-            {experience.map((exp) => (
-              <ScrollReveal key={exp.id}>
-                <div className="card">
-                  <div className="mb-3 flex flex-col justify-between sm:flex-row sm:items-center">
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900">{exp.role}</h3>
-                      <p className="text-sm font-medium text-primary-500">{exp.company}</p>
-                    </div>
-                    <span className="mt-1 text-sm text-gray-500 sm:mt-0">{exp.period}</span>
-                  </div>
-                  <p className="mb-3 text-sm text-gray-600">{exp.description}</p>
-                  <ul className="space-y-1.5">
-                    {exp.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-gray-500">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section>
-        <div className="section-container">
-          <ScrollReveal>
-            <h2 className="section-title">Timeline</h2>
-            <p className="section-subtitle mb-12">Key moments in my dev journey.</p>
-          </ScrollReveal>
-          <div className="relative">
-            <div className="absolute bottom-0 left-[7px] top-0 w-px bg-gray-200" />
-            <div className="space-y-10">
-              {timeline.map((item) => (
-                <ScrollReveal key={item.year}>
-                  <div className="relative pl-10">
-                    <div className="absolute left-0 top-1 h-[15px] w-[15px] rounded-full border-[3px] border-primary-500 bg-white" />
-                    <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-primary-500">
-                        {item.year}
-                      </span>
-                      <h3 className="mt-1 text-lg font-semibold text-gray-900">{item.event}</h3>
-                      <p className="mt-1 text-sm text-gray-500">{item.description}</p>
+            {/* 3 Pillars */}
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              {pillars.map((pillar) => (
+                <ScrollReveal key={pillar.title}>
+                  <div className="card !p-5">
+                    <div className="space-y-2.5">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-50 text-[#0891b2]">
+                        <span className="material-symbols-outlined text-[18px]">{pillar.icon}</span>
+                      </div>
+                      <h3 className="text-sm font-bold text-slate-900">{pillar.title}</h3>
+                      <p className="text-xs leading-relaxed text-slate-500">{pillar.description}</p>
                     </div>
                   </div>
                 </ScrollReveal>
               ))}
             </div>
           </div>
+
+          {/* Right Column: Quick Profile */}
+          <div className="lg:col-span-5">
+            <ScrollReveal>
+              <div className="card !p-7">
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between pb-1">
+                    <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
+                      <span className="material-symbols-outlined text-[16px] text-[#0891b2]">
+                        person
+                      </span>
+                      Quick Profile
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-200 bg-cyan-50 px-2.5 py-0.5 text-xs font-semibold text-cyan-700">
+                      <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
+                      Active
+                    </span>
+                  </div>
+
+                  {/* Avatar */}
+                  <div className="relative overflow-hidden rounded-xl border border-slate-200">
+                    <div className="flex h-56 items-center justify-center bg-gradient-to-br from-[#0891b2] to-cyan-400">
+                      <span className="text-5xl font-bold text-white">AT</span>
+                    </div>
+                    <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-md border border-slate-200/80 bg-white/95 px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur-sm">
+                      <span className="material-symbols-outlined text-[14px] text-[#0891b2]">
+                        laptop_mac
+                      </span>
+                      Principal Craft
+                    </div>
+                  </div>
+
+                  {/* Details */}
+                  <div className="space-y-4 text-sm">
+                    <div className="flex items-start gap-3">
+                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-50 text-[#0891b2]">
+                        <span className="material-symbols-outlined text-[16px]">location_on</span>
+                      </div>
+                      <div>
+                        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                          Location
+                        </div>
+                        <div className="font-bold text-slate-900">Davao City, Philippines</div>
+                        <div className="mt-0.5 text-xs text-slate-500">
+                          Available for remote teams worldwide
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-purple-50 text-purple-700">
+                        <span className="material-symbols-outlined text-[16px]">bolt</span>
+                      </div>
+                      <div>
+                        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                          Current Focus
+                        </div>
+                        <div className="font-bold text-slate-900">
+                          React &bull; TypeScript &bull; Cloud
+                        </div>
+                        <div className="mt-0.5 text-xs text-slate-500">
+                          Building scalable web applications &amp; developer tools
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-50 text-[#0891b2]">
+                        <span className="material-symbols-outlined text-[16px]">school</span>
+                      </div>
+                      <div>
+                        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                          GitHub
+                        </div>
+                        <div className="font-bold text-slate-900">chesteralan</div>
+                        <div className="mt-0.5 text-xs text-slate-500">
+                          77+ repositories &amp; open source contributions
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex items-center gap-3 pt-2">
+                    <Link to="/projects" className="btn-primary flex-1 justify-center text-xs">
+                      <span>View Tech Matrix</span>
+                      <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
+                    </Link>
+                    <Link to="/contact" className="btn-outline text-xs">
+                      Career Log
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
-      {/* Skills */}
-      <section className="bg-gray-50/50">
-        <div className="section-container">
-          <ScrollReveal>
-            <h2 className="section-title">Full Stack</h2>
-            <p className="section-subtitle mb-12">Every tool in my belt.</p>
-          </ScrollReveal>
-          <div className="flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <span key={skill.name} className="tag px-4 py-2 text-sm">
-                {skill.name}
+      {/* Skills Matrix */}
+      <section className="section-container !pt-0" id="skills">
+        <ScrollReveal>
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <div className="section-label mb-2 flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-[16px]">inventory_2</span>
+                Capabilities & Arsenal
+              </div>
+              <h2 className="section-title">Technical Skills Matrix</h2>
+              <p className="section-subtitle mt-1 text-sm">
+                A comprehensive overview of the technologies, runtimes, and orchestration suites I
+                utilize to deliver enterprise-grade digital systems.
+              </p>
+            </div>
+            <div className="inline-flex self-start rounded-lg border border-slate-200 bg-white p-1 text-xs font-medium shadow-sm md:self-auto">
+              <span className="rounded bg-[#0891b2] px-3 py-1 font-semibold text-white">
+                All Domains
               </span>
-            ))}
+              <span className="cursor-pointer px-3 py-1 text-slate-600 hover:text-slate-900">
+                {totalCategories} Categories
+              </span>
+            </div>
           </div>
+        </ScrollReveal>
+
+        {/* Top Row: 3 columns */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {skillCategories.slice(0, 3).map((cat) => (
+            <ScrollReveal key={cat.id}>
+              <div className="card flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div
+                      className={`flex h-10 w-10 items-center justify-center rounded-xl ${iconColorMap[cat.id] || 'bg-cyan-50 text-cyan-700'}`}
+                    >
+                      <span className="material-symbols-outlined text-[20px]">{cat.icon}</span>
+                    </div>
+                    <span
+                      className={`rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${badgeColorMap[cat.badge] || 'bg-slate-100 text-slate-700 border-slate-200'}`}
+                    >
+                      {cat.badge}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900">{cat.title}</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-500">{cat.description}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {cat.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-md border border-purple-100 bg-purple-50 px-2.5 py-1 text-xs font-medium text-purple-700"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-xs">
+                  <span className="text-slate-500">
+                    {cat.footerLabel}: {cat.footerValue}
+                  </span>
+                  <span className="font-bold text-[#0891b2]">{cat.footerValue}</span>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
+
+        {/* Bottom Row: 2 cards in 5/7 layout */}
+        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-12">
+          {/* Card 4 */}
+          <ScrollReveal>
+            <div className="lg:col-span-5 card flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-[#0891b2]">
+                    <span className="material-symbols-outlined text-[20px]">
+                      {skillCategories[3]?.icon || 'cloud'}
+                    </span>
+                  </div>
+                  <span className="rounded-full border border-slate-200 bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-700">
+                    {skillCategories[3]?.badge || 'Infrastructure'}
+                  </span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    {skillCategories[3]?.title || 'Cloud & Deployment'}
+                  </h3>
+                  <p className="mt-1 text-xs leading-relaxed text-slate-500">
+                    {skillCategories[3]?.description || 'Cloud platform deployment and hosting.'}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {(skillCategories[3]?.skills || []).map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-md border border-purple-100 bg-purple-50 px-2.5 py-1 text-xs font-medium text-purple-700"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-xs">
+                <span className="text-slate-500">Deployment Platforms</span>
+                <span className="font-bold text-[#0891b2]">3 Providers</span>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Card 5: Tools & DevOps (wider) */}
+          <ScrollReveal>
+            <div className="lg:col-span-7 card flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700">
+                      <span className="material-symbols-outlined text-[20px]">build</span>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900">Tools & DevOps</h3>
+                      <div className="text-[11px] text-slate-500">
+                        Developer tooling, version control, and deployment automation
+                      </div>
+                    </div>
+                  </div>
+                  <span className="rounded-full border border-purple-100 bg-purple-50 px-2.5 py-0.5 text-[11px] font-semibold text-purple-700">
+                    Tooling
+                  </span>
+                </div>
+                <p className="text-xs leading-relaxed text-slate-600 pt-1">
+                  I prioritize efficient development workflows through automated tooling, version control
+                  best practices, and streamlined build pipelines rather than manual processes alone.
+                </p>
+                <div className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-4">
+                  <div className="rounded-lg border border-slate-100 bg-slate-50 p-3">
+                    <div className="text-xs font-bold text-slate-900">Git & GitHub</div>
+                    <div className="mt-0.5 text-[11px] text-slate-500">Version Control</div>
+                  </div>
+                  <div className="rounded-lg border border-slate-100 bg-slate-50 p-3">
+                    <div className="text-xs font-bold text-slate-900">VS Code</div>
+                    <div className="mt-0.5 text-[11px] text-slate-500">Primary IDE</div>
+                  </div>
+                  <div className="rounded-lg border border-slate-100 bg-slate-50 p-3">
+                    <div className="text-xs font-bold text-slate-900">Chrome Extensions</div>
+                    <div className="mt-0.5 text-[11px] text-slate-500">Browser Tooling</div>
+                  </div>
+                  <div className="rounded-lg border border-slate-100 bg-slate-50 p-3">
+                    <div className="text-xs font-bold text-slate-900">CLI Tools</div>
+                    <div className="mt-0.5 text-[11px] text-slate-500">Terminal Power</div>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {['ESLint & Prettier Configs', 'Postman / Insomnia', 'Sentry Error Tracking'].map(
+                    (item) => (
+                      <span key={item} className="rounded border border-slate-200 bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
+                        {item}
+                      </span>
+                    ),
+                  )}
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Career Timeline */}
+      <section className="section-container !pt-0" id="experience">
+        <ScrollReveal>
+          <div className="mb-8">
+            <div className="section-label mb-2 flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-[16px]">trending_up</span>
+              Proven Execution
+            </div>
+            <h2 className="section-title">Career Timeline & Experience</h2>
+            <p className="section-subtitle text-sm">
+              Impact-focused track record building web applications and developer tools with modern
+              technologies.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div className="relative space-y-8 pl-6 before:absolute before:left-[11px] before:top-3 before:bottom-3 before:w-0.5 before:bg-slate-200 sm:pl-8 sm:before:left-[15px]">
+          {experience.map((exp) => (
+            <ScrollReveal key={exp.id}>
+              <div className="relative">
+                {/* Timeline dot */}
+                <div
+                  className={`absolute -left-[30px] top-6 h-4 w-4 rounded-full border-4 border-white ring-4 ring-slate-100 sm:-left-[39px] ${exp.dotColor}`}
+                />
+                {/* Card */}
+                <div className="card space-y-4 !p-6 sm:!p-7">
+                  <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900">{exp.role}</h3>
+                      <div className="text-sm font-semibold text-[#0891b2]">
+                        {exp.company}{' '}
+                        <span className="font-normal text-slate-400">&bull; Freelance</span>
+                      </div>
+                    </div>
+                    <span className="self-start rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 sm:self-auto">
+                      {exp.period}
+                    </span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-600">{exp.description}</p>
+                  <ul className="space-y-1.5">
+                    {exp.highlights.map((h, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-2 text-sm text-slate-500"
+                      >
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0891b2]" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {exp.tags.map((tag) => (
+                      <span key={tag} className="tag">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Engineering Values */}
+      <section className="section-container !pt-0">
+        <ScrollReveal>
+          <div className="mb-8 text-center">
+            <div className="section-label mb-2 flex items-center justify-center gap-1.5">
+              <span className="material-symbols-outlined text-[16px]">tune</span>
+              Guiding Convictions
+            </div>
+            <h2 className="section-title">Engineering Values & Principles</h2>
+            <p className="section-subtitle mx-auto text-sm">
+              The non-negotiable mental models and behavioral baselines I bring to high-performing
+              product engineering teams.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {values.map((value) => (
+            <ScrollReveal key={value.title}>
+              <div className="card flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-xl ${value.color}`}
+                  >
+                    <span className="material-symbols-outlined text-[20px]">{value.icon}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900">{value.title}</h3>
+                  <p className="text-xs leading-relaxed text-slate-600">{value.description}</p>
+                </div>
+                <div
+                  className={`mt-6 flex items-center gap-1.5 border-t border-slate-100 pt-4 text-xs font-semibold ${value.footerColor}`}
+                >
+                  <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                  {value.footer}
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section className="section-container !pt-0 !pb-20">
+        <ScrollReveal>
+          <div className="overflow-hidden rounded-3xl border border-cyan-100/80 bg-gradient-to-r from-cyan-50/70 via-cyan-50/50 to-purple-50/50 p-8 shadow-sm sm:p-12">
+            <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+              <div className="max-w-xl space-y-3">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700 shadow-xs">
+                  <span className="material-symbols-outlined text-[14px] text-[#0891b2]">
+                    description
+                  </span>
+                  Documented Background
+                </span>
+                <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                  Interested in working together or hiring?
+                </h2>
+                <p className="text-sm text-slate-600 sm:text-base">
+                  Grab a detailed PDF copy of my technical track record or start a direct conversation
+                  regarding contract or full-time opportunities.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+                <a href="#" className="btn-primary shadow-sm">
+                  <span className="material-symbols-outlined text-[18px]">download</span>
+                  <span>Download Resume (PDF)</span>
+                </a>
+                <Link to="/contact" className="btn-outline">
+                  <span>Get in Touch</span>
+                  <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
       </section>
     </div>
   );
