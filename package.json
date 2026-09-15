@@ -8,9 +8,13 @@
     "test": "turbo test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "deploy:worker": "turbo deploy --filter=worker"
+    "deploy:worker": "turbo deploy --filter=worker",
+    "fallow": "fallow",
+    "knip": "knip"
   },
   "devDependencies": {
+    "fallow": "^3.19.0",
+    "knip": "^6.32.3",
     "turbo": "^2"
   },
   "packageManager": "pnpm@9.15.0"
