@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
 import ProjectCard from '../components/ProjectCard';
 import { projects, skills, stats, testimonials } from '../data/portfolio';
+import AlchieImage from '../assets/alchietagudin.jpg';
 
 export default function Home() {
   const featuredProjects = projects.filter((p) => p.featured);
@@ -61,9 +62,7 @@ export default function Home() {
             <ScrollReveal>
               <div className="relative">
                 <div className="h-72 w-72 sm:h-80 sm:w-80 overflow-hidden rounded-full border-4 border-white shadow-xl ring-4 ring-cyan-100">
-                  <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#0891b2] to-cyan-400 text-5xl font-bold text-white">
-                    AT
-                  </div>
+                  <img src={AlchieImage} alt="Alchie Tagudin" className="h-full w-full object-cover" />
                 </div>
                 {/* Floating badge bottom-left */}
                 <div className="absolute -bottom-3 -left-4 flex items-center gap-2 rounded-full border border-slate-100 bg-white px-4 py-2 shadow-lg">
