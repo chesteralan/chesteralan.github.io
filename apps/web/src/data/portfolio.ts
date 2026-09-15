@@ -2,7 +2,6 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  image?: string;
   tags: string[];
   links: {
     github?: string;
@@ -10,7 +9,10 @@ export interface Project {
     chrome?: string;
   };
   featured?: boolean;
-  category?: 'web' | 'mobile' | 'extension' | 'tool';
+  category?: 'web' | 'extension' | 'tool';
+  previewGradient?: string;
+  metric?: string;
+  status?: 'Production' | 'Open Source' | 'Side Project';
 }
 
 export interface Extension {
@@ -19,12 +21,22 @@ export interface Extension {
   description: string;
   tags: string[];
   link: string;
-  icon?: string;
 }
 
 export interface Skill {
   name: string;
-  category: 'frontend' | 'backend' | 'tools' | 'cloud';
+  category: string;
+}
+
+export interface SkillCategory {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  badge: string;
+  skills: string[];
+  footerLabel: string;
+  footerValue: string;
 }
 
 export interface Experience {
@@ -34,6 +46,8 @@ export interface Experience {
   period: string;
   description: string;
   highlights: string[];
+  tags: string[];
+  dotColor: string;
 }
 
 export interface Testimonial {
@@ -41,6 +55,7 @@ export interface Testimonial {
   name: string;
   role: string;
   content: string;
+  initials: string;
 }
 
 export interface Stats {
@@ -62,6 +77,9 @@ export const projects: Project[] = [
     },
     featured: true,
     category: 'web',
+    previewGradient: 'from-slate-900 to-slate-800',
+    metric: 'Charity Platform',
+    status: 'Production',
   },
   {
     id: 'payrollph',
@@ -74,6 +92,9 @@ export const projects: Project[] = [
     },
     featured: true,
     category: 'web',
+    previewGradient: 'from-indigo-950 to-slate-900',
+    metric: 'Payroll System',
+    status: 'Production',
   },
   {
     id: 'tailwind-portfolio',
@@ -86,6 +107,9 @@ export const projects: Project[] = [
     },
     featured: false,
     category: 'web',
+    previewGradient: 'from-cyan-950 to-slate-900',
+    metric: 'Portfolio Template',
+    status: 'Open Source',
   },
   {
     id: 'altrugenix',
@@ -98,6 +122,9 @@ export const projects: Project[] = [
     },
     featured: false,
     category: 'web',
+    previewGradient: 'from-amber-950 to-slate-900',
+    metric: 'Community Hub',
+    status: 'Open Source',
   },
 ];
 
@@ -106,24 +133,24 @@ export const extensions: Extension[] = [
     id: 'bootstrap-offline',
     title: 'Bootstrap 3.3.x Offline Guide',
     description:
-      'A made-easy offline documentation of Bootstrap 3.3.x for web designers and developers. Access all Bootstrap components and utilities without an internet connection.',
-    tags: ['Bootstrap', 'Documentation', 'Offline', 'Tools'],
+      'A made-easy offline documentation of Bootstrap 3.3.x for web designers and developers.',
+    tags: ['Bootstrap', 'Documentation', 'Offline'],
     link: 'https://chromewebstore.google.com/detail/bootstrap-33x-offline-gui/gaojaekjdcfbdfiiggmklaocglaknnkd',
   },
   {
     id: 'icon-fonts',
     title: 'Icon Fonts',
     description:
-      'One-click access to Glyphicon, Font Awesome, Material Icons, Dashicons, Ionicons, Octicons, Genericons, and Devicons all in one extension.',
-    tags: ['Icons', 'Fonts', 'Design', 'Productivity'],
+      'One-click access to Glyphicon, Font Awesome, Material Icons, Dashicons, Ionicons, Octicons, Genericons, and Devicons.',
+    tags: ['Icons', 'Fonts', 'Design'],
     link: 'https://chromewebstore.google.com/detail/icon-fonts/djbcaikkgpmefanfonnebhgepgpkghkf',
   },
   {
     id: 'tailwind-cheatsheet',
     title: 'Tailwind Cheatsheet',
     description:
-      'Simplify your web development workflow — find Tailwind CSS class names in a flash with this handy Chrome extension.',
-    tags: ['Tailwind CSS', 'Productivity', 'Cheatsheet'],
+      'Simplify your web development workflow — find Tailwind CSS class names in a flash.',
+    tags: ['Tailwind CSS', 'Productivity'],
     link: 'https://chromewebstore.google.com/detail/tailwind-css-cheat-sheet/fndbnfnjnhldjeppmglocapmfjdjkleh',
   },
 ];
@@ -149,18 +176,77 @@ export const skills: Skill[] = [
   { name: 'Vercel', category: 'cloud' },
 ];
 
+export const skillCategories: SkillCategory[] = [
+  {
+    id: 'frontend',
+    title: 'Frontend Engineering',
+    description: 'High-performance reactive interfaces with pixel-perfect responsive execution and accessible interactions.',
+    icon: 'monitor',
+    badge: 'Core Mastery',
+    skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'JavaScript', 'HTML/CSS'],
+    footerLabel: 'Primary Focus',
+    footerValue: 'React + TypeScript',
+  },
+  {
+    id: 'backend',
+    title: 'Backend & APIs',
+    description: 'Fault-tolerant backend architectures engineered for low latency and high concurrency throughput.',
+    icon: 'terminal',
+    badge: 'Distributed',
+    skills: ['Node.js', 'Firebase', 'REST APIs', 'Express'],
+    footerLabel: 'Runtime',
+    footerValue: 'Node.js',
+  },
+  {
+    id: 'tools',
+    title: 'Tools & DevOps',
+    description: 'Developer tooling, version control, and deployment automation for efficient workflows.',
+    icon: 'build',
+    badge: 'Tooling',
+    skills: ['Git', 'GitHub', 'VS Code', 'Chrome Extensions', 'CLI Tools'],
+    footerLabel: 'VCS',
+    footerValue: 'Git + GitHub',
+  },
+  {
+    id: 'cloud',
+    title: 'Cloud & Deployment',
+    description: 'Cloud platform deployment, hosting, and CI/CD pipeline configuration.',
+    icon: 'cloud',
+    badge: 'Infrastructure',
+    skills: ['Firebase Hosting', 'Netlify', 'Vercel'],
+    footerLabel: 'Platforms',
+    footerValue: '3 Cloud Providers',
+  },
+];
+
 export const experience: Experience[] = [
   {
     id: 'freelance',
     role: 'Freelance Web Developer',
     company: 'Self-Employed',
-    period: '2015 – Present',
+    period: '2015 — Present',
     description: 'Building web applications, Chrome extensions, and digital solutions for clients and personal projects.',
     highlights: [
       'Developed and published 3+ Chrome extensions with thousands of users',
       'Built charity platforms serving underprivileged communities',
       'Created payroll management systems for local businesses',
     ],
+    tags: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
+    dotColor: 'bg-[#0891b2]',
+  },
+  {
+    id: 'open-source',
+    role: 'Open Source Contributor',
+    company: 'Community',
+    period: '2015 — Present',
+    description: 'Contributing to JavaScript ecosystem through community sites, extensions, and developer tools.',
+    highlights: [
+      'Created Altrugenix.js.org community hub',
+      'Published 3 Chrome extensions on the Web Store',
+      'Active GitHub contributor since 2012',
+    ],
+    tags: ['JavaScript', 'Community', 'Chrome Extensions'],
+    dotColor: 'bg-purple-600',
   },
 ];
 
@@ -169,7 +255,8 @@ export const testimonials: Testimonial[] = [
     id: 'test1',
     name: 'Client',
     role: 'ANC Davao',
-    content: 'Working with Chester was a great experience. He delivered a professional website that perfectly captured our mission.',
+    content: 'Working with Chester was a great experience. He delivered a professional website that perfectly captured our mission and helped us reach more people.',
+    initials: 'AN',
   },
 ];
 
