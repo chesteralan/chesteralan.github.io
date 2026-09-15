@@ -4,34 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#f0f9fa',
-          100: '#d9f0f4',
-          200: '#b3e1e9',
-          300: '#80ccd9',
-          400: '#4db3c6',
-          500: '#00647c',
-          600: '#00596e',
-          700: '#004c5e',
-          800: '#003f4e',
-          900: '#002d38',
-        },
-        accent: {
-          50: '#f5f0fa',
-          100: '#ebe0f5',
-          200: '#d6c1eb',
-          300: '#bb9add',
-          400: '#9f72cf',
-          500: '#6b38d4',
-          600: '#5e30bd',
-          700: '#4f289e',
-          800: '#402080',
-          900: '#301860',
-        },
-        surface: {
-          DEFAULT: '#faf8ff',
-          secondary: '#f4f1f9',
-          card: '#ffffff',
+        brand: {
+          50: '#ecfeff',
+          100: '#cffafe',
+          200: '#a5f3fc',
+          300: '#67e8f9',
+          400: '#22d3ee',
+          500: '#06b6d4',
+          600: '#0891b2',
+          700: '#0e7490',
+          800: '#155e75',
+          900: '#164e63',
         },
       },
       fontFamily: {
@@ -42,7 +25,6 @@ export default {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
         'slide-up': 'slideUp 0.6s ease-out forwards',
         'slide-down': 'slideDown 0.3s ease-out',
-        'glow': 'glow 2s ease-in-out infinite alternate',
       },
       keyframes: {
         fadeIn: {
@@ -56,10 +38,6 @@ export default {
         slideDown: {
           '0%': { opacity: '0', transform: 'translateY(-10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        glow: {
-          '0%': { boxShadow: '0 0 20px rgba(0, 100, 124, 0.15)' },
-          '100%': { boxShadow: '0 0 40px rgba(0, 100, 124, 0.25)' },
         },
       },
     },
