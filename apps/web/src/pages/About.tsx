@@ -21,17 +21,20 @@ import { skillCategories, experience } from '../data/portfolio';
 const pillars = [
   {
     title: 'Pragmatic Architecture',
-    description: 'Simple architectures that outlive hype cycles and scale without operational bloat.',
+    description:
+      'Simple architectures that outlive hype cycles and scale without operational bloat.',
     icon: 'code',
   },
   {
     title: 'Obsessive DX & Quality',
-    description: 'Strict type safety, self-documenting APIs, and end-to-end telemetry embedded by default.',
+    description:
+      'Strict type safety, self-documenting APIs, and end-to-end telemetry embedded by default.',
     icon: 'science',
   },
   {
     title: 'Reliability at Scale',
-    description: 'Fault-tolerant distributed pipelines, predictable degradation, and graceful failovers.',
+    description:
+      'Fault-tolerant distributed pipelines, predictable degradation, and graceful failovers.',
     icon: 'verified',
   },
 ];
@@ -73,10 +76,8 @@ const iconColorMap: Record<string, 'cyan' | 'purple' | 'slate'> = {
   cloud: 'cyan',
 };
 
-
-
 export default function About() {
-  const totalCategories = 4;
+  const totalCategories = skillCategories.length;
 
   return (
     <div>
@@ -92,8 +93,8 @@ export default function About() {
         </ScrollReveal>
         <ScrollReveal>
           <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
-            Full-stack software architect with 8+ years of experience engineering high-throughput web
-            applications, developer platforms, and resilient cloud infrastructure.
+            Full-stack software architect with 8+ years of experience engineering high-throughput
+            web applications, developer platforms, and resilient cloud infrastructure.
           </p>
         </ScrollReveal>
       </SectionContainer>
@@ -115,16 +116,16 @@ export default function About() {
                   </h2>
                   <div className="space-y-4 text-[15px] leading-relaxed text-slate-600">
                     <p>
-                      My foundation began in core computer science, diving deep into data structures,
-                      algorithms, and the mechanics of web technologies. Over the past eight years, that
-                      theoretical rigor evolved into real-world production engineering across charity
-                      platforms, payroll systems, and developer tools.
+                      My foundation began in core computer science, diving deep into data
+                      structures, algorithms, and the mechanics of web technologies. Over the past
+                      eight years, that theoretical rigor evolved into real-world production
+                      engineering across charity platforms, payroll systems, and developer tools.
                     </p>
                     <p>
                       I view software engineering not as simply gluing frameworks together, but as
                       constructing transparent, highly observable applications. Every architectural
-                      choice — from state management strategies to component organization — must serve
-                      measurable performance and bulletproof reliability.
+                      choice — from state management strategies to component organization — must
+                      serve measurable performance and bulletproof reliability.
                     </p>
                   </div>
                   {/* Quick Metrics */}
@@ -229,9 +230,7 @@ export default function About() {
             />
             <div className="inline-flex self-start rounded-lg border border-slate-200 bg-white p-1 text-xs font-medium shadow-sm md:self-auto">
               <Tag variant="active">All Domains</Tag>
-              <span className="cursor-pointer px-3 py-1 text-slate-600 hover:text-slate-900">
-                {totalCategories} Categories
-              </span>
+              <span className="px-3 py-1 text-slate-600">{totalCategories} Categories</span>
             </div>
           </div>
         </ScrollReveal>
@@ -263,7 +262,9 @@ export default function About() {
               color="cyan"
               badge={skillCategories[3]?.badge || 'Infrastructure'}
               title={skillCategories[3]?.title || 'Cloud & Deployment'}
-              description={skillCategories[3]?.description || 'Cloud platform deployment and hosting.'}
+              description={
+                skillCategories[3]?.description || 'Cloud platform deployment and hosting.'
+              }
               skills={skillCategories[3]?.skills || []}
               footerLabel="Deployment Platforms"
               footerValue="3 Providers"
@@ -272,7 +273,7 @@ export default function About() {
 
           {/* Card 5: Tools & DevOps (wider) */}
           <ScrollReveal className="lg:col-span-7">
-            <Card className="flex flex-col justify-between h-full">
+            <Card className="flex h-full flex-col justify-between">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -286,9 +287,10 @@ export default function About() {
                   </div>
                   <Tag variant="purple">Tooling</Tag>
                 </div>
-                <p className="text-xs leading-relaxed text-slate-600 pt-1">
-                  I prioritize efficient development workflows through automated tooling, version control
-                  best practices, and streamlined build pipelines rather than manual processes alone.
+                <p className="pt-1 text-xs leading-relaxed text-slate-600">
+                  I prioritize efficient development workflows through automated tooling, version
+                  control best practices, and streamlined build pipelines rather than manual
+                  processes alone.
                 </p>
                 <div className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-4">
                   <ToolItem title="Git & GitHub" subtitle="Version Control" />
@@ -302,7 +304,7 @@ export default function About() {
                       <Tag key={item} variant="default">
                         {item}
                       </Tag>
-                    ),
+                    )
                   )}
                 </div>
               </div>
@@ -324,7 +326,7 @@ export default function About() {
           </div>
         </ScrollReveal>
 
-        <div className="relative space-y-8 pl-6 before:absolute before:left-[11px] before:top-3 before:bottom-3 before:w-0.5 before:bg-slate-200 sm:pl-8 sm:before:left-[15px]">
+        <div className="relative space-y-8 pl-6 before:absolute before:bottom-3 before:left-[11px] before:top-3 before:w-0.5 before:bg-slate-200 sm:pl-8 sm:before:left-[15px]">
           {experience.map((exp) => (
             <ScrollReveal key={exp.id}>
               <div className="relative">
@@ -337,9 +339,7 @@ export default function About() {
                   <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
                     <div>
                       <h3 className="text-lg font-bold text-slate-900">{exp.role}</h3>
-                      <div className="text-sm font-semibold text-[#0891b2]">
-                        {exp.company}
-                      </div>
+                      <div className="text-sm font-semibold text-[#0891b2]">{exp.company}</div>
                     </div>
                     <span className="self-start rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 sm:self-auto">
                       {exp.period}
@@ -348,14 +348,14 @@ export default function About() {
                   <p className="text-sm leading-relaxed text-slate-600">{exp.description}</p>
                   <ul className="space-y-1.5">
                     {exp.highlights.map((h, i) => (
-                      <BulletListItem key={i}>
-                        {h}
-                      </BulletListItem>
+                      <BulletListItem key={i}>{h}</BulletListItem>
                     ))}
                   </ul>
                   <div className="flex flex-wrap gap-1.5 pt-2">
                     {exp.tags.map((tag) => (
-                      <Tag key={tag} variant="default">{tag}</Tag>
+                      <Tag key={tag} variant="default">
+                        {tag}
+                      </Tag>
                     ))}
                   </div>
                 </Card>
@@ -414,8 +414,8 @@ export default function About() {
                   Interested in working together or hiring?
                 </h2>
                 <p className="text-sm text-slate-600 sm:text-base">
-                  Grab a detailed PDF copy of my technical track record or start a direct conversation
-                  regarding contract or full-time opportunities.
+                  Grab a detailed PDF copy of my technical track record or start a direct
+                  conversation regarding contract or full-time opportunities.
                 </p>
               </div>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">

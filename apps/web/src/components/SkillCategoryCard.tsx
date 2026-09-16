@@ -24,7 +24,7 @@ export default function SkillCategoryCard({
   footerValue,
 }: SkillCategoryCardProps) {
   return (
-    <Card className="flex flex-col justify-between h-full">
+    <Card className="flex h-full flex-grow flex-col">
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <IconBox icon={icon} color={color} size="md" rounded="xl" />
@@ -38,12 +38,14 @@ export default function SkillCategoryCard({
         </div>
         <div className="flex flex-wrap gap-1.5 pt-2">
           {skills.map((skill) => (
-            <Tag key={skill} variant="purple">{skill}</Tag>
+            <Tag key={skill} variant="purple">
+              {skill}
+            </Tag>
           ))}
         </div>
       </div>
       <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-xs">
-        <span className="text-slate-500">{footerLabel}: {footerValue}</span>
+        <span className="text-slate-500">{footerLabel}</span>
         <span className="font-bold text-[#0891b2]">{footerValue}</span>
       </div>
     </Card>

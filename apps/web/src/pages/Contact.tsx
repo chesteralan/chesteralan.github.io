@@ -42,10 +42,14 @@ export default function Contact() {
   const [errorMsg, setErrorMsg] = useState('');
   const [copied, setCopied] = useState(false);
 
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (status === 'error') {
+      setStatus('idle');
+      setErrorMsg('');
+    }
   };
 
   const handleCopyEmail = async () => {
@@ -179,6 +183,7 @@ export default function Contact() {
                   <button
                     type="button"
                     onClick={handleCopyEmail}
+                    aria-label={copied ? 'Email copied' : 'Copy email'}
                     className="inline-flex shrink-0 items-center gap-1 rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-medium text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-800"
                   >
                     <Icon name={copied ? 'check' : 'content_copy'} size={14} />

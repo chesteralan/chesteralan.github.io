@@ -96,6 +96,7 @@ const icons: Record<string, LucideIcon> = {
   close: X,
   menu: Menu,
   school: GraduationCap,
+  work: Briefcase,
 };
 
 interface IconProps {

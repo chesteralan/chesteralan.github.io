@@ -16,6 +16,11 @@
   ::selection {
     @apply bg-cyan-100 text-cyan-900;
   }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-2 outline-offset-2 outline-[#0891b2];
+  }
 }
 
 @layer components {
