@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
+import Icon from '../components/Icon';
 
 export default function NotFound() {
   return (
@@ -11,7 +12,7 @@ export default function NotFound() {
             This page doesn't exist yet.
           </p>
           <Link to="/" className="btn-primary">
-            <span className="material-symbols-outlined text-[18px]">home</span>
+            <Icon name="home" size={18} />
             Back to Home
           </Link>
         </ScrollReveal>

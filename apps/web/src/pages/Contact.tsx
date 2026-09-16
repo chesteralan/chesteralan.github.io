@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import Badge from '../components/Badge';
+import Card from '../components/Card';
+import Icon from '../components/Icon';
+import IconBox from '../components/IconBox';
 import ScrollReveal from '../components/ScrollReveal';
 import { socialLinks } from '../data/portfolio';
 
@@ -180,31 +184,27 @@ export default function Contact() {
           <aside className="lg:col-span-5 space-y-6">
             {/* Status Card */}
             <ScrollReveal>
-              <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+              <Card>
                 <div className="flex items-center justify-between flex-wrap gap-2 mb-2">
                   <div className="flex items-center gap-2">
                     <span className="h-2.5 w-2.5 rounded-full bg-[#0891b2] animate-pulse" />
                     <span className="font-bold text-slate-900 text-sm">Available for Projects</span>
                   </div>
-                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-cyan-50 text-[#0891b2] border border-cyan-100">
-                    Remote &amp; Hybrid
-                  </span>
+                  <Badge>Remote &amp; Hybrid</Badge>
                 </div>
                 <p className="text-sm text-slate-500 leading-relaxed">
                   Accepting scoped deliverables, feature builds, and consulting engagements.
                 </p>
-              </div>
+              </Card>
             </ScrollReveal>
 
             {/* Contact Methods */}
             <ScrollReveal>
-              <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm space-y-5">
+              <Card className="space-y-5">
                 {/* Email */}
                 <div className="flex items-start justify-between gap-4 pb-4 border-b border-slate-100">
                   <div className="flex items-start gap-3.5">
-                    <div className="w-9 h-9 rounded-xl bg-cyan-50 text-[#0891b2] flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="material-symbols-outlined text-[18px]">mail</span>
-                    </div>
+                    <IconBox icon="mail" size="sm" />
                     <div>
                       <span className="block text-[11px] uppercase tracking-wider font-semibold text-slate-400">Direct Email</span>
                       <a href={`mailto:${socialLinks.email}`} className="text-sm font-bold text-slate-900 hover:text-[#0891b2] transition-colors">
@@ -217,16 +217,14 @@ export default function Contact() {
                     onClick={handleCopyEmail}
                     className="inline-flex items-center gap-1 text-xs font-medium text-slate-500 hover:text-slate-800 bg-slate-50 hover:bg-slate-100 px-2.5 py-1.5 rounded-md border border-slate-200 transition-colors shrink-0"
                   >
-                    <span className="material-symbols-outlined text-[14px]">{copied ? 'check' : 'content_copy'}</span>
+                    <Icon name={copied ? 'check' : 'content_copy'} size={14} />
                     <span>{copied ? 'Copied' : 'Copy'}</span>
                   </button>
                 </div>
 
                 {/* Location */}
                 <div className="flex items-start gap-3.5 pb-4 border-b border-slate-100">
-                  <div className="w-9 h-9 rounded-xl bg-cyan-50 text-[#0891b2] flex items-center justify-center shrink-0 mt-0.5">
-                    <span className="material-symbols-outlined text-[18px]">location_on</span>
-                  </div>
+                  <IconBox icon="location_on" size="sm" />
                   <div>
                     <span className="block text-[11px] uppercase tracking-wider font-semibold text-slate-400">Location</span>
                     <p className="text-sm font-bold text-slate-900 leading-snug">Davao City, Philippines</p>
@@ -235,20 +233,18 @@ export default function Contact() {
 
                 {/* Response Time */}
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-cyan-50 text-[#0891b2] flex items-center justify-center shrink-0 mt-0.5">
-                    <span className="material-symbols-outlined text-[18px]">bolt</span>
-                  </div>
+                  <IconBox icon="bolt" size="sm" />
                   <div>
                     <span className="block text-[11px] uppercase tracking-wider font-semibold text-slate-400">Response Window</span>
                     <p className="text-sm font-bold text-slate-900 leading-snug">Typically responds within 24 hours</p>
                   </div>
                 </div>
-              </div>
+              </Card>
             </ScrollReveal>
 
             {/* Developer Presence */}
             <ScrollReveal>
-              <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+              <Card>
                 <span className="block text-[11px] uppercase tracking-wider font-semibold text-slate-400 mb-3">Developer Presence</span>
                 <div className="grid grid-cols-2 gap-3">
                   {SOCIALS.map((social) => (
@@ -259,9 +255,7 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-100"
                     >
-                      <div className="w-7 h-7 rounded-lg bg-cyan-100/60 text-[#0891b2] flex items-center justify-center">
-                        <span className="material-symbols-outlined text-[14px]">{social.icon}</span>
-                      </div>
+                      <IconBox icon={social.icon} size="xs" color="cyan" rounded="lg" />
                       <div className="overflow-hidden">
                         <span className="block text-xs font-bold text-slate-900 truncate">{social.label}</span>
                         <span className="block text-[11px] text-slate-500 truncate">{social.handle}</span>
@@ -269,14 +263,14 @@ export default function Contact() {
                     </a>
                   ))}
                 </div>
-              </div>
+              </Card>
             </ScrollReveal>
 
             {/* Core Areas */}
             <ScrollReveal>
-              <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+              <Card>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="material-symbols-outlined text-[18px] text-[#0891b2]">check_circle</span>
+                  <Icon name="check_circle" size={18} className="text-[#0891b2]" />
                   <h2 className="text-sm font-bold text-slate-900">Core Areas of Engagement</h2>
                 </div>
                 <ul className="space-y-3">
@@ -287,14 +281,14 @@ export default function Contact() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Card>
             </ScrollReveal>
           </aside>
 
           {/* Right Column — Inquiry Form */}
           <div className="lg:col-span-7">
             <ScrollReveal>
-              <div className="bg-white rounded-2xl p-6 sm:p-9 border border-slate-100 shadow-sm">
+              <Card className="p-6 sm:p-9">
                 <div className="mb-7">
                   <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">Send a Project Inquiry</h2>
                   <p className="text-sm text-slate-500 mt-1">
@@ -409,7 +403,7 @@ export default function Contact() {
                         ))}
                       </select>
                       <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
-                        <span className="material-symbols-outlined text-[18px]">expand_more</span>
+                        <Icon name="expand_more" size={18} />
                       </div>
                     </div>
                   </div>
@@ -458,7 +452,7 @@ export default function Contact() {
                   {/* Status Messages */}
                   {status === 'success' && (
                     <div className="flex items-start gap-3 rounded-xl border border-green-200 bg-green-50 p-4">
-                      <span className="material-symbols-outlined mt-0.5 h-5 w-5 shrink-0 text-green-500">check_circle</span>
+                      <Icon name="check_circle" size={20} className="mt-0.5 shrink-0 text-green-500" />
                       <div>
                         <p className="text-sm font-medium text-green-800">Message sent!</p>
                         <p className="text-sm text-green-600">Thanks for reaching out. I'll get back to you soon!</p>
@@ -467,7 +461,7 @@ export default function Contact() {
                   )}
                   {status === 'error' && (
                     <div className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4">
-                      <span className="material-symbols-outlined mt-0.5 h-5 w-5 shrink-0 text-red-500">error</span>
+                      <Icon name="error" size={20} className="mt-0.5 shrink-0 text-red-500" />
                       <p className="text-sm text-red-700">{errorMsg}</p>
                     </div>
                   )}
@@ -481,23 +475,23 @@ export default function Contact() {
                     >
                       {status === 'sending' ? (
                         <>
-                          <span className="material-symbols-outlined h-4 w-4 animate-spin">hourglass_top</span>
+                          <Icon name="hourglass_top" size={16} className="animate-spin" />
                           <span>Sending...</span>
                         </>
                       ) : (
                         <>
                           <span>Send Message</span>
-                          <span className="material-symbols-outlined h-4 w-4">send</span>
+                          <Icon name="send" size={16} />
                         </>
                       )}
                     </button>
                     <div className="flex items-center justify-center gap-1.5 text-xs text-slate-400">
-                      <span className="material-symbols-outlined text-[14px]">lock</span>
+                      <Icon name="lock" size={14} />
                       <span>Your information is kept strictly confidential and will never be shared.</span>
                     </div>
                   </div>
                 </form>
-              </div>
+              </Card>
             </ScrollReveal>
           </div>
         </div>

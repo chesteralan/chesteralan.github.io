@@ -1,4 +1,6 @@
 import type { Project } from '../data/portfolio';
+import Tag from './Tag';
+import Icon from './Icon';
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
@@ -6,14 +8,14 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* Header: dark gradient with preview */}
       <div className={`relative -m-6 mb-6 flex h-40 items-center justify-center bg-gradient-to-br ${project.previewGradient || 'from-slate-900 to-slate-800'}`}>
         {project.featured && (
-          <span className="absolute left-4 top-4 rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/80 backdrop-blur">
+          <Tag variant="overlay" className="absolute left-4 top-4">
             Featured
-          </span>
+          </Tag>
         )}
         {project.status && (
-          <span className="absolute right-4 top-4 rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/80 backdrop-blur">
+          <Tag variant="overlay" className="absolute right-4 top-4">
             {project.status}
-          </span>
+          </Tag>
         )}
         <span className="text-4xl font-bold text-white/10 transition-colors group-hover:text-white/20">
           {project.title.charAt(0)}
@@ -34,7 +36,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* Tags */}
       <div className="mb-4 flex flex-wrap gap-1.5">
         {project.tags.map((tag) => (
-          <span key={tag} className="tag text-[11px]">{tag}</span>
+          <Tag key={tag} className="text-[11px]">{tag}</Tag>
         ))}
       </div>
 
@@ -47,7 +49,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 transition-colors hover:text-slate-700"
           >
-            <span className="material-symbols-outlined text-[16px]">code</span>
+            <Icon name="code" size={16} />
             Source
           </a>
         )}
@@ -58,7 +60,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-medium text-[#0891b2] transition-colors hover:text-[#0e7490]"
           >
-            <span className="material-symbols-outlined text-[16px]">open_in_new</span>
+            <Icon name="open_in_new" size={16} />
             Live Demo
           </a>
         )}
@@ -69,7 +71,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-medium text-[#0891b2] transition-colors hover:text-[#0e7490]"
           >
-            <span className="material-symbols-outlined text-[16px]">extension</span>
+            <Icon name="extension" size={16} />
             Chrome Store
           </a>
         )}

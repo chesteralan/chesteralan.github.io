@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import ScrollReveal from '../components/ScrollReveal';
 import ProjectCard from '../components/ProjectCard';
+import Icon from '../components/Icon';
+import Tag from '../components/Tag';
+import SectionHeader from '../components/SectionHeader';
+import StatCard from '../components/StatCard';
+import CTASection from '../components/CTASection';
 import { projects } from '../data/portfolio';
 
 const metrics = [
@@ -78,19 +83,7 @@ export default function Projects() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {metrics.map((m) => (
             <ScrollReveal key={m.label}>
-              <div className="bg-white rounded-xl p-4 border border-slate-200 shadow-xs">
-                <div className="flex items-center justify-between mb-0.5">
-                  <span className="text-2xl font-bold text-[#0891b2] font-mono tracking-tight">
-                    {m.value}
-                  </span>
-                  <span className="material-symbols-outlined text-slate-400 text-[22px]">
-                    {m.icon}
-                  </span>
-                </div>
-                <div className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase mt-0.5">
-                  {m.label}
-                </div>
-              </div>
+              <StatCard value={m.value} label={m.label} icon={m.icon} />
             </ScrollReveal>
           ))}
         </div>
@@ -104,22 +97,15 @@ export default function Projects() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
               <div className="flex flex-wrap items-center gap-1.5 w-full md:w-auto">
                 {filterPills.map((pill, i) => (
-                  <button
-                    key={pill}
-                    className={
-                      i === 0
-                        ? 'px-3.5 py-1.5 bg-[#0891b2] text-white text-xs font-semibold rounded-md shadow-xs'
-                        : 'px-3.5 py-1.5 bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-slate-200 text-xs font-medium rounded-md transition-colors'
-                    }
-                  >
+                  <Tag key={pill} variant={i === 0 ? 'active' : 'outline'}>
                     {pill}
-                  </button>
+                  </Tag>
                 ))}
               </div>
               <div className="flex items-center space-x-2.5 w-full md:w-auto justify-end">
                 <div className="relative w-full md:w-64">
                   <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                    <span className="material-symbols-outlined text-[16px]">search</span>
+                    <Icon name="search" size={16} />
                   </span>
                   <input
                     className="w-full pl-9 pr-3 py-1.5 text-xs bg-white border border-slate-200 rounded-md text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0891b2] focus:border-[#0891b2]"
@@ -147,26 +133,20 @@ export default function Projects() {
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
-              <div>
-                <div className="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-[#0891b2] mb-1">
-                  <span className="material-symbols-outlined text-[16px]">commit</span>
-                  <span>Engineering Pulse</span>
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
-                  Commitment to Open Source &amp; Quality
-                </h2>
-              </div>
+              <SectionHeader
+                icon="commit"
+                label="Engineering Pulse"
+                title="Commitment to Open Source &amp; Quality"
+              />
               <a
                 href="https://github.com/chesteralan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-3.5 py-1.5 rounded-lg hover:bg-slate-50 transition-colors shadow-xs"
               >
-                <span className="material-symbols-outlined text-[16px]">code</span>
+                <Icon name="code" size={16} />
                 <span>github.com/chesteralan</span>
-                <span className="material-symbols-outlined text-[10px] text-slate-400">
-                  open_in_new
-                </span>
+                <Icon name="open_in_new" size={10} className="text-slate-400" />
               </a>
             </div>
           </ScrollReveal>
@@ -179,39 +159,23 @@ export default function Projects() {
                   value: '1,840+',
                   label: 'Annual Git Commits in 2024',
                   icon: 'trending_up',
-                  bg: 'bg-cyan-50',
-                  border: 'border-cyan-100',
-                  iconColor: 'text-[#0891b2]',
+                  color: 'cyan' as const,
                 },
                 {
                   value: '42 PRs',
                   label: 'Merged across upstream repos',
                   icon: 'alt_route',
-                  bg: 'bg-purple-50',
-                  border: 'border-purple-100',
-                  iconColor: 'text-purple-700',
+                  color: 'purple' as const,
                 },
                 {
                   value: '9 Packages',
                   label: 'Published to npm & Chrome Store',
                   icon: 'inventory_2',
-                  bg: 'bg-amber-50',
-                  border: 'border-amber-100',
-                  iconColor: 'text-amber-700',
+                  color: 'amber' as const,
                 },
               ].map((stat) => (
                 <ScrollReveal key={stat.label}>
-                  <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center space-x-4">
-                    <div
-                      className={`w-11 h-11 rounded-lg ${stat.bg} border ${stat.border} flex items-center justify-center ${stat.iconColor}`}
-                    >
-                      <span className="material-symbols-outlined text-lg">{stat.icon}</span>
-                    </div>
-                    <div>
-                      <div className="text-xl font-bold text-slate-900 font-mono">{stat.value}</div>
-                      <div className="text-xs text-slate-500 font-medium">{stat.label}</div>
-                    </div>
-                  </div>
+                  <StatCard value={stat.value} label={stat.label} icon={stat.icon} layout="horizontal" />
                 </ScrollReveal>
               ))}
             </div>
@@ -223,9 +187,7 @@ export default function Projects() {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-2">
                       <span className="text-xs font-semibold text-slate-900">Contribution Stream</span>
-                      <span className="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">
-                        Last 52 Weeks
-                      </span>
+                      <Tag variant="overlay">Last 52 Weeks</Tag>
                     </div>
                     <div className="flex items-center space-x-1.5 text-[10px] text-slate-500">
                       <span>Less</span>
@@ -262,44 +224,29 @@ export default function Projects() {
       </section>
 
       {/* Collaboration CTA */}
-      <section className="py-14">
-        <div className="max-w-7xl mx-auto px-6">
-          <ScrollReveal>
-            <div className="relative overflow-hidden bg-gradient-to-r from-cyan-50 via-sky-50 to-white border border-cyan-100 rounded-2xl p-8 md:p-10 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="max-w-2xl">
-                <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-cyan-800 bg-cyan-100/70 px-2.5 py-0.5 rounded-full mb-2">
-                  Ready to Collaborate
-                </span>
-                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-snug">
-                  Looking to architect a new platform or modernize legacy software?
-                </h3>
-                <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-                  I partner with tech founders and engineering teams to design resilient systems,
-                  optimize frontend response latencies, and deliver scalable production code.
-                </p>
-              </div>
-              <div className="flex flex-wrap items-center gap-3 shrink-0">
-                <Link
-                  to="/contact"
-                  className="px-5 py-2.5 bg-[#0891b2] hover:bg-[#0e7490] text-white rounded-lg text-xs font-semibold shadow-xs flex items-center space-x-2 transition-all"
-                >
-                  <span>Start a Conversation</span>
-                  <span className="material-symbols-outlined text-[14px]">chat_bubble_outline</span>
-                </Link>
-                <a
-                  href="mailto:tagudinalchie@gmail.com"
-                  className="px-4 py-2.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-lg text-xs font-medium shadow-xs flex items-center space-x-2 transition-all"
-                >
-                  <span>Direct Email</span>
-                  <span className="material-symbols-outlined text-[14px] text-slate-500">
-                    mail
-                  </span>
-                </a>
-              </div>
-            </div>
-          </ScrollReveal>
+      <CTASection
+        variant="light"
+        badge={{ text: 'Ready to Collaborate' }}
+        heading="Looking to architect a new platform or modernize legacy software?"
+        description="I partner with tech founders and engineering teams to design resilient systems, optimize frontend response latencies, and deliver scalable production code."
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          <Link
+            to="/contact"
+            className="px-5 py-2.5 bg-[#0891b2] hover:bg-[#0e7490] text-white rounded-lg text-xs font-semibold shadow-xs flex items-center space-x-2 transition-all"
+          >
+            <span>Start a Conversation</span>
+            <Icon name="chat_bubble_outline" size={14} />
+          </Link>
+          <a
+            href="mailto:tagudinalchie@gmail.com"
+            className="px-4 py-2.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-lg text-xs font-medium shadow-xs flex items-center space-x-2 transition-all"
+          >
+            <span>Direct Email</span>
+            <Icon name="mail" size={14} className="text-slate-500" />
+          </a>
         </div>
-      </section>
+      </CTASection>
     </div>
   );
 }

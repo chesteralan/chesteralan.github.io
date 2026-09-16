@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { socialLinks } from '../data/portfolio';
+import Tag from './Tag';
+import Icon from './Icon';
 
 export default function Footer() {
   return (
@@ -9,9 +11,7 @@ export default function Footer() {
         <div className="space-y-1 text-center sm:text-left">
           <div className="flex items-center justify-center gap-2 sm:justify-start">
             <span className="font-bold text-slate-900">Alchie Tagudin</span>
-            <span className="rounded border border-cyan-100 bg-cyan-50 px-2 py-0.5 text-xs font-semibold text-[#0891b2]">
-              Frontend Developer
-            </span>
+            <Tag variant="default">Frontend Developer</Tag>
           </div>
           <p className="max-w-sm text-xs text-slate-500">
             Crafting clean, accessible, and high-performance digital experiences across the web.
@@ -34,7 +34,7 @@ export default function Footer() {
               className="rounded-lg bg-slate-50 p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
               aria-label="GitHub"
             >
-              <span className="material-symbols-outlined text-[20px]">code</span>
+              <Icon name="code" size={20} />
             </a>
             <a
               href={socialLinks.linkedin}
@@ -43,14 +43,14 @@ export default function Footer() {
               className="rounded-lg bg-slate-50 p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
               aria-label="LinkedIn"
             >
-              <span className="material-symbols-outlined text-[20px]">work</span>
+              <Icon name="work" size={20} />
             </a>
             <a
               href={`mailto:${socialLinks.email}`}
               className="rounded-lg bg-slate-50 p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
               aria-label="Email"
             >
-              <span className="material-symbols-outlined text-[20px]">mail</span>
+              <Icon name="mail" size={20} />
             </a>
           </div>
         </div>

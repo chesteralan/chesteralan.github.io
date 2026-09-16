@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { stripBase } from '../lib/config';
+import Icon from './Icon';
 
 const navLinks = [
   { path: '/', label: 'Home' },
@@ -81,9 +82,7 @@ export default function Navbar() {
             className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 md:hidden"
             aria-label="Toggle menu"
           >
-            <span className="material-symbols-outlined text-[22px]">
-              {isOpen ? 'close' : 'menu'}
-            </span>
+            <Icon name={isOpen ? 'close' : 'menu'} size={22} />
           </button>
         </div>
       </div>

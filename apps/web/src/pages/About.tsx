@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
+import Badge from '../components/Badge';
+import Card from '../components/Card';
+import Icon from '../components/Icon';
+import IconBox from '../components/IconBox';
 import ProfileDetail from '../components/ProfileDetail';
 import ScrollReveal from '../components/ScrollReveal';
+import SectionHeader from '../components/SectionHeader';
+import Tag from '../components/Tag';
 import { skillCategories, experience } from '../data/portfolio';
 
 const pillars = [
@@ -28,7 +34,7 @@ const values = [
       'Building systems ready to accommodate 10x traffic expansion without premature complexity. Clear data boundaries, decoupled queue workers, and defensive caching are standard table stakes.',
     icon: 'trending_up',
     footer: 'Measurable scalability',
-    color: 'bg-cyan-100 text-cyan-800',
+    color: 'cyan' as const,
     footerColor: 'text-[#0891b2]',
   },
   {
@@ -37,7 +43,7 @@ const values = [
       'Speed, accessibility (a11y), and buttery micro-interactions matter just as much as backend fault tolerance. A fast, intuitive UI conveys trust and respect for end-user attention.',
     icon: 'mood',
     footer: 'Uncompromising UX',
-    color: 'bg-purple-100 text-purple-800',
+    color: 'purple' as const,
     footerColor: 'text-purple-700',
   },
   {
@@ -46,16 +52,16 @@ const values = [
       'Technology is never static. An active open-source contributor and technical mentor who cultivates curiosity, conducts constructive code reviews, and experiments with emerging runtimes.',
     icon: 'science',
     footer: 'Mentorship & Open Source',
-    color: 'bg-cyan-100 text-cyan-800',
+    color: 'cyan' as const,
     footerColor: 'text-[#0891b2]',
   },
 ];
 
-const iconColorMap: Record<string, string> = {
-  frontend: 'bg-cyan-50 text-cyan-700',
-  backend: 'bg-purple-50 text-purple-700',
-  tools: 'bg-slate-100 text-slate-700',
-  cloud: 'bg-cyan-50 text-cyan-700',
+const iconColorMap: Record<string, 'cyan' | 'purple' | 'slate'> = {
+  frontend: 'cyan',
+  backend: 'purple',
+  tools: 'slate',
+  cloud: 'cyan',
 };
 
 const badgeColorMap: Record<string, string> = {
@@ -74,7 +80,7 @@ export default function About() {
       <section className="section-container !pb-0">
         <ScrollReveal>
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0891b2]">
-            <span className="material-symbols-outlined text-[16px]">info</span>
+            <Icon name="info" size={16} />
             About Alchie Tagudin
           </div>
         </ScrollReveal>
@@ -97,10 +103,10 @@ export default function About() {
           {/* Left Column: Journey */}
           <div className="space-y-6 lg:col-span-7">
             <ScrollReveal>
-              <div className="card !p-8">
+              <Card padding="lg">
                 <div className="space-y-6">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0891b2]">
-                    <span className="material-symbols-outlined text-[16px]">code</span>
+                    <Icon name="code" size={16} />
                     The Journey
                   </div>
                   <h2 className="text-2xl font-bold leading-snug text-slate-900 sm:text-3xl">
@@ -142,22 +148,20 @@ export default function About() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Card>
             </ScrollReveal>
 
             {/* 3 Pillars */}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {pillars.map((pillar) => (
                 <ScrollReveal key={pillar.title}>
-                  <div className="card !p-5">
+                  <Card padding="compact">
                     <div className="space-y-2.5">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-50 text-[#0891b2]">
-                        <span className="material-symbols-outlined text-[18px]">{pillar.icon}</span>
-                      </div>
+                      <IconBox icon={pillar.icon} color="cyan" size="sm" rounded="lg" />
                       <h3 className="text-sm font-bold text-slate-900">{pillar.title}</h3>
                       <p className="text-xs leading-relaxed text-slate-500">{pillar.description}</p>
                     </div>
-                  </div>
+                  </Card>
                 </ScrollReveal>
               ))}
             </div>
@@ -166,19 +170,14 @@ export default function About() {
           {/* Right Column: Quick Profile */}
           <div className="lg:col-span-5">
             <ScrollReveal>
-              <div className="card !p-7">
+              <Card padding="lg">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between pb-1">
                     <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
-                      <span className="material-symbols-outlined text-[16px] text-[#0891b2]">
-                        person
-                      </span>
+                      <Icon name="person" size={16} className="text-[#0891b2]" />
                       Quick Profile
                     </div>
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-200 bg-cyan-50 px-2.5 py-0.5 text-xs font-semibold text-cyan-700">
-                      <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
-                      Active
-                    </span>
+                    <Badge dot>Active</Badge>
                   </div>
 
                   {/* Avatar */}
@@ -187,9 +186,7 @@ export default function About() {
                       <span className="text-5xl font-bold text-white">AT</span>
                     </div>
                     <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-md border border-slate-200/80 bg-white/95 px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur-sm">
-                      <span className="material-symbols-outlined text-[14px] text-[#0891b2]">
-                        laptop_mac
-                      </span>
+                      <Icon name="laptop_mac" size={14} className="text-[#0891b2]" />
                       Principal Craft
                     </div>
                   </div>
@@ -221,14 +218,14 @@ export default function About() {
                   <div className="flex items-center gap-3 pt-2">
                     <Link to="/projects" className="btn-primary flex-1 justify-center text-xs">
                       <span>View Tech Matrix</span>
-                      <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
+                      <Icon name="arrow_downward" size={16} />
                     </Link>
                     <Link to="/contact" className="btn-outline text-xs">
                       Career Log
                     </Link>
                   </div>
                 </div>
-              </div>
+              </Card>
             </ScrollReveal>
           </div>
         </div>
@@ -238,21 +235,14 @@ export default function About() {
       <section className="section-container !pt-0" id="skills">
         <ScrollReveal>
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <div className="section-label mb-2 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[16px]">inventory_2</span>
-                Capabilities & Arsenal
-              </div>
-              <h2 className="section-title">Technical Skills Matrix</h2>
-              <p className="section-subtitle mt-1 text-sm">
-                A comprehensive overview of the technologies, runtimes, and orchestration suites I
-                utilize to deliver enterprise-grade digital systems.
-              </p>
-            </div>
+            <SectionHeader
+              icon="inventory_2"
+              label="Capabilities & Arsenal"
+              title="Technical Skills Matrix"
+              subtitle="A comprehensive overview of the technologies, runtimes, and orchestration suites I utilize to deliver enterprise-grade digital systems."
+            />
             <div className="inline-flex self-start rounded-lg border border-slate-200 bg-white p-1 text-xs font-medium shadow-sm md:self-auto">
-              <span className="rounded bg-[#0891b2] px-3 py-1 font-semibold text-white">
-                All Domains
-              </span>
+              <Tag variant="active">All Domains</Tag>
               <span className="cursor-pointer px-3 py-1 text-slate-600 hover:text-slate-900">
                 {totalCategories} Categories
               </span>
@@ -264,14 +254,15 @@ export default function About() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {skillCategories.slice(0, 3).map((cat) => (
             <ScrollReveal key={cat.id}>
-              <div className="card flex flex-col justify-between">
+              <Card className="flex flex-col justify-between">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div
-                      className={`flex h-10 w-10 items-center justify-center rounded-xl ${iconColorMap[cat.id] || 'bg-cyan-50 text-cyan-700'}`}
-                    >
-                      <span className="material-symbols-outlined text-[20px]">{cat.icon}</span>
-                    </div>
+                    <IconBox
+                      icon={cat.icon}
+                      color={iconColorMap[cat.id] || 'cyan'}
+                      size="md"
+                      rounded="xl"
+                    />
                     <span
                       className={`rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${badgeColorMap[cat.badge] || 'bg-slate-100 text-slate-700 border-slate-200'}`}
                     >
@@ -284,12 +275,9 @@ export default function About() {
                   </div>
                   <div className="flex flex-wrap gap-1.5 pt-2">
                     {cat.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="rounded-md border border-purple-100 bg-purple-50 px-2.5 py-1 text-xs font-medium text-purple-700"
-                      >
+                      <Tag key={skill} variant="purple">
                         {skill}
-                      </span>
+                      </Tag>
                     ))}
                   </div>
                 </div>
@@ -299,7 +287,7 @@ export default function About() {
                   </span>
                   <span className="font-bold text-[#0891b2]">{cat.footerValue}</span>
                 </div>
-              </div>
+              </Card>
             </ScrollReveal>
           ))}
         </div>
@@ -308,14 +296,15 @@ export default function About() {
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-12">
           {/* Card 4 */}
           <ScrollReveal className="lg:col-span-5">
-            <div className="card flex flex-col justify-between h-full">
+            <Card className="flex flex-col justify-between h-full">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-[#0891b2]">
-                    <span className="material-symbols-outlined text-[20px]">
-                      {skillCategories[3]?.icon || 'cloud'}
-                    </span>
-                  </div>
+                  <IconBox
+                    icon={skillCategories[3]?.icon || 'cloud'}
+                    color="cyan"
+                    size="md"
+                    rounded="xl"
+                  />
                   <span className="rounded-full border border-slate-200 bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-700">
                     {skillCategories[3]?.badge || 'Infrastructure'}
                   </span>
@@ -330,12 +319,9 @@ export default function About() {
                 </div>
                 <div className="flex flex-wrap gap-1.5 pt-2">
                   {(skillCategories[3]?.skills || []).map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-md border border-purple-100 bg-purple-50 px-2.5 py-1 text-xs font-medium text-purple-700"
-                    >
+                    <Tag key={skill} variant="purple">
                       {skill}
-                    </span>
+                    </Tag>
                   ))}
                 </div>
               </div>
@@ -343,18 +329,16 @@ export default function About() {
                 <span className="text-slate-500">Deployment Platforms</span>
                 <span className="font-bold text-[#0891b2]">3 Providers</span>
               </div>
-            </div>
+            </Card>
           </ScrollReveal>
 
           {/* Card 5: Tools & DevOps (wider) */}
           <ScrollReveal className="lg:col-span-7">
-            <div className="card flex flex-col justify-between h-full">
+            <Card className="flex flex-col justify-between h-full">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700">
-                      <span className="material-symbols-outlined text-[20px]">build</span>
-                    </div>
+                    <IconBox icon="build" color="slate" size="md" rounded="xl" />
                     <div>
                       <h3 className="text-lg font-bold text-slate-900">Tools & DevOps</h3>
                       <div className="text-[11px] text-slate-500">
@@ -362,9 +346,7 @@ export default function About() {
                       </div>
                     </div>
                   </div>
-                  <span className="rounded-full border border-purple-100 bg-purple-50 px-2.5 py-0.5 text-[11px] font-semibold text-purple-700">
-                    Tooling
-                  </span>
+                  <Tag variant="purple">Tooling</Tag>
                 </div>
                 <p className="text-xs leading-relaxed text-slate-600 pt-1">
                   I prioritize efficient development workflows through automated tooling, version control
@@ -391,14 +373,14 @@ export default function About() {
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {['ESLint & Prettier Configs', 'Postman / Insomnia', 'Sentry Error Tracking'].map(
                     (item) => (
-                      <span key={item} className="rounded border border-slate-200 bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
+                      <Tag key={item} variant="default">
                         {item}
-                      </span>
+                      </Tag>
                     ),
                   )}
                 </div>
               </div>
-            </div>
+            </Card>
           </ScrollReveal>
         </div>
       </section>
@@ -407,15 +389,12 @@ export default function About() {
       <section className="section-container !pt-0" id="experience">
         <ScrollReveal>
           <div className="mb-8">
-            <div className="section-label mb-2 flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-[16px]">trending_up</span>
-              Proven Execution
-            </div>
-            <h2 className="section-title">Career Timeline & Experience</h2>
-            <p className="section-subtitle text-sm">
-              Impact-focused track record building web applications and developer tools with modern
-              technologies.
-            </p>
+            <SectionHeader
+              icon="trending_up"
+              label="Proven Execution"
+              title="Career Timeline & Experience"
+              subtitle="Impact-focused track record building web applications and developer tools with modern technologies."
+            />
           </div>
         </ScrollReveal>
 
@@ -428,7 +407,7 @@ export default function About() {
                   className={`absolute -left-[30px] top-6 h-4 w-4 rounded-full border-4 border-white ring-4 ring-slate-100 sm:-left-[39px] ${exp.dotColor}`}
                 />
                 {/* Card */}
-                <div className="card space-y-4 !p-6 sm:!p-7">
+                <Card padding="lg" className="space-y-4">
                   <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
                     <div>
                       <h3 className="text-lg font-bold text-slate-900">{exp.role}</h3>
@@ -454,10 +433,10 @@ export default function About() {
                   </ul>
                   <div className="flex flex-wrap gap-1.5 pt-2">
                     {exp.tags.map((tag) => (
-                      <span key={tag} className="tag">{tag}</span>
+                      <Tag key={tag} variant="default">{tag}</Tag>
                     ))}
                   </div>
-                </div>
+                </Card>
               </div>
             </ScrollReveal>
           ))}
@@ -468,38 +447,32 @@ export default function About() {
       <section className="section-container !pt-0">
         <ScrollReveal>
           <div className="mb-8 text-center">
-            <div className="section-label mb-2 flex items-center justify-center gap-1.5">
-              <span className="material-symbols-outlined text-[16px]">tune</span>
-              Guiding Convictions
-            </div>
-            <h2 className="section-title">Engineering Values & Principles</h2>
-            <p className="section-subtitle mx-auto text-sm">
-              The non-negotiable mental models and behavioral baselines I bring to high-performing
-              product engineering teams.
-            </p>
+            <SectionHeader
+              icon="tune"
+              label="Guiding Convictions"
+              title="Engineering Values & Principles"
+              subtitle="The non-negotiable mental models and behavioral baselines I bring to high-performing product engineering teams."
+              centered
+            />
           </div>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {values.map((value) => (
             <ScrollReveal key={value.title}>
-              <div className="card flex flex-col justify-between">
+              <Card className="flex flex-col justify-between">
                 <div className="space-y-3">
-                  <div
-                    className={`flex h-10 w-10 items-center justify-center rounded-xl ${value.color}`}
-                  >
-                    <span className="material-symbols-outlined text-[20px]">{value.icon}</span>
-                  </div>
+                  <IconBox icon={value.icon} color={value.color} size="md" rounded="xl" />
                   <h3 className="text-lg font-bold text-slate-900">{value.title}</h3>
                   <p className="text-xs leading-relaxed text-slate-600">{value.description}</p>
                 </div>
                 <div
                   className={`mt-6 flex items-center gap-1.5 border-t border-slate-100 pt-4 text-xs font-semibold ${value.footerColor}`}
                 >
-                  <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                  <Icon name="check_circle" size={16} />
                   {value.footer}
                 </div>
-              </div>
+              </Card>
             </ScrollReveal>
           ))}
         </div>
@@ -511,12 +484,7 @@ export default function About() {
           <div className="overflow-hidden rounded-3xl border border-cyan-100/80 bg-gradient-to-r from-cyan-50/70 via-cyan-50/50 to-purple-50/50 p-8 shadow-sm sm:p-12">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div className="max-w-xl space-y-3">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700 shadow-xs">
-                  <span className="material-symbols-outlined text-[14px] text-[#0891b2]">
-                    description
-                  </span>
-                  Documented Background
-                </span>
+                <Badge icon="description">Documented Background</Badge>
                 <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
                   Interested in working together or hiring?
                 </h2>
@@ -532,12 +500,12 @@ export default function About() {
                   rel="noopener noreferrer"
                   className="btn-primary shadow-sm"
                 >
-                  <span className="material-symbols-outlined text-[18px]">download</span>
+                  <Icon name="download" size={18} />
                   <span>Download Resume (PDF)</span>
                 </a>
                 <Link to="/contact" className="btn-outline">
                   <span>Get in Touch</span>
-                  <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                  <Icon name="arrow_forward" size={18} />
                 </Link>
               </div>
             </div>

@@ -1,5 +1,9 @@
 import PageHero from '../components/PageHero';
 import ScrollReveal from '../components/ScrollReveal';
+import Icon from '../components/Icon';
+import Tag from '../components/Tag';
+import IconBox from '../components/IconBox';
+import Card from '../components/Card';
 import { extensions } from '../data/portfolio';
 
 export default function Extensions() {
@@ -22,29 +26,26 @@ export default function Extensions() {
                   href={ext.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block bg-white rounded-xl p-6 border border-slate-200 shadow-xs hover:shadow-md hover:border-cyan-200 transition-all group"
+                  className="block group"
                 >
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-cyan-50 border border-cyan-100 text-[#0891b2]">
-                    <span className="material-symbols-outlined text-[20px]">extension</span>
-                  </div>
-                  <h3 className="mb-2 text-lg font-bold text-slate-900 tracking-tight group-hover:text-[#0891b2] transition-colors">
-                    {ext.title}
-                  </h3>
-                  <p className="mb-4 text-sm leading-relaxed text-slate-600">{ext.description}</p>
-                  <div className="mb-5 flex flex-wrap gap-2">
-                    {ext.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-600 border border-slate-200/60"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0891b2] group-hover:text-[#0e7490] transition-colors">
-                    View in Chrome Web Store
-                    <span className="material-symbols-outlined text-[14px]">open_in_new</span>
-                  </span>
+                  <Card hoverable padding="default" className="h-full group-hover:border-cyan-200">
+                    <div className="mb-4">
+                      <IconBox icon="extension" color="cyan" size="lg" />
+                    </div>
+                    <h3 className="mb-2 text-lg font-bold text-slate-900 tracking-tight group-hover:text-[#0891b2] transition-colors">
+                      {ext.title}
+                    </h3>
+                    <p className="mb-4 text-sm leading-relaxed text-slate-600">{ext.description}</p>
+                    <div className="mb-5 flex flex-wrap gap-2">
+                      {ext.tags.map((tag) => (
+                        <Tag key={tag}>{tag}</Tag>
+                      ))}
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0891b2] group-hover:text-[#0e7490] transition-colors">
+                      View in Chrome Web Store
+                      <Icon name="open_in_new" size={14} />
+                    </span>
+                  </Card>
                 </a>
               </ScrollReveal>
             ))}
