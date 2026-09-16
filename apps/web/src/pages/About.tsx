@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import ProfileDetail from '../components/ProfileDetail';
 import ScrollReveal from '../components/ScrollReveal';
 import { skillCategories, experience } from '../data/portfolio';
 
@@ -195,52 +196,25 @@ export default function About() {
 
                   {/* Details */}
                   <div className="space-y-4 text-sm">
-                    <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-50 text-[#0891b2]">
-                        <span className="material-symbols-outlined text-[16px]">location_on</span>
-                      </div>
-                      <div>
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                          Location
-                        </div>
-                        <div className="font-bold text-slate-900">Davao City, Philippines</div>
-                        <div className="mt-0.5 text-xs text-slate-500">
-                          Available for remote teams worldwide
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-purple-50 text-purple-700">
-                        <span className="material-symbols-outlined text-[16px]">bolt</span>
-                      </div>
-                      <div>
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                          Current Focus
-                        </div>
-                        <div className="font-bold text-slate-900">
-                          React &bull; TypeScript &bull; Cloud
-                        </div>
-                        <div className="mt-0.5 text-xs text-slate-500">
-                          Building scalable web applications &amp; developer tools
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-50 text-[#0891b2]">
-                        <span className="material-symbols-outlined text-[16px]">school</span>
-                      </div>
-                      <div>
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                          GitHub
-                        </div>
-                        <div className="font-bold text-slate-900">chesteralan</div>
-                        <div className="mt-0.5 text-xs text-slate-500">
-                          77+ repositories &amp; open source contributions
-                        </div>
-                      </div>
-                    </div>
+                    <ProfileDetail
+                      icon="location_on"
+                      label="Location"
+                      value="Davao City, Philippines"
+                      description="Available for remote teams worldwide"
+                    />
+                    <ProfileDetail
+                      icon="bolt"
+                      label="Current Focus"
+                      value="React • TypeScript • Cloud"
+                      description="Building scalable web applications & developer tools"
+                      color="purple"
+                    />
+                    <ProfileDetail
+                      icon="school"
+                      label="GitHub"
+                      value="chesteralan"
+                      description="77+ repositories & open source contributions"
+                    />
                   </div>
 
                   {/* Actions */}

@@ -1,33 +1,16 @@
+import PageHero from '../components/PageHero';
 import ScrollReveal from '../components/ScrollReveal';
 import { extensions } from '../data/portfolio';
 
 export default function Extensions() {
   return (
     <div>
-      {/* Hero */}
-      <section className="hero-glow border-b border-slate-200/60 pt-12 pb-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <ScrollReveal>
-            <div className="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-[#0891b2] mb-3">
-              <span className="bg-cyan-50 px-2.5 py-1 rounded border border-cyan-200/60">
-                Chrome Extensions
-              </span>
-              <span className="text-slate-400">·</span>
-              <span className="text-slate-500 font-normal">Productivity-Boosting Browser Tools</span>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal>
-            <div className="max-w-3xl">
-              <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
-                Browser Tools
-              </h1>
-              <p className="text-slate-600 text-base leading-relaxed">
-                Productivity-boosting Chrome extensions I've built and published.
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <PageHero
+        badge="Chrome Extensions"
+        subtitle="Productivity-Boosting Browser Tools"
+        heading="Browser Tools"
+        description="Productivity-boosting Chrome extensions I've built and published."
+      />
 
       {/* Extensions Grid */}
       <section className="py-10">

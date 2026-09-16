@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PageHero from '../components/PageHero';
 import ScrollReveal from '../components/ScrollReveal';
 import ProjectCard from '../components/ProjectCard';
 import { projects } from '../data/portfolio';
@@ -66,49 +67,32 @@ const heatmapCells = [
 export default function Projects() {
   return (
     <div>
-      {/* Hero */}
-      <section className="hero-glow border-b border-slate-200/60 pt-12 pb-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <ScrollReveal>
-            <div className="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-[#0891b2] mb-3">
-              <span className="bg-cyan-50 px-2.5 py-1 rounded border border-cyan-200/60">
-                Engineering Portfolio
-              </span>
-              <span className="text-slate-400">·</span>
-              <span className="text-slate-500 font-normal">Production Case Studies &amp; Systems</span>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal>
-            <div className="max-w-3xl">
-              <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
-                Featured Work &amp; Engineering Projects
-              </h1>
-              <p className="text-slate-600 text-base leading-relaxed">
-                A curated collection of web applications, Chrome extensions, and developer tools
-                engineered for scale, resiliency, and optimal user experience.
-              </p>
-            </div>
-          </ScrollReveal>
-          {/* Metrics Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            {metrics.map((m) => (
-              <ScrollReveal key={m.label}>
-                <div className="bg-white rounded-xl p-4 border border-slate-200 shadow-xs">
-                  <div className="flex items-center justify-between mb-0.5">
-                    <span className="text-2xl font-bold text-[#0891b2] font-mono tracking-tight">
-                      {m.value}
-                    </span>
-                    <span className="material-symbols-outlined text-slate-400 text-[22px]">
-                      {m.icon}
-                    </span>
-                  </div>
-                  <div className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase mt-0.5">
-                    {m.label}
-                  </div>
+      <PageHero
+        badge="Engineering Portfolio"
+        subtitle="Production Case Studies &amp; Systems"
+        heading="Featured Work &amp; Engineering Projects"
+        description="A curated collection of web applications, Chrome extensions, and developer tools engineered for scale, resiliency, and optimal user experience."
+      />
+      {/* Metrics Strip */}
+      <section className="max-w-7xl mx-auto px-6 py-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {metrics.map((m) => (
+            <ScrollReveal key={m.label}>
+              <div className="bg-white rounded-xl p-4 border border-slate-200 shadow-xs">
+                <div className="flex items-center justify-between mb-0.5">
+                  <span className="text-2xl font-bold text-[#0891b2] font-mono tracking-tight">
+                    {m.value}
+                  </span>
+                  <span className="material-symbols-outlined text-slate-400 text-[22px]">
+                    {m.icon}
+                  </span>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+                <div className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase mt-0.5">
+                  {m.label}
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </section>
 

@@ -81,19 +81,56 @@ export default function Contact() {
     }
   };
 
+  const validateForm = (): string | null => {
+    if (formData.website) return null;
+    if (!formData.firstName || !formData.email || !formData.details) {
+      return 'Please fill in all required fields.';
+    }
+    if (!EMAIL_REGEX.test(formData.email)) {
+      return 'Please enter a valid email address.';
+    }
+    return null;
+  };
+
+  const buildPayload = () => ({
+    name: `${formData.firstName} ${formData.lastName}`.trim(),
+    email: formData.email,
+    subject: `Project Inquiry — ${formData.scope.join(', ') || 'General'}`,
+    message: [
+      formData.details,
+      '',
+      formData.timeline ? `Timeline: ${formData.timeline}` : '',
+      formData.budget ? `Budget: ${formData.budget}` : '',
+      formData.scope.length ? `Scope: ${formData.scope.join(', ')}` : '',
+    ]
+      .filter(Boolean)
+      .join('\n'),
+    timestamp: new Date().toISOString(),
+  });
+
+  const resetForm = () =>
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      scope: [],
+      timeline: '',
+      budget: '',
+      details: '',
+      website: '',
+    });
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.website) return;
-    if (!formData.firstName || !formData.email || !formData.details) {
-      setErrorMsg('Please fill in all required fields.');
+
+    const error = validateForm();
+    if (error) {
+      setErrorMsg(error);
       setStatus('error');
       return;
     }
-    if (!EMAIL_REGEX.test(formData.email)) {
-      setErrorMsg('Please enter a valid email address.');
-      setStatus('error');
-      return;
-    }
+
     setStatus('sending');
     setErrorMsg('');
     try {
@@ -103,34 +140,11 @@ export default function Contact() {
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: `${formData.firstName} ${formData.lastName}`.trim(),
-          email: formData.email,
-          subject: `Project Inquiry — ${formData.scope.join(', ') || 'General'}`,
-          message: [
-            formData.details,
-            '',
-            formData.timeline ? `Timeline: ${formData.timeline}` : '',
-            formData.budget ? `Budget: ${formData.budget}` : '',
-            formData.scope.length ? `Scope: ${formData.scope.join(', ')}` : '',
-          ]
-            .filter(Boolean)
-            .join('\n'),
-          timestamp: new Date().toISOString(),
-        }),
+        body: JSON.stringify(buildPayload()),
       });
       if (!response.ok) throw new Error('Failed to send message');
       setStatus('success');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        scope: [],
-        timeline: '',
-        budget: '',
-        details: '',
-        website: '',
-      });
+      resetForm();
     } catch {
       setErrorMsg('Something went wrong. Please try again later.');
       setStatus('error');
