@@ -23,10 +23,9 @@ describe('Contact', () => {
 
   it('renders contact form', () => {
     renderContact();
-    expect(screen.getByLabelText(/First Name/)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Last Name/)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Work Email Address/)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Project Details/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Name/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Email/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Message/)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Send Message/ })).toBeInTheDocument();
   });
 
@@ -57,10 +56,9 @@ describe('Contact', () => {
 
   it('validates email format', () => {
     renderContact();
-    fireEvent.change(screen.getByLabelText(/First Name/), { target: { value: 'Jane' } });
-    fireEvent.change(screen.getByLabelText(/Last Name/), { target: { value: 'Doe' } });
-    fireEvent.change(screen.getByLabelText(/Work Email Address/), { target: { value: 'not-an-email' } });
-    fireEvent.change(screen.getByLabelText(/Project Details/), { target: { value: 'Hi' } });
+    fireEvent.change(screen.getByLabelText(/Name/), { target: { value: 'Jane' } });
+    fireEvent.change(screen.getByLabelText(/Email/), { target: { value: 'not-an-email' } });
+    fireEvent.change(screen.getByLabelText(/Message/), { target: { value: 'Hi' } });
     const form = screen.getByRole('button', { name: /Send Message/ }).closest('form')!;
     fireEvent.submit(form);
     expect(screen.getByText(/Please enter a valid email address/)).toBeInTheDocument();
@@ -68,10 +66,9 @@ describe('Contact', () => {
 
   it('handles successful form submission', async () => {
     renderContact();
-    fireEvent.change(screen.getByLabelText(/First Name/), { target: { value: 'Jane' } });
-    fireEvent.change(screen.getByLabelText(/Last Name/), { target: { value: 'Doe' } });
-    fireEvent.change(screen.getByLabelText(/Work Email Address/), { target: { value: 'jane@example.com' } });
-    fireEvent.change(screen.getByLabelText(/Project Details/), {
+    fireEvent.change(screen.getByLabelText(/Name/), { target: { value: 'Jane' } });
+    fireEvent.change(screen.getByLabelText(/Email/), { target: { value: 'jane@example.com' } });
+    fireEvent.change(screen.getByLabelText(/Message/), {
       target: { value: 'Hello there!' },
     });
 
@@ -84,10 +81,9 @@ describe('Contact', () => {
   it('shows error on fetch failure', async () => {
     vi.mocked(fetch).mockRejectedValueOnce(new Error('Network error'));
     renderContact();
-    fireEvent.change(screen.getByLabelText(/First Name/), { target: { value: 'Jane' } });
-    fireEvent.change(screen.getByLabelText(/Last Name/), { target: { value: 'Doe' } });
-    fireEvent.change(screen.getByLabelText(/Work Email Address/), { target: { value: 'jane@example.com' } });
-    fireEvent.change(screen.getByLabelText(/Project Details/), { target: { value: 'Hi' } });
+    fireEvent.change(screen.getByLabelText(/Name/), { target: { value: 'Jane' } });
+    fireEvent.change(screen.getByLabelText(/Email/), { target: { value: 'jane@example.com' } });
+    fireEvent.change(screen.getByLabelText(/Message/), { target: { value: 'Hi' } });
     fireEvent.click(screen.getByRole('button', { name: /Send Message/ }));
     await waitFor(() => expect(screen.getByText(/Something went wrong/)).toBeInTheDocument());
   });
@@ -95,10 +91,9 @@ describe('Contact', () => {
   it('shows error on non-ok response', async () => {
     vi.mocked(fetch).mockResolvedValueOnce({ ok: false } as Response);
     renderContact();
-    fireEvent.change(screen.getByLabelText(/First Name/), { target: { value: 'Jane' } });
-    fireEvent.change(screen.getByLabelText(/Last Name/), { target: { value: 'Doe' } });
-    fireEvent.change(screen.getByLabelText(/Work Email Address/), { target: { value: 'jane@example.com' } });
-    fireEvent.change(screen.getByLabelText(/Project Details/), { target: { value: 'Hi' } });
+    fireEvent.change(screen.getByLabelText(/Name/), { target: { value: 'Jane' } });
+    fireEvent.change(screen.getByLabelText(/Email/), { target: { value: 'jane@example.com' } });
+    fireEvent.change(screen.getByLabelText(/Message/), { target: { value: 'Hi' } });
     fireEvent.click(screen.getByRole('button', { name: /Send Message/ }));
     await waitFor(() => expect(screen.getByText(/Something went wrong/)).toBeInTheDocument());
   });
@@ -107,10 +102,9 @@ describe('Contact', () => {
     renderContact();
     const honeypot = screen.getByLabelText(/Leave this blank/);
     fireEvent.change(honeypot, { target: { value: 'bot' } });
-    fireEvent.change(screen.getByLabelText(/First Name/), { target: { value: 'Jane' } });
-    fireEvent.change(screen.getByLabelText(/Last Name/), { target: { value: 'Doe' } });
-    fireEvent.change(screen.getByLabelText(/Work Email Address/), { target: { value: 'jane@example.com' } });
-    fireEvent.change(screen.getByLabelText(/Project Details/), { target: { value: 'Hi' } });
+    fireEvent.change(screen.getByLabelText(/Name/), { target: { value: 'Jane' } });
+    fireEvent.change(screen.getByLabelText(/Email/), { target: { value: 'jane@example.com' } });
+    fireEvent.change(screen.getByLabelText(/Message/), { target: { value: 'Hi' } });
     fireEvent.click(screen.getByRole('button', { name: /Send Message/ }));
     await waitFor(() => expect(fetch).not.toHaveBeenCalled());
   });

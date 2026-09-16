@@ -24,7 +24,7 @@
   }
 
   .section-title {
-    @apply mb-4 text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl;
+    @apply mb-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl;
   }
 
   .section-subtitle {
@@ -64,10 +64,6 @@
     @apply translate-y-0 opacity-100;
   }
 
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-  }
-
   .bg-dot-grid {
     background-color: #f8fafc;
     background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
@@ -75,6 +71,10 @@
   }
 
   .hero-glow {
-    background: radial-gradient(circle at 50% 0%, rgba(224, 242, 254, 0.6) 0%, rgba(248, 250, 252, 0) 70%);
+    background: radial-gradient(
+      circle at 50% 0%,
+      rgba(224, 242, 254, 0.6) 0%,
+      rgba(248, 250, 252, 0) 70%
+    );
   }
 }

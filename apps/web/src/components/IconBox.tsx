@@ -33,9 +33,16 @@ export default function IconBox({
 }: IconBoxProps) {
   return (
     <div
-      className={cn('flex items-center justify-center', sizeMap[size], 'shrink-0', `rounded-${rounded}`, colorMap[color], className)}
+      className={cn(
+        'flex items-center justify-center',
+        sizeMap[size],
+        'shrink-0',
+        `rounded-${rounded}`,
+        colorMap[color],
+        className
+      )}
     >
-      <Icon name={icon} size={size === 'xs' ? 14 : size === 'sm' ? 16 : 20} />
+      <Icon name={icon} size={size === 'xs' ? 16 : size === 'sm' ? 18 : size === 'lg' ? 24 : 22} />
     </div>
   );
 }
