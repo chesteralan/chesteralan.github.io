@@ -1,3 +1,5 @@
+import { cn } from '../lib/cn';
+
 interface ProfileDetailProps {
   icon: string;
   label: string;
@@ -21,7 +23,7 @@ export default function ProfileDetail({
   return (
     <div className="flex items-start gap-3">
       <div
-        className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${colorMap[color]}`}
+        className={cn('mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg', colorMap[color])}
       >
         <span className="material-symbols-outlined text-[16px]">{icon}</span>
       </div>

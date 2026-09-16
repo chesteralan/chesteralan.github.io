@@ -4,6 +4,7 @@ import Icon from '../components/Icon';
 import Tag from '../components/Tag';
 import IconBox from '../components/IconBox';
 import Card from '../components/Card';
+import SectionContainer from '../components/SectionContainer';
 import { extensions } from '../data/portfolio';
 
 export default function Extensions() {
@@ -17,8 +18,7 @@ export default function Extensions() {
       />
 
       {/* Extensions Grid */}
-      <section className="py-10">
-        <div className="max-w-7xl mx-auto px-6">
+      <SectionContainer padding="py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {extensions.map((ext) => (
               <ScrollReveal key={ext.id}>
@@ -50,8 +50,7 @@ export default function Extensions() {
               </ScrollReveal>
             ))}
           </div>
-        </div>
-      </section>
+      </SectionContainer>
     </div>
   );
 }

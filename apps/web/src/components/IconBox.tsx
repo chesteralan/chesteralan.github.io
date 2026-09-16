@@ -1,3 +1,4 @@
+import { cn } from '../lib/cn';
 import Icon from './Icon';
 
 interface IconBoxProps {
@@ -32,7 +33,7 @@ export default function IconBox({
 }: IconBoxProps) {
   return (
     <div
-      className={`flex items-center justify-center ${sizeMap[size]} shrink-0 rounded-${rounded} ${colorMap[color]} ${className}`}
+      className={cn('flex items-center justify-center', sizeMap[size], 'shrink-0', `rounded-${rounded}`, colorMap[color], className)}
     >
       <Icon name={icon} size={size === 'xs' ? 14 : size === 'sm' ? 16 : 20} />
     </div>

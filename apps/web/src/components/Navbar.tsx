@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { cn } from '../lib/cn';
 import { stripBase } from '../lib/config';
 import Icon from './Icon';
 
@@ -30,11 +31,12 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 border-b transition-all duration-300 ${
+      className={cn(
+        'fixed left-0 right-0 top-0 z-50 border-b transition-all duration-300',
         scrolled
           ? 'border-slate-200 bg-white/90 backdrop-blur-md'
           : 'border-transparent bg-transparent'
-      }`}
+      )}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         {/* Logo & Availability */}
@@ -59,11 +61,12 @@ export default function Navbar() {
             <Link
               key={link.path}
               to={link.path}
-              className={`rounded-lg px-4 py-1.5 transition-colors ${
+              className={cn(
+                'rounded-lg px-4 py-1.5 transition-colors',
                 isActive(link.path)
                   ? 'bg-white font-semibold text-slate-900 shadow-sm'
                   : 'hover:text-slate-900 hover:bg-white/60'
-              }`}
+              )}
             >
               {link.label}
             </Link>
@@ -89,9 +92,10 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`overflow-hidden transition-all duration-300 md:hidden ${
+        className={cn(
+          'overflow-hidden transition-all duration-300 md:hidden',
           isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-        }`}
+        )}
       >
         <div className="border-t border-slate-100 bg-white px-6 pb-4">
           {navLinks.map((link) => (
@@ -99,11 +103,12 @@ export default function Navbar() {
               key={link.path}
               to={link.path}
               onClick={closeMenu}
-              className={`block rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
+              className={cn(
+                'block rounded-lg px-4 py-3 text-sm font-medium transition-colors',
                 isActive(link.path)
                   ? 'bg-cyan-50 text-[#0891b2]'
                   : 'text-slate-600 hover:bg-slate-50'
-              }`}
+              )}
             >
               {link.label}
             </Link>

@@ -1,3 +1,4 @@
+import { cn } from '../lib/cn';
 import Icon from './Icon';
 
 interface BadgeProps {
@@ -21,7 +22,7 @@ export default function Badge({
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${base} ${className}`}
+      className={cn('inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold', base, className)}
     >
       {dot && (
         <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />

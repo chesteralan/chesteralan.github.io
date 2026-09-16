@@ -1,3 +1,4 @@
+import { cn } from '../lib/cn';
 import Icon from './Icon';
 
 interface SectionHeaderProps {
@@ -18,17 +19,15 @@ export default function SectionHeader({
   className = '',
 }: SectionHeaderProps) {
   return (
-    <div className={`${centered ? 'text-center' : ''} ${className}`}>
+    <div className={cn(centered && 'text-center', className)}>
       <div
-        className={`section-label mb-2 flex items-center gap-1.5 ${
-          centered ? 'justify-center' : ''
-        }`}
+        className={cn('section-label mb-2 flex items-center gap-1.5', centered && 'justify-center')}
       >
         {icon && <Icon name={icon} size={14} />}
         {label}
       </div>
       <h2 className="section-title">{title}</h2>
-      {subtitle && <p className={`section-subtitle mt-2 ${centered ? 'mx-auto' : ''}`}>{subtitle}</p>}
+      {subtitle && <p className={cn('section-subtitle mt-2', centered && 'mx-auto')}>{subtitle}</p>}
     </div>
   );
 }

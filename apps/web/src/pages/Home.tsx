@@ -1,4 +1,9 @@
 import { Link } from 'react-router-dom';
+import BadgePill from '../components/BadgePill';
+import CyanActionLink from '../components/CyanActionLink';
+import PageHeading from '../components/PageHeading';
+import PulseDot from '../components/PulseDot';
+import SectionContainer from '../components/SectionContainer';
 import ScrollReveal from '../components/ScrollReveal';
 import ProjectCard from '../components/ProjectCard';
 import Icon from '../components/Icon';
@@ -17,20 +22,17 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+      <SectionContainer padding="py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column */}
           <div className="lg:col-span-7 flex flex-col items-start">
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 text-[#0891b2] border border-cyan-200 text-sm font-medium mb-6">
-                <Icon name="terminal" size={18} />
-                Frontend Developer
-              </div>
+              <BadgePill icon="terminal" size="md">Frontend Developer</BadgePill>
             </ScrollReveal>
             <ScrollReveal>
-              <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight mb-6">
+              <PageHeading className="mb-6 leading-tight">
                 Crafting robust, scalable web applications & seamless digital experiences.
-              </h1>
+              </PageHeading>
             </ScrollReveal>
             <ScrollReveal>
               <p className="text-lg text-slate-600 leading-relaxed max-w-xl mb-8">
@@ -71,7 +73,7 @@ export default function Home() {
                 </div>
                 {/* Floating badge bottom-left */}
                 <div className="absolute -bottom-3 -left-4 flex items-center gap-2 rounded-full border border-slate-100 bg-white px-4 py-2 shadow-lg">
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <PulseDot color="emerald" size="md" />
                   <span className="text-xs font-semibold text-slate-800">Available for work</span>
                 </div>
                 {/* Floating badge top-right */}
@@ -86,10 +88,10 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </div>
-      </section>
+      </SectionContainer>
 
       {/* Stats */}
-      <section className="max-w-7xl mx-auto px-6 py-8">
+      <SectionContainer padding="py-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { value: `${stats.yearsExperience}+`, label: 'Years Experience', icon: 'workspace_premium' },
@@ -102,16 +104,13 @@ export default function Home() {
             </ScrollReveal>
           ))}
         </div>
-      </section>
+      </SectionContainer>
 
       {/* Selected Work */}
-      <section className="max-w-7xl mx-auto px-6 py-16" id="projects">
+      <SectionContainer padding="py-16" id="projects">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-slate-200">
           <SectionHeader icon="briefcase" label="Portfolio" title="Selected Work" subtitle="Things I've built and shipped" />
-          <Link to="/projects" className="inline-flex items-center gap-1 text-sm font-semibold text-[#0891b2] hover:text-[#0e7490] transition-colors">
-            <span>View all projects</span>
-            <Icon name="arrow_forward" size={18} />
-          </Link>
+          <CyanActionLink to="/projects" icon="arrow_forward">View all projects</CyanActionLink>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {featuredProjects.map((project) => (
@@ -120,11 +119,11 @@ export default function Home() {
             </ScrollReveal>
           ))}
         </div>
-      </section>
+      </SectionContainer>
 
       {/* Testimonial */}
       {testimonials.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 pb-10">
+        <SectionContainer padding="pb-10">
           <ScrollReveal>
             <Card padding="lg" className="relative overflow-hidden">
               <div className="mb-4 flex items-center gap-1 text-amber-400">
@@ -146,7 +145,7 @@ export default function Home() {
               </div>
             </Card>
           </ScrollReveal>
-        </section>
+        </SectionContainer>
       )}
 
       {/* Contact CTA */}

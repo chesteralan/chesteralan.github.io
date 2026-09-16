@@ -1,4 +1,5 @@
 import type { Project } from '../data/portfolio';
+import { cn } from '../lib/cn';
 import Tag from './Tag';
 import Icon from './Icon';
 
@@ -6,7 +7,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <div className="card-hover group overflow-hidden">
       {/* Header: dark gradient with preview */}
-      <div className={`relative -m-6 mb-6 flex h-40 items-center justify-center bg-gradient-to-br ${project.previewGradient || 'from-slate-900 to-slate-800'}`}>
+      <div className={cn('relative -m-6 mb-6 flex h-40 items-center justify-center bg-gradient-to-br', project.previewGradient || 'from-slate-900 to-slate-800')}>
         {project.featured && (
           <Tag variant="overlay" className="absolute left-4 top-4">
             Featured

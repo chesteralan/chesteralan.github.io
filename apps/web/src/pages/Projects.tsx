@@ -5,6 +5,7 @@ import ProjectCard from '../components/ProjectCard';
 import Icon from '../components/Icon';
 import Tag from '../components/Tag';
 import SectionHeader from '../components/SectionHeader';
+import SectionContainer from '../components/SectionContainer';
 import StatCard from '../components/StatCard';
 import CTASection from '../components/CTASection';
 import { projects } from '../data/portfolio';
@@ -79,7 +80,7 @@ export default function Projects() {
         description="A curated collection of web applications, Chrome extensions, and developer tools engineered for scale, resiliency, and optimal user experience."
       />
       {/* Metrics Strip */}
-      <section className="max-w-7xl mx-auto px-6 py-8">
+      <SectionContainer padding="py-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {metrics.map((m) => (
             <ScrollReveal key={m.label}>
@@ -87,11 +88,10 @@ export default function Projects() {
             </ScrollReveal>
           ))}
         </div>
-      </section>
+      </SectionContainer>
 
       {/* Filter & Search Toolbar + Project Grid */}
-      <section className="py-10">
-        <div className="max-w-7xl mx-auto px-6">
+      <SectionContainer padding="py-10">
           {/* Filter & Search */}
           <ScrollReveal>
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
@@ -125,12 +125,10 @@ export default function Projects() {
               </ScrollReveal>
             ))}
           </div>
-        </div>
-      </section>
+      </SectionContainer>
 
       {/* Open Source Section */}
-      <section className="py-12 bg-white/70 border-y border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-6">
+      <SectionContainer padding="py-12" className="bg-white/70 border-y border-slate-200/80">
           <ScrollReveal>
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
               <SectionHeader
@@ -220,8 +218,7 @@ export default function Projects() {
               </ScrollReveal>
             </div>
           </div>
-        </div>
-      </section>
+      </SectionContainer>
 
       {/* Collaboration CTA */}
       <CTASection

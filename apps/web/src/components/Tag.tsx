@@ -1,3 +1,5 @@
+import { cn } from '../lib/cn';
+
 interface TagProps {
   children: React.ReactNode;
   variant?: 'default' | 'purple' | 'active' | 'outline' | 'overlay';
@@ -15,7 +17,7 @@ const variantStyles = {
 export default function Tag({ children, variant = 'default', className = '' }: TagProps) {
   return (
     <span
-      className={`inline-block rounded-md px-2.5 py-1 text-xs font-medium ${variantStyles[variant]} ${className}`}
+      className={cn('inline-block rounded-md px-2.5 py-1 text-xs font-medium', variantStyles[variant], className)}
     >
       {children}
     </span>

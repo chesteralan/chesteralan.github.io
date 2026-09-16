@@ -1,12 +1,21 @@
 import { Link } from 'react-router-dom';
 import Badge from '../components/Badge';
 import Card from '../components/Card';
+import BadgePill from '../components/BadgePill';
+import BulletListItem from '../components/BulletListItem';
+import CardFooter from '../components/CardFooter';
 import Icon from '../components/Icon';
 import IconBox from '../components/IconBox';
+import PageHeading from '../components/PageHeading';
+import SectionContainer from '../components/SectionContainer';
+import SubHeading from '../components/SubHeading';
 import ProfileDetail from '../components/ProfileDetail';
 import ScrollReveal from '../components/ScrollReveal';
 import SectionHeader from '../components/SectionHeader';
+import MetricStat from '../components/MetricStat';
+import SkillCategoryCard from '../components/SkillCategoryCard';
 import Tag from '../components/Tag';
+import ToolItem from '../components/ToolItem';
 import { skillCategories, experience } from '../data/portfolio';
 
 const pillars = [
@@ -64,12 +73,7 @@ const iconColorMap: Record<string, 'cyan' | 'purple' | 'slate'> = {
   cloud: 'cyan',
 };
 
-const badgeColorMap: Record<string, string> = {
-  'Core Mastery': 'bg-purple-50 text-purple-700 border-purple-100',
-  Distributed: 'bg-slate-100 text-slate-700 border-slate-200',
-  Tooling: 'bg-slate-100 text-slate-700 border-slate-200',
-  Infrastructure: 'bg-cyan-50 text-cyan-700 border-cyan-100',
-};
+
 
 export default function About() {
   const totalCategories = 4;
@@ -77,17 +81,14 @@ export default function About() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="section-container !pb-0">
+      <SectionContainer padding="!pb-0">
         <ScrollReveal>
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0891b2]">
-            <Icon name="info" size={16} />
-            About Alchie Tagudin
-          </div>
+          <BadgePill icon="info">About Alchie Tagudin</BadgePill>
         </ScrollReveal>
         <ScrollReveal>
-          <h1 className="mb-4 max-w-4xl text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl">
+          <PageHeading className="mb-4 max-w-4xl leading-[1.15]">
             About Me & Engineering Philosophy
-          </h1>
+          </PageHeading>
         </ScrollReveal>
         <ScrollReveal>
           <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
@@ -95,10 +96,10 @@ export default function About() {
             applications, developer platforms, and resilient cloud infrastructure.
           </p>
         </ScrollReveal>
-      </section>
+      </SectionContainer>
 
       {/* Journey & Quick Profile */}
-      <section className="section-container !pt-12">
+      <SectionContainer padding="!pt-12">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
           {/* Left Column: Journey */}
           <div className="space-y-6 lg:col-span-7">
@@ -128,24 +129,9 @@ export default function About() {
                   </div>
                   {/* Quick Metrics */}
                   <div className="grid grid-cols-3 gap-4 border-t border-slate-100 pt-4">
-                    <div>
-                      <div className="text-2xl font-extrabold text-[#0891b2] sm:text-3xl">8+</div>
-                      <div className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                        Years Experience
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-extrabold text-[#0891b2] sm:text-3xl">15+</div>
-                      <div className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                        Projects Shipped
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-extrabold text-[#0891b2] sm:text-3xl">3</div>
-                      <div className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                        Extensions Published
-                      </div>
-                    </div>
+                    <MetricStat value="8+" label="Years Experience" />
+                    <MetricStat value="15+" label="Projects Shipped" />
+                    <MetricStat value="3" label="Extensions Published" />
                   </div>
                 </div>
               </Card>
@@ -229,10 +215,10 @@ export default function About() {
             </ScrollReveal>
           </div>
         </div>
-      </section>
+      </SectionContainer>
 
       {/* Skills Matrix */}
-      <section className="section-container !pt-0" id="skills">
+      <SectionContainer padding="!pt-0" id="skills">
         <ScrollReveal>
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <SectionHeader
@@ -254,40 +240,16 @@ export default function About() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {skillCategories.slice(0, 3).map((cat) => (
             <ScrollReveal key={cat.id}>
-              <Card className="flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <IconBox
-                      icon={cat.icon}
-                      color={iconColorMap[cat.id] || 'cyan'}
-                      size="md"
-                      rounded="xl"
-                    />
-                    <span
-                      className={`rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${badgeColorMap[cat.badge] || 'bg-slate-100 text-slate-700 border-slate-200'}`}
-                    >
-                      {cat.badge}
-                    </span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900">{cat.title}</h3>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-500">{cat.description}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {cat.skills.map((skill) => (
-                      <Tag key={skill} variant="purple">
-                        {skill}
-                      </Tag>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-xs">
-                  <span className="text-slate-500">
-                    {cat.footerLabel}: {cat.footerValue}
-                  </span>
-                  <span className="font-bold text-[#0891b2]">{cat.footerValue}</span>
-                </div>
-              </Card>
+              <SkillCategoryCard
+                icon={cat.icon}
+                color={iconColorMap[cat.id] || 'cyan'}
+                badge={cat.badge}
+                title={cat.title}
+                description={cat.description}
+                skills={cat.skills}
+                footerLabel={cat.footerLabel}
+                footerValue={cat.footerValue}
+              />
             </ScrollReveal>
           ))}
         </div>
@@ -296,40 +258,16 @@ export default function About() {
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-12">
           {/* Card 4 */}
           <ScrollReveal className="lg:col-span-5">
-            <Card className="flex flex-col justify-between h-full">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <IconBox
-                    icon={skillCategories[3]?.icon || 'cloud'}
-                    color="cyan"
-                    size="md"
-                    rounded="xl"
-                  />
-                  <span className="rounded-full border border-slate-200 bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-700">
-                    {skillCategories[3]?.badge || 'Infrastructure'}
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900">
-                    {skillCategories[3]?.title || 'Cloud & Deployment'}
-                  </h3>
-                  <p className="mt-1 text-xs leading-relaxed text-slate-500">
-                    {skillCategories[3]?.description || 'Cloud platform deployment and hosting.'}
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-1.5 pt-2">
-                  {(skillCategories[3]?.skills || []).map((skill) => (
-                    <Tag key={skill} variant="purple">
-                      {skill}
-                    </Tag>
-                  ))}
-                </div>
-              </div>
-              <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-xs">
-                <span className="text-slate-500">Deployment Platforms</span>
-                <span className="font-bold text-[#0891b2]">3 Providers</span>
-              </div>
-            </Card>
+            <SkillCategoryCard
+              icon={skillCategories[3]?.icon || 'cloud'}
+              color="cyan"
+              badge={skillCategories[3]?.badge || 'Infrastructure'}
+              title={skillCategories[3]?.title || 'Cloud & Deployment'}
+              description={skillCategories[3]?.description || 'Cloud platform deployment and hosting.'}
+              skills={skillCategories[3]?.skills || []}
+              footerLabel="Deployment Platforms"
+              footerValue="3 Providers"
+            />
           </ScrollReveal>
 
           {/* Card 5: Tools & DevOps (wider) */}
@@ -340,7 +278,7 @@ export default function About() {
                   <div className="flex items-center gap-3">
                     <IconBox icon="build" color="slate" size="md" rounded="xl" />
                     <div>
-                      <h3 className="text-lg font-bold text-slate-900">Tools & DevOps</h3>
+                      <SubHeading>Tools & DevOps</SubHeading>
                       <div className="text-[11px] text-slate-500">
                         Developer tooling, version control, and deployment automation
                       </div>
@@ -353,22 +291,10 @@ export default function About() {
                   best practices, and streamlined build pipelines rather than manual processes alone.
                 </p>
                 <div className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-4">
-                  <div className="rounded-lg border border-slate-100 bg-slate-50 p-3">
-                    <div className="text-xs font-bold text-slate-900">Git & GitHub</div>
-                    <div className="mt-0.5 text-[11px] text-slate-500">Version Control</div>
-                  </div>
-                  <div className="rounded-lg border border-slate-100 bg-slate-50 p-3">
-                    <div className="text-xs font-bold text-slate-900">VS Code</div>
-                    <div className="mt-0.5 text-[11px] text-slate-500">Primary IDE</div>
-                  </div>
-                  <div className="rounded-lg border border-slate-100 bg-slate-50 p-3">
-                    <div className="text-xs font-bold text-slate-900">Chrome Extensions</div>
-                    <div className="mt-0.5 text-[11px] text-slate-500">Browser Tooling</div>
-                  </div>
-                  <div className="rounded-lg border border-slate-100 bg-slate-50 p-3">
-                    <div className="text-xs font-bold text-slate-900">CLI Tools</div>
-                    <div className="mt-0.5 text-[11px] text-slate-500">Terminal Power</div>
-                  </div>
+                  <ToolItem title="Git & GitHub" subtitle="Version Control" />
+                  <ToolItem title="VS Code" subtitle="Primary IDE" />
+                  <ToolItem title="Chrome Extensions" subtitle="Browser Tooling" />
+                  <ToolItem title="CLI Tools" subtitle="Terminal Power" />
                 </div>
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {['ESLint & Prettier Configs', 'Postman / Insomnia', 'Sentry Error Tracking'].map(
@@ -383,10 +309,10 @@ export default function About() {
             </Card>
           </ScrollReveal>
         </div>
-      </section>
+      </SectionContainer>
 
       {/* Career Timeline */}
-      <section className="section-container !pt-0" id="experience">
+      <SectionContainer padding="!pt-0" id="experience">
         <ScrollReveal>
           <div className="mb-8">
             <SectionHeader
@@ -422,13 +348,9 @@ export default function About() {
                   <p className="text-sm leading-relaxed text-slate-600">{exp.description}</p>
                   <ul className="space-y-1.5">
                     {exp.highlights.map((h, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-2 text-sm text-slate-500"
-                      >
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0891b2]" />
+                      <BulletListItem key={i}>
                         {h}
-                      </li>
+                      </BulletListItem>
                     ))}
                   </ul>
                   <div className="flex flex-wrap gap-1.5 pt-2">
@@ -441,10 +363,10 @@ export default function About() {
             </ScrollReveal>
           ))}
         </div>
-      </section>
+      </SectionContainer>
 
       {/* Engineering Values */}
-      <section className="section-container !pt-0">
+      <SectionContainer padding="!pt-0">
         <ScrollReveal>
           <div className="mb-8 text-center">
             <SectionHeader
@@ -463,23 +385,26 @@ export default function About() {
               <Card className="flex flex-col justify-between">
                 <div className="space-y-3">
                   <IconBox icon={value.icon} color={value.color} size="md" rounded="xl" />
-                  <h3 className="text-lg font-bold text-slate-900">{value.title}</h3>
+                  <SubHeading>{value.title}</SubHeading>
                   <p className="text-xs leading-relaxed text-slate-600">{value.description}</p>
                 </div>
-                <div
-                  className={`mt-6 flex items-center gap-1.5 border-t border-slate-100 pt-4 text-xs font-semibold ${value.footerColor}`}
-                >
-                  <Icon name="check_circle" size={16} />
-                  {value.footer}
-                </div>
+                <CardFooter
+                  left={
+                    <>
+                      <Icon name="check_circle" size={16} />
+                      {value.footer}
+                    </>
+                  }
+                  className={value.footerColor}
+                />
               </Card>
             </ScrollReveal>
           ))}
         </div>
-      </section>
+      </SectionContainer>
 
       {/* CTA Banner */}
-      <section className="section-container !pt-0 !pb-20">
+      <SectionContainer padding="!pt-0 !pb-20">
         <ScrollReveal>
           <div className="overflow-hidden rounded-3xl border border-cyan-100/80 bg-gradient-to-r from-cyan-50/70 via-cyan-50/50 to-purple-50/50 p-8 shadow-sm sm:p-12">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
@@ -511,7 +436,7 @@ export default function About() {
             </div>
           </div>
         </ScrollReveal>
-      </section>
+      </SectionContainer>
     </div>
   );
 }

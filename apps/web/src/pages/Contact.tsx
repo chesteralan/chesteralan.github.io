@@ -1,9 +1,19 @@
 import { useState } from 'react';
 import Badge from '../components/Badge';
+import BadgePill from '../components/BadgePill';
 import Card from '../components/Card';
+import ContactInfoRow from '../components/ContactInfoRow';
+import FieldLabel from '../components/FieldLabel';
+import FormAlert from '../components/FormAlert';
+import FormField from '../components/FormField';
 import Icon from '../components/Icon';
 import IconBox from '../components/IconBox';
+import PageHeading from '../components/PageHeading';
+import PulseDot from '../components/PulseDot';
 import ScrollReveal from '../components/ScrollReveal';
+import SectionContainer from '../components/SectionContainer';
+import SocialCard from '../components/SocialCard';
+import ToggleButton from '../components/ToggleButton';
 import { socialLinks } from '../data/portfolio';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
@@ -158,27 +168,24 @@ export default function Contact() {
   return (
     <div>
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 pt-16 pb-8">
+      <SectionContainer padding="pt-16 pb-8">
         <ScrollReveal>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 text-[#0891b2] border border-cyan-200 text-sm font-medium mb-4">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#0891b2]" />
-            GET IN TOUCH
-          </div>
+          <BadgePill size="md" className="mb-4">GET IN TOUCH</BadgePill>
         </ScrollReveal>
         <ScrollReveal>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-4">
+          <PageHeading size="lg" className="mb-4">
             Let's Build Something Exceptional
-          </h1>
+          </PageHeading>
         </ScrollReveal>
         <ScrollReveal>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
             Currently available for freelance engineering contracts, consulting, and full-time senior engineering roles.
           </p>
         </ScrollReveal>
-      </section>
+      </SectionContainer>
 
       {/* 2-Column Content */}
-      <section className="max-w-7xl mx-auto px-6 pb-20">
+      <SectionContainer padding="pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column — Sidebar */}
           <aside className="lg:col-span-5 space-y-6">
@@ -187,7 +194,7 @@ export default function Contact() {
               <Card>
                 <div className="flex items-center justify-between flex-wrap gap-2 mb-2">
                   <div className="flex items-center gap-2">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#0891b2] animate-pulse" />
+                    <PulseDot color="cyan" size="md" />
                     <span className="font-bold text-slate-900 text-sm">Available for Projects</span>
                   </div>
                   <Badge>Remote &amp; Hybrid</Badge>
@@ -206,7 +213,7 @@ export default function Contact() {
                   <div className="flex items-start gap-3.5">
                     <IconBox icon="mail" size="sm" />
                     <div>
-                      <span className="block text-[11px] uppercase tracking-wider font-semibold text-slate-400">Direct Email</span>
+                      <FieldLabel>Direct Email</FieldLabel>
                       <a href={`mailto:${socialLinks.email}`} className="text-sm font-bold text-slate-900 hover:text-[#0891b2] transition-colors">
                         {socialLinks.email}
                       </a>
@@ -223,44 +230,22 @@ export default function Contact() {
                 </div>
 
                 {/* Location */}
-                <div className="flex items-start gap-3.5 pb-4 border-b border-slate-100">
-                  <IconBox icon="location_on" size="sm" />
-                  <div>
-                    <span className="block text-[11px] uppercase tracking-wider font-semibold text-slate-400">Location</span>
-                    <p className="text-sm font-bold text-slate-900 leading-snug">Davao City, Philippines</p>
-                  </div>
+                <div className="pb-4 border-b border-slate-100">
+                  <ContactInfoRow icon="location_on" label="Location" value="Davao City, Philippines" />
                 </div>
 
                 {/* Response Time */}
-                <div className="flex items-start gap-3.5">
-                  <IconBox icon="bolt" size="sm" />
-                  <div>
-                    <span className="block text-[11px] uppercase tracking-wider font-semibold text-slate-400">Response Window</span>
-                    <p className="text-sm font-bold text-slate-900 leading-snug">Typically responds within 24 hours</p>
-                  </div>
-                </div>
+                <ContactInfoRow icon="bolt" label="Response Window" value="Typically responds within 24 hours" />
               </Card>
             </ScrollReveal>
 
             {/* Developer Presence */}
             <ScrollReveal>
               <Card>
-                <span className="block text-[11px] uppercase tracking-wider font-semibold text-slate-400 mb-3">Developer Presence</span>
+                <FieldLabel className="mb-3">Developer Presence</FieldLabel>
                 <div className="grid grid-cols-2 gap-3">
                   {SOCIALS.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-100"
-                    >
-                      <IconBox icon={social.icon} size="xs" color="cyan" rounded="lg" />
-                      <div className="overflow-hidden">
-                        <span className="block text-xs font-bold text-slate-900 truncate">{social.label}</span>
-                        <span className="block text-[11px] text-slate-500 truncate">{social.handle}</span>
-                      </div>
-                    </a>
+                    <SocialCard key={social.label} href={social.href} icon={social.icon} label={social.label} handle={social.handle} />
                   ))}
                 </div>
               </Card>
@@ -311,56 +296,12 @@ export default function Contact() {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* First / Last Name */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="firstName" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        First Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        required
-                        className="w-full rounded-xl bg-slate-50/70 border border-slate-200 text-slate-800 text-sm px-3.5 py-2.5 focus:bg-white focus:ring-2 focus:ring-[#0891b2] focus:border-transparent outline-none transition-all"
-                        placeholder="Jane"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="lastName" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Last Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        required
-                        className="w-full rounded-xl bg-slate-50/70 border border-slate-200 text-slate-800 text-sm px-3.5 py-2.5 focus:bg-white focus:ring-2 focus:ring-[#0891b2] focus:border-transparent outline-none transition-all"
-                        placeholder="Doe"
-                      />
-                    </div>
+                    <FormField id="firstName" name="firstName" label="First Name" required value={formData.firstName} onChange={handleChange} placeholder="Jane" />
+                    <FormField id="lastName" name="lastName" label="Last Name" required value={formData.lastName} onChange={handleChange} placeholder="Doe" />
                   </div>
 
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="email" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                      Work Email Address <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full rounded-xl bg-slate-50/70 border border-slate-200 text-slate-800 text-sm px-3.5 py-2.5 focus:bg-white focus:ring-2 focus:ring-[#0891b2] focus:border-transparent outline-none transition-all"
-                      placeholder="jane@company.com"
-                    />
-                  </div>
+                  <FormField id="email" name="email" label="Work Email Address" type="email" required value={formData.email} onChange={handleChange} placeholder="jane@company.com" />
 
                   {/* Scope / Engagement Type */}
                   <div>
@@ -369,18 +310,13 @@ export default function Contact() {
                       {SCOPE_OPTIONS.map((option) => {
                         const active = formData.scope.includes(option);
                         return (
-                          <button
+                          <ToggleButton
                             key={option}
-                            type="button"
+                            active={active}
                             onClick={() => toggleScope(option)}
-                            className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors ${
-                              active
-                                ? 'bg-[#0891b2] text-white shadow-sm'
-                                : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                            }`}
                           >
                             {option}
-                          </button>
+                          </ToggleButton>
                         );
                       })}
                     </div>
@@ -415,18 +351,14 @@ export default function Contact() {
                       {BUDGET_OPTIONS.map((option) => {
                         const active = formData.budget === option;
                         return (
-                          <button
+                          <ToggleButton
                             key={option}
-                            type="button"
+                            active={active}
                             onClick={() => setFormData((prev) => ({ ...prev, budget: active ? '' : option }))}
-                            className={`py-2.5 px-3 text-xs font-semibold rounded-xl transition-colors text-center ${
-                              active
-                                ? 'bg-[#0891b2] text-white shadow-sm'
-                                : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                            }`}
+                            className="text-center"
                           >
                             {option}
-                          </button>
+                          </ToggleButton>
                         );
                       })}
                     </div>
@@ -451,19 +383,10 @@ export default function Contact() {
 
                   {/* Status Messages */}
                   {status === 'success' && (
-                    <div className="flex items-start gap-3 rounded-xl border border-green-200 bg-green-50 p-4">
-                      <Icon name="check_circle" size={20} className="mt-0.5 shrink-0 text-green-500" />
-                      <div>
-                        <p className="text-sm font-medium text-green-800">Message sent!</p>
-                        <p className="text-sm text-green-600">Thanks for reaching out. I'll get back to you soon!</p>
-                      </div>
-                    </div>
+                    <FormAlert type="success" message="Thanks for reaching out. I'll get back to you soon!" />
                   )}
                   {status === 'error' && (
-                    <div className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4">
-                      <Icon name="error" size={20} className="mt-0.5 shrink-0 text-red-500" />
-                      <p className="text-sm text-red-700">{errorMsg}</p>
-                    </div>
+                    <FormAlert type="error" message={errorMsg} />
                   )}
 
                   {/* Submit */}
@@ -495,7 +418,7 @@ export default function Contact() {
             </ScrollReveal>
           </div>
         </div>
-      </section>
+      </SectionContainer>
     </div>
   );
 }

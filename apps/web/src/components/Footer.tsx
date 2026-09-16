@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { socialLinks } from '../data/portfolio';
 import Tag from './Tag';
-import Icon from './Icon';
+import SocialIcon from './SocialIcon';
 
 export default function Footer() {
   return (
@@ -27,31 +27,9 @@ export default function Footer() {
             <Link to="/contact" className="hover:text-slate-900 transition-colors">Contact</Link>
           </nav>
           <div className="flex items-center gap-3 border-l border-slate-200 pl-6 text-slate-400">
-            <a
-              href={socialLinks.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg bg-slate-50 p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
-              aria-label="GitHub"
-            >
-              <Icon name="code" size={20} />
-            </a>
-            <a
-              href={socialLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg bg-slate-50 p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
-              aria-label="LinkedIn"
-            >
-              <Icon name="work" size={20} />
-            </a>
-            <a
-              href={`mailto:${socialLinks.email}`}
-              className="rounded-lg bg-slate-50 p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
-              aria-label="Email"
-            >
-              <Icon name="mail" size={20} />
-            </a>
+            <SocialIcon href={socialLinks.github} icon="code" label="GitHub" />
+            <SocialIcon href={socialLinks.linkedin} icon="work" label="LinkedIn" />
+            <SocialIcon href={`mailto:${socialLinks.email}`} icon="mail" label="Email" external={false} />
           </div>
         </div>
       </div>

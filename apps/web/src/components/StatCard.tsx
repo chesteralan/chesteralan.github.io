@@ -1,3 +1,4 @@
+import { cn } from '../lib/cn';
 import Icon from './Icon';
 
 interface StatCardProps {
@@ -17,7 +18,7 @@ export default function StatCard({
 }: StatCardProps) {
   if (layout === 'horizontal') {
     return (
-      <div className={`flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-xs ${className}`}>
+      <div className={cn('flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-xs', className)}>
         {icon && (
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-cyan-50 text-[#0891b2]">
             <Icon name={icon} size={22} />
@@ -32,7 +33,7 @@ export default function StatCard({
   }
 
   return (
-    <div className={`rounded-xl border border-slate-200/80 bg-white p-6 shadow-sm ${className}`}>
+    <div className={cn('rounded-xl border border-slate-200/80 bg-white p-6 shadow-sm', className)}>
       <div className="mb-2 flex items-center justify-between">
         <span className="text-3xl font-extrabold text-[#0891b2]">{value}</span>
         {icon && <Icon name={icon} size={26} className="text-slate-400" />}

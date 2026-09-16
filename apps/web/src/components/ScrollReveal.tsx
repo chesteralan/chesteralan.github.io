@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { cn } from '../lib/cn';
 
 export default function ScrollReveal({
   children,
@@ -32,9 +33,11 @@ export default function ScrollReveal({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out ${
-        visible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
-      } ${className}`}
+      className={cn(
+        'transition-all duration-700 ease-out',
+        visible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0',
+        className
+      )}
     >
       {children}
     </div>

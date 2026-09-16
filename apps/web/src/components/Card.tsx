@@ -1,3 +1,5 @@
+import { cn } from '../lib/cn';
+
 interface CardProps {
   children: React.ReactNode;
   hoverable?: boolean;
@@ -20,9 +22,12 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`rounded-2xl border border-slate-200/90 bg-white shadow-sm ${
-        hoverable ? 'transition-shadow hover:shadow-md' : ''
-      } ${paddingMap[padding]} ${className}`}
+      className={cn(
+        'rounded-2xl border border-slate-200/90 bg-white shadow-sm',
+        hoverable && 'transition-shadow hover:shadow-md',
+        paddingMap[padding],
+        className
+      )}
     >
       {children}
     </div>
