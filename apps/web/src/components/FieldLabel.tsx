@@ -8,7 +8,10 @@ interface FieldLabelProps {
 export default function FieldLabel({ children, className = '' }: FieldLabelProps) {
   return (
     <span
-      className={cn('block text-[11px] font-semibold uppercase tracking-wider text-slate-400', className)}
+      className={cn(
+        'block text-[11px] font-semibold uppercase tracking-wider text-slate-500',
+        className
+      )}
     >
       {children}
     </span>

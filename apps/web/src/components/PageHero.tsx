@@ -16,25 +16,23 @@ export default function PageHero({
   description,
 }: PageHeroProps) {
   return (
-    <section className="hero-glow border-b border-slate-200/60 pt-12 pb-8">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="hero-glow border-b border-slate-200/60 pb-8 pt-12">
+      <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
-          <div className="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-[#0891b2] mb-3">
-            <span className="bg-cyan-50 px-2.5 py-1 rounded border border-cyan-200/60">
+          <div className="mb-3 flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-[#0891b2]">
+            <span className="rounded border border-cyan-200/60 bg-cyan-50 px-2.5 py-1">
               {badge}
             </span>
-            <span className="text-slate-400">{separator}</span>
-            <span className="text-slate-500 font-normal">{subtitle}</span>
+            <span className="text-slate-500">{separator}</span>
+            <span className="font-normal text-slate-500">{subtitle}</span>
           </div>
         </ScrollReveal>
         <ScrollReveal>
           <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+            <h1 className="mb-3 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 md:text-4xl">
               {heading}
             </h1>
-            <p className="text-slate-600 text-base leading-relaxed">
-              {description}
-            </p>
+            <p className="text-base leading-relaxed text-slate-600">{description}</p>
           </div>
         </ScrollReveal>
       </div>

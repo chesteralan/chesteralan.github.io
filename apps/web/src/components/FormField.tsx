@@ -7,6 +7,7 @@ interface FormFieldProps {
   placeholder?: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  errorId?: string;
 }
 
 export default function FormField({
@@ -18,10 +19,11 @@ export default function FormField({
   placeholder,
   value,
   onChange,
+  errorId,
 }: FormFieldProps) {
   return (
     <div>
-      <label htmlFor={id} className="block text-xs font-semibold text-slate-700 mb-1.5">
+      <label htmlFor={id} className="mb-1.5 block text-xs font-semibold text-slate-700">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <input
@@ -31,8 +33,9 @@ export default function FormField({
         value={value}
         onChange={onChange}
         required={required}
-        className="w-full rounded-xl bg-slate-50/70 border border-slate-200 text-slate-800 text-sm px-3.5 py-2.5 focus:bg-white focus:ring-2 focus:ring-[#0891b2] focus:border-transparent outline-none transition-all"
+        className="w-full rounded-lg border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-sm text-slate-800 outline-none transition-all focus:border-transparent focus:bg-white focus:ring-2 focus:ring-[#0891b2]"
         placeholder={placeholder}
+        aria-describedby={errorId}
       />
     </div>
   );

@@ -32,7 +32,7 @@ export default function ProfileDetail({
         <Icon name={icon} size={16} />
       </div>
       <div>
-        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">{label}</div>
+        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{label}</div>
         <div className="font-bold text-slate-900">{value}</div>
         <div className="mt-0.5 text-xs text-slate-500">{description}</div>
       </div>

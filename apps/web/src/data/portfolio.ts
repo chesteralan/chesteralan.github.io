@@ -1,4 +1,12 @@
-import type { Project, Extension, Skill, SkillCategory, Experience, Testimonial, Stats } from './types';
+import type {
+  Project,
+  Extension,
+  Skill,
+  SkillCategory,
+  Experience,
+  Testimonial,
+  Stats,
+} from './types';
 
 export type { Project, Extension, Skill, SkillCategory, Experience, Testimonial, Stats };
 
@@ -117,7 +125,8 @@ export const skillCategories: SkillCategory[] = [
   {
     id: 'frontend',
     title: 'Frontend Engineering',
-    description: 'High-performance reactive interfaces with pixel-perfect responsive execution and accessible interactions.',
+    description:
+      'High-performance reactive interfaces with pixel-perfect responsive execution and accessible interactions.',
     icon: 'monitor',
     badge: 'Core Mastery',
     skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'JavaScript', 'HTML/CSS'],
@@ -127,22 +136,13 @@ export const skillCategories: SkillCategory[] = [
   {
     id: 'backend',
     title: 'Backend & APIs',
-    description: 'Fault-tolerant backend architectures engineered for low latency and high concurrency throughput.',
+    description:
+      'Fault-tolerant backend architectures engineered for low latency and high concurrency throughput.',
     icon: 'terminal',
     badge: 'Distributed',
     skills: ['Node.js', 'Firebase', 'REST APIs', 'Express'],
     footerLabel: 'Runtime',
     footerValue: 'Node.js',
-  },
-  {
-    id: 'tools',
-    title: 'Tools & DevOps',
-    description: 'Developer tooling, version control, and deployment automation for efficient workflows.',
-    icon: 'build',
-    badge: 'Tooling',
-    skills: ['Git', 'GitHub', 'VS Code', 'Chrome Extensions', 'CLI Tools'],
-    footerLabel: 'VCS',
-    footerValue: 'Git + GitHub',
   },
   {
     id: 'cloud',
@@ -162,7 +162,8 @@ export const experience: Experience[] = [
     role: 'Freelance Web Developer',
     company: 'Self-Employed',
     period: '2015 — Present',
-    description: 'Building web applications, Chrome extensions, and digital solutions for clients and personal projects.',
+    description:
+      'Building web applications, Chrome extensions, and digital solutions for clients and personal projects.',
     highlights: [
       'Developed and published 3+ Chrome extensions with thousands of users',
       'Built charity platforms serving underprivileged communities',
@@ -176,7 +177,8 @@ export const experience: Experience[] = [
     role: 'Open Source Contributor',
     company: 'Community',
     period: '2015 — Present',
-    description: 'Contributing to JavaScript ecosystem through community sites, extensions, and developer tools.',
+    description:
+      'Contributing to JavaScript ecosystem through community sites, extensions, and developer tools.',
     highlights: [
       'Created Altrugenix.js.org community hub',
       'Published 3 Chrome extensions on the Web Store',
@@ -192,7 +194,8 @@ export const testimonials: Testimonial[] = [
     id: 'test1',
     name: 'Client',
     role: 'ANC Davao',
-    content: 'Working with Chester was a great experience. He delivered a professional website that perfectly captured our mission and helped us reach more people.',
+    content:
+      'Working with Chester was a great experience. He delivered a professional website that perfectly captured our mission and helped us reach more people.',
     initials: 'AN',
   },
 ];

@@ -14,22 +14,36 @@ export default function Footer() {
             <Tag variant="default">Frontend Developer</Tag>
           </div>
           <p className="max-w-sm text-xs text-slate-500">
-            Crafting clean, accessible, and high-performance digital experiences across the web.
+            Building clean, accessible, and high-performance digital experiences with AI-assisted
+            development.
           </p>
         </div>
 
         {/* Links & Socials */}
-        <div className="flex items-center gap-8">
+        <div className="flex min-w-0 flex-wrap items-center gap-6 sm:gap-8">
           <nav className="flex items-center gap-6 text-xs font-semibold text-slate-600">
-            <Link to="/" className="hover:text-slate-900 transition-colors">Home</Link>
-            <Link to="/projects" className="hover:text-slate-900 transition-colors">Projects</Link>
-            <Link to="/about" className="hover:text-slate-900 transition-colors">About</Link>
-            <Link to="/contact" className="hover:text-slate-900 transition-colors">Contact</Link>
+            <Link to="/" className="transition-colors hover:text-slate-900">
+              Home
+            </Link>
+            <Link to="/projects" className="transition-colors hover:text-slate-900">
+              Projects
+            </Link>
+            <Link to="/about" className="transition-colors hover:text-slate-900">
+              About
+            </Link>
+            <Link to="/contact" className="transition-colors hover:text-slate-900">
+              Contact
+            </Link>
           </nav>
-          <div className="flex items-center gap-3 border-l border-slate-200 pl-6 text-slate-400">
+          <div className="flex items-center gap-3 border-l border-slate-200 pl-6 text-slate-500">
             <SocialIcon href={socialLinks.github} icon="code" label="GitHub" />
             <SocialIcon href={socialLinks.linkedin} icon="work" label="LinkedIn" />
-            <SocialIcon href={`mailto:${socialLinks.email}`} icon="mail" label="Email" external={false} />
+            <SocialIcon
+              href={`mailto:${socialLinks.email}`}
+              icon="mail"
+              label="Email"
+              external={false}
+            />
           </div>
         </div>
       </div>

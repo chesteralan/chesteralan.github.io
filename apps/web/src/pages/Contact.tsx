@@ -17,13 +17,6 @@ import { socialLinks } from '../data/portfolio';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
-const CORE_AREAS = [
-  'Full-stack web application development (MVP to production)',
-  'Responsive UI/UX with modern frameworks (React, TypeScript)',
-  'REST API design, backend services & database architecture',
-  'Chrome extensions & developer tooling',
-];
-
 const SOCIALS = [
   { label: 'GitHub', handle: '@chesteralan', href: socialLinks.github, icon: 'code' },
   { label: 'LinkedIn', handle: '/in/chesteralan', href: socialLinks.linkedin, icon: 'person' },
@@ -146,7 +139,7 @@ export default function Contact() {
       <SectionContainer padding="pb-20">
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
           {/* Left Column — Sidebar */}
-          <aside className="space-y-6 lg:col-span-5">
+          <aside className="space-y-6 lg:sticky lg:top-24 lg:col-span-5">
             {/* Status Card */}
             <ScrollReveal>
               <Card>
@@ -226,26 +219,6 @@ export default function Contact() {
                 </div>
               </Card>
             </ScrollReveal>
-
-            {/* Core Areas */}
-            <ScrollReveal>
-              <Card>
-                <div className="mb-4 flex items-center gap-2">
-                  <Icon name="check_circle" size={18} className="text-[#0891b2]" />
-                  <h2 className="text-sm font-bold text-slate-900">Core Areas of Engagement</h2>
-                </div>
-                <ul className="space-y-3">
-                  {CORE_AREAS.map((area) => (
-                    <li key={area} className="flex items-start gap-2.5 text-xs text-slate-600">
-                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-50 text-[10px] text-[#0891b2]">
-                        ✓
-                      </span>
-                      <span>{area}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </ScrollReveal>
           </aside>
 
           {/* Right Column — Contact Form */}
@@ -287,6 +260,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
+                    errorId={status === 'error' ? 'contact-form-error' : undefined}
                   />
 
                   <FormField
@@ -298,6 +272,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="you@example.com"
+                    errorId={status === 'error' ? 'contact-form-error' : undefined}
                   />
 
                   <div>
@@ -314,8 +289,9 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={4}
-                      className="w-full resize-y rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 text-sm text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-transparent focus:bg-white focus:ring-2 focus:ring-[#0891b2]"
+                      className="w-full resize-y rounded-lg border border-slate-200 bg-slate-50/70 p-3.5 text-sm text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-transparent focus:bg-white focus:ring-2 focus:ring-[#0891b2]"
                       placeholder="Your message..."
+                      aria-describedby={status === 'error' ? 'contact-form-error' : undefined}
                     />
                   </div>
 
@@ -326,14 +302,16 @@ export default function Contact() {
                       message="Thanks for reaching out. I'll get back to you soon!"
                     />
                   )}
-                  {status === 'error' && <FormAlert type="error" message={errorMsg} />}
+                  {status === 'error' && (
+                    <FormAlert id="contact-form-error" type="error" message={errorMsg} />
+                  )}
 
                   {/* Submit */}
                   <div className="space-y-3 pt-2">
                     <button
                       type="submit"
                       disabled={status === 'sending'}
-                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#0891b2] px-6 py-3.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-all hover:bg-[#0e7490] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#0891b2] px-6 py-3.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-all hover:bg-[#0e7490] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       {status === 'sending' ? (
                         <>
@@ -347,7 +325,7 @@ export default function Contact() {
                         </>
                       )}
                     </button>
-                    <div className="flex items-center justify-center gap-1.5 text-xs text-slate-400">
+                    <div className="flex items-center justify-center gap-1.5 text-xs text-slate-500">
                       <Icon name="lock" size={14} />
                       <span>
                         Your information is kept strictly confidential and will never be shared.

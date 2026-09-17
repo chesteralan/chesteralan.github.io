@@ -3,76 +3,20 @@ import Badge from '../components/Badge';
 import Card from '../components/Card';
 import BadgePill from '../components/BadgePill';
 import BulletListItem from '../components/BulletListItem';
-import CardFooter from '../components/CardFooter';
 import Icon from '../components/Icon';
 import IconBox from '../components/IconBox';
 import PageHeading from '../components/PageHeading';
 import SectionContainer from '../components/SectionContainer';
-import SubHeading from '../components/SubHeading';
-import ProfileDetail from '../components/ProfileDetail';
 import ScrollReveal from '../components/ScrollReveal';
 import SectionHeader from '../components/SectionHeader';
-import MetricStat from '../components/MetricStat';
 import SkillCategoryCard from '../components/SkillCategoryCard';
 import Tag from '../components/Tag';
 import ToolItem from '../components/ToolItem';
 import { skillCategories, experience } from '../data/portfolio';
 
-const pillars = [
-  {
-    title: 'Pragmatic Architecture',
-    description:
-      'Simple architectures that outlive hype cycles and scale without operational bloat.',
-    icon: 'code',
-  },
-  {
-    title: 'Obsessive DX & Quality',
-    description:
-      'Strict type safety, self-documenting APIs, and end-to-end telemetry embedded by default.',
-    icon: 'science',
-  },
-  {
-    title: 'Reliability at Scale',
-    description:
-      'Fault-tolerant distributed pipelines, predictable degradation, and graceful failovers.',
-    icon: 'verified',
-  },
-];
-
-const values = [
-  {
-    title: 'Scalability by Design',
-    description:
-      'Building systems ready to accommodate 10x traffic expansion without premature complexity. Clear data boundaries, decoupled queue workers, and defensive caching are standard table stakes.',
-    icon: 'trending_up',
-    footer: 'Measurable scalability',
-    color: 'cyan' as const,
-    footerColor: 'text-[#0891b2]',
-  },
-  {
-    title: 'User-Centric Craft',
-    description:
-      'Speed, accessibility (a11y), and buttery micro-interactions matter just as much as backend fault tolerance. A fast, intuitive UI conveys trust and respect for end-user attention.',
-    icon: 'mood',
-    footer: 'Uncompromising UX',
-    color: 'purple' as const,
-    footerColor: 'text-purple-700',
-  },
-  {
-    title: 'Continuous Learning',
-    description:
-      'Technology is never static. An active open-source contributor and technical mentor who cultivates curiosity, conducts constructive code reviews, and experiments with emerging runtimes.',
-    icon: 'science',
-    footer: 'Mentorship & Open Source',
-    color: 'cyan' as const,
-    footerColor: 'text-[#0891b2]',
-  },
-];
-
 const iconColorMap: Record<string, 'cyan' | 'purple' | 'slate'> = {
   frontend: 'cyan',
   backend: 'purple',
-  tools: 'slate',
   cloud: 'cyan',
 };
 
@@ -84,7 +28,9 @@ export default function About() {
       {/* Hero Section */}
       <SectionContainer padding="!pb-0">
         <ScrollReveal>
-          <BadgePill icon="info">About Alchie Tagudin</BadgePill>
+          <BadgePill icon="info" className="mb-4">
+            About Alchie Tagudin
+          </BadgePill>
         </ScrollReveal>
         <ScrollReveal>
           <PageHeading className="mb-4 max-w-4xl leading-[1.15]">
@@ -93,141 +39,18 @@ export default function About() {
         </ScrollReveal>
         <ScrollReveal>
           <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
-            Full-stack software architect with 8+ years of experience engineering high-throughput
-            web applications, developer platforms, and resilient cloud infrastructure.
+            Full-stack developer leveraging AI-assisted development to ship production applications,
+            developer platforms, and resilient cloud infrastructure — faster iteration, sharper
+            code, better outcomes.
           </p>
         </ScrollReveal>
       </SectionContainer>
 
-      {/* Journey & Quick Profile */}
-      <SectionContainer padding="!pt-12">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-          {/* Left Column: Journey */}
-          <div className="space-y-6 lg:col-span-7">
-            <ScrollReveal>
-              <Card padding="lg">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0891b2]">
-                    <Icon name="code" size={16} />
-                    The Journey
-                  </div>
-                  <h2 className="text-2xl font-bold leading-snug text-slate-900 sm:text-3xl">
-                    Crafting dependable systems through systematic craft
-                  </h2>
-                  <div className="space-y-4 text-[15px] leading-relaxed text-slate-600">
-                    <p>
-                      My foundation began in core computer science, diving deep into data
-                      structures, algorithms, and the mechanics of web technologies. Over the past
-                      eight years, that theoretical rigor evolved into real-world production
-                      engineering across charity platforms, payroll systems, and developer tools.
-                    </p>
-                    <p>
-                      I view software engineering not as simply gluing frameworks together, but as
-                      constructing transparent, highly observable applications. Every architectural
-                      choice — from state management strategies to component organization — must
-                      serve measurable performance and bulletproof reliability.
-                    </p>
-                  </div>
-                  {/* Quick Metrics */}
-                  <div className="grid grid-cols-3 gap-4 border-t border-slate-100 pt-4">
-                    <MetricStat value="8+" label="Years Experience" />
-                    <MetricStat value="15+" label="Projects Shipped" />
-                    <MetricStat value="3" label="Extensions Published" />
-                  </div>
-                </div>
-              </Card>
-            </ScrollReveal>
-
-            {/* 3 Pillars */}
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-              {pillars.map((pillar) => (
-                <ScrollReveal key={pillar.title}>
-                  <Card padding="compact">
-                    <div className="space-y-2.5">
-                      <IconBox icon={pillar.icon} color="cyan" size="sm" rounded="lg" />
-                      <h3 className="text-sm font-bold text-slate-900">{pillar.title}</h3>
-                      <p className="text-xs leading-relaxed text-slate-500">{pillar.description}</p>
-                    </div>
-                  </Card>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column: Quick Profile */}
-          <div className="lg:col-span-5">
-            <ScrollReveal>
-              <Card padding="lg">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between pb-1">
-                    <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
-                      <Icon name="person" size={16} className="text-[#0891b2]" />
-                      Quick Profile
-                    </div>
-                    <Badge dot>Active</Badge>
-                  </div>
-
-                  {/* Avatar */}
-                  <div className="relative overflow-hidden rounded-xl border border-slate-200">
-                    <div className="flex h-56 items-center justify-center bg-gradient-to-br from-[#0891b2] to-cyan-400">
-                      <span className="text-5xl font-bold text-white">AT</span>
-                    </div>
-                    <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-md border border-slate-200/80 bg-white/95 px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur-sm">
-                      <Icon name="laptop_mac" size={14} className="text-[#0891b2]" />
-                      Principal Craft
-                    </div>
-                  </div>
-
-                  {/* Details */}
-                  <div className="space-y-4 text-sm">
-                    <ProfileDetail
-                      icon="location_on"
-                      label="Location"
-                      value="Davao City, Philippines"
-                      description="Available for remote teams worldwide"
-                    />
-                    <ProfileDetail
-                      icon="bolt"
-                      label="Current Focus"
-                      value="React • TypeScript • Cloud"
-                      description="Building scalable web applications & developer tools"
-                      color="purple"
-                    />
-                    <ProfileDetail
-                      icon="school"
-                      label="GitHub"
-                      value="chesteralan"
-                      description="77+ repositories & open source contributions"
-                    />
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex items-center gap-3 pt-2">
-                    <Link to="/projects" className="btn-primary flex-1 justify-center text-xs">
-                      <span>View Tech Matrix</span>
-                      <Icon name="arrow_downward" size={16} />
-                    </Link>
-                    <Link to="/contact" className="btn-outline text-xs">
-                      Career Log
-                    </Link>
-                  </div>
-                </div>
-              </Card>
-            </ScrollReveal>
-          </div>
-        </div>
-      </SectionContainer>
-
       {/* Skills Matrix */}
-      <SectionContainer padding="!pt-0" id="skills">
+      <SectionContainer padding="!pt-12" id="skills">
         <ScrollReveal>
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <SectionHeader
-              icon="inventory_2"
-              label="Capabilities & Arsenal"
-              title="Technical Skills Matrix"
-              subtitle="A comprehensive overview of the technologies, runtimes, and orchestration suites I utilize to deliver enterprise-grade digital systems."
-            />
+            <SectionHeader icon="inventory_2" label="Capabilities" title="Technical Skills" />
             <div className="inline-flex self-start rounded-lg border border-slate-200 bg-white p-1 text-xs font-medium shadow-sm md:self-auto">
               <Tag variant="active">All Domains</Tag>
               <span className="px-3 py-1 text-slate-600">{totalCategories} Categories</span>
@@ -235,7 +58,6 @@ export default function About() {
           </div>
         </ScrollReveal>
 
-        {/* Top Row: 3 columns */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {skillCategories.slice(0, 3).map((cat) => (
             <ScrollReveal key={cat.id}>
@@ -253,33 +75,16 @@ export default function About() {
           ))}
         </div>
 
-        {/* Bottom Row: 2 cards in 5/7 layout */}
-        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-12">
-          {/* Card 4 */}
-          <ScrollReveal className="lg:col-span-5">
-            <SkillCategoryCard
-              icon={skillCategories[3]?.icon || 'cloud'}
-              color="cyan"
-              badge={skillCategories[3]?.badge || 'Infrastructure'}
-              title={skillCategories[3]?.title || 'Cloud & Deployment'}
-              description={
-                skillCategories[3]?.description || 'Cloud platform deployment and hosting.'
-              }
-              skills={skillCategories[3]?.skills || []}
-              footerLabel="Deployment Platforms"
-              footerValue="3 Providers"
-            />
-          </ScrollReveal>
-
-          {/* Card 5: Tools & DevOps (wider) */}
-          <ScrollReveal className="lg:col-span-7">
+        {/* Tools & DevOps */}
+        <div className="mt-6">
+          <ScrollReveal>
             <Card className="flex h-full flex-col justify-between">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <IconBox icon="build" color="slate" size="md" rounded="xl" />
                     <div>
-                      <SubHeading>Tools & DevOps</SubHeading>
+                      <h3 className="text-sm font-bold text-slate-900">Tools & DevOps</h3>
                       <div className="text-[11px] text-slate-500">
                         Developer tooling, version control, and deployment automation
                       </div>
@@ -287,11 +92,6 @@ export default function About() {
                   </div>
                   <Tag variant="purple">Tooling</Tag>
                 </div>
-                <p className="pt-1 text-xs leading-relaxed text-slate-600">
-                  I prioritize efficient development workflows through automated tooling, version
-                  control best practices, and streamlined build pipelines rather than manual
-                  processes alone.
-                </p>
                 <div className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-4">
                   <ToolItem title="Git & GitHub" subtitle="Version Control" />
                   <ToolItem title="VS Code" subtitle="Primary IDE" />
@@ -314,15 +114,10 @@ export default function About() {
       </SectionContainer>
 
       {/* Career Timeline */}
-      <SectionContainer padding="!pt-0" id="experience">
+      <SectionContainer padding="!pt-12" id="experience">
         <ScrollReveal>
           <div className="mb-8">
-            <SectionHeader
-              icon="trending_up"
-              label="Proven Execution"
-              title="Career Timeline & Experience"
-              subtitle="Impact-focused track record building web applications and developer tools with modern technologies."
-            />
+            <SectionHeader icon="trending_up" label="Proven Execution" title="Career Timeline" />
           </div>
         </ScrollReveal>
 
@@ -365,46 +160,8 @@ export default function About() {
         </div>
       </SectionContainer>
 
-      {/* Engineering Values */}
-      <SectionContainer padding="!pt-0">
-        <ScrollReveal>
-          <div className="mb-8 text-center">
-            <SectionHeader
-              icon="tune"
-              label="Guiding Convictions"
-              title="Engineering Values & Principles"
-              subtitle="The non-negotiable mental models and behavioral baselines I bring to high-performing product engineering teams."
-              centered
-            />
-          </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {values.map((value) => (
-            <ScrollReveal key={value.title}>
-              <Card className="flex flex-col justify-between">
-                <div className="space-y-3">
-                  <IconBox icon={value.icon} color={value.color} size="md" rounded="xl" />
-                  <SubHeading>{value.title}</SubHeading>
-                  <p className="text-xs leading-relaxed text-slate-600">{value.description}</p>
-                </div>
-                <CardFooter
-                  left={
-                    <>
-                      <Icon name="check_circle" size={16} />
-                      {value.footer}
-                    </>
-                  }
-                  className={value.footerColor}
-                />
-              </Card>
-            </ScrollReveal>
-          ))}
-        </div>
-      </SectionContainer>
-
       {/* CTA Banner */}
-      <SectionContainer padding="!pt-0 !pb-20">
+      <SectionContainer padding="!pt-12 !pb-20">
         <ScrollReveal>
           <div className="overflow-hidden rounded-3xl border border-cyan-100/80 bg-gradient-to-r from-cyan-50/70 via-cyan-50/50 to-purple-50/50 p-8 shadow-sm sm:p-12">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">

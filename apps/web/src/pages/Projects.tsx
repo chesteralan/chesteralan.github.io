@@ -240,7 +240,7 @@ export default function Projects() {
             >
               <Icon name="code" size={16} />
               <span>github.com/chesteralan</span>
-              <Icon name="open_in_new" size={10} className="text-slate-400" />
+              <Icon name="open_in_new" size={10} className="text-slate-500" />
             </a>
           </div>
         </ScrollReveal>
@@ -300,7 +300,7 @@ export default function Projects() {
                   </div>
                 </div>
                 {/* Month labels */}
-                <div className="mb-2 flex justify-between px-1 font-mono text-[10px] text-slate-400">
+                <div className="mb-2 flex justify-between px-1 font-mono text-[10px] text-slate-500">
                   <span>Jan</span>
                   <span>Feb</span>
                   <span>Mar</span>
@@ -316,7 +316,7 @@ export default function Projects() {
                 </div>
                 {/* Heatmap grid */}
                 <div className="overflow-x-auto pb-2">
-                  <div className="grid min-w-[550px] grid-flow-col grid-rows-7 justify-between gap-1">
+                  <div className="grid min-w-[420px] grid-flow-col grid-rows-7 justify-between gap-1 sm:min-w-[550px]">
                     {heatmapCells.map((color, i) => (
                       <div key={i} className={`h-2.5 w-2.5 rounded-sm ${color}`} />
                     ))}

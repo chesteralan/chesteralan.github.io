@@ -2,6 +2,7 @@ import { cn } from '../lib/cn';
 import Icon from './Icon';
 
 interface FormAlertProps {
+  id?: string;
   type: 'success' | 'error';
   message: string;
 }
@@ -25,10 +26,10 @@ const styles = {
   },
 };
 
-export default function FormAlert({ type, message }: FormAlertProps) {
+export default function FormAlert({ id, type, message }: FormAlertProps) {
   const s = styles[type];
   return (
-    <div className={cn('flex items-start gap-3 rounded-xl border', s.border, s.bg, 'p-4')}>
+    <div id={id} className={cn('flex items-start gap-3 rounded-xl border', s.border, s.bg, 'p-4')}>
       <Icon name={s.icon} size={20} className={cn('mt-0.5 shrink-0', s.iconColor)} />
       <div>
         <p className={cn('text-sm font-medium', s.titleColor)}>

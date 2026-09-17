@@ -23,24 +23,28 @@ export default function Home() {
     <div>
       {/* Hero */}
       <SectionContainer padding="py-16 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Left Column */}
-          <div className="lg:col-span-7 flex flex-col items-start">
+          <div className="flex flex-col items-start lg:col-span-7">
             <ScrollReveal>
-              <BadgePill icon="terminal" size="md">Frontend Developer</BadgePill>
+              <BadgePill icon="terminal" size="md" className="mb-4">
+                Frontend Developer
+              </BadgePill>
             </ScrollReveal>
             <ScrollReveal>
               <PageHeading className="mb-6 leading-tight">
-                Crafting robust, scalable web applications & seamless digital experiences.
+                Building apps with AI-assisted development — faster iteration, sharper code, better
+                outcomes.
               </PageHeading>
             </ScrollReveal>
             <ScrollReveal>
-              <p className="text-lg text-slate-600 leading-relaxed max-w-xl mb-8">
-                Hi, I'm Alchie Tagudin — specializing in React, TypeScript, and crafting tools that make developers' lives easier. Based in Davao City, Philippines.
+              <p className="mb-8 max-w-xl text-lg leading-relaxed text-slate-600">
+                Hi, I'm Alchie Tagudin — a full-stack developer using AI tooling to ship production
+                apps faster. Based in Davao City, Philippines.
               </p>
             </ScrollReveal>
             <ScrollReveal>
-              <div className="flex flex-wrap items-center gap-4 mb-10">
+              <div className="mb-10 flex flex-wrap items-center gap-4">
                 <Link to="/projects" className="btn-primary">
                   <span>View Featured Work</span>
                   <Icon name="arrow_forward" size={18} />
@@ -53,23 +57,33 @@ export default function Home() {
             </ScrollReveal>
             {/* Tech Stack */}
             <ScrollReveal>
-              <div className="w-full pt-4 border-t border-slate-200">
-                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Core Tech Stack</div>
+              <div className="w-full border-t border-slate-200 pt-4">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                  Core Tech Stack
+                </div>
                 <div className="flex flex-wrap gap-2">
-                  {skills.filter(s => ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Node.js'].includes(s.name)).map((skill) => (
-                    <Tag key={skill.name}>{skill.name}</Tag>
-                  ))}
+                  {skills
+                    .filter((s) =>
+                      ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Node.js'].includes(s.name)
+                    )
+                    .map((skill) => (
+                      <Tag key={skill.name}>{skill.name}</Tag>
+                    ))}
                 </div>
               </div>
             </ScrollReveal>
           </div>
 
           {/* Right Column — Avatar */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:col-span-5 lg:justify-end">
             <ScrollReveal>
               <div className="relative">
-                <div className="h-72 w-72 sm:h-80 sm:w-80 overflow-hidden rounded-full border-4 border-white shadow-xl ring-4 ring-cyan-100">
-                  <img src={AlchieImage} alt="Alchie Tagudin" className="h-full w-full object-cover" />
+                <div className="h-72 w-72 overflow-hidden rounded-full border-4 border-white shadow-xl ring-4 ring-cyan-100 sm:h-80 sm:w-80">
+                  <img
+                    src={AlchieImage}
+                    alt="Alchie Tagudin"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 {/* Floating badge bottom-left */}
                 <div className="absolute -bottom-3 -left-4 flex items-center gap-2 rounded-full border border-slate-100 bg-white px-4 py-2 shadow-lg">
@@ -80,7 +94,9 @@ export default function Home() {
                 <div className="absolute -right-2 -top-3 flex items-center gap-2.5 rounded-xl border border-slate-100 bg-white px-4 py-2 shadow-lg">
                   <IconBox icon="verified" color="cyan" size="xs" />
                   <div className="flex flex-col">
-                    <span className="text-xs font-bold leading-tight text-slate-900">Frontend Developer</span>
+                    <span className="text-xs font-bold leading-tight text-slate-900">
+                      Frontend Developer
+                    </span>
                     <span className="text-[10px] text-slate-500">8+ Yrs Experience</span>
                   </div>
                 </div>
@@ -92,11 +108,23 @@ export default function Home() {
 
       {/* Stats */}
       <SectionContainer padding="py-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
           {[
-            { value: `${stats.yearsExperience}+`, label: 'Years Experience', icon: 'workspace_premium' },
-            { value: `${stats.projectsCompleted}+`, label: 'Projects Shipped', icon: 'rocket_launch' },
-            { value: `${stats.extensionsPublished}`, label: 'Extensions Published', icon: 'verified' },
+            {
+              value: `${stats.yearsExperience}+`,
+              label: 'Years Experience',
+              icon: 'workspace_premium',
+            },
+            {
+              value: `${stats.projectsCompleted}+`,
+              label: 'Projects Shipped',
+              icon: 'rocket_launch',
+            },
+            {
+              value: `${stats.extensionsPublished}`,
+              label: 'Extensions Published',
+              icon: 'verified',
+            },
             { value: `${stats.happyClients}+`, label: 'Happy Clients', icon: 'code_blocks' },
           ].map((stat) => (
             <ScrollReveal key={stat.label}>
@@ -108,11 +136,18 @@ export default function Home() {
 
       {/* Selected Work */}
       <SectionContainer padding="py-16" id="projects">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-slate-200">
-          <SectionHeader icon="briefcase" label="Portfolio" title="Selected Work" subtitle="Things I've built and shipped" />
-          <CyanActionLink to="/projects" icon="arrow_forward">View all projects</CyanActionLink>
+        <div className="flex flex-col justify-between gap-4 border-b border-slate-200 pb-8 sm:flex-row sm:items-end">
+          <SectionHeader
+            icon="briefcase"
+            label="Portfolio"
+            title="Selected Work"
+            subtitle="Things I've built and shipped"
+          />
+          <CyanActionLink to="/projects" icon="arrow_forward">
+            View all projects
+          </CyanActionLink>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           {featuredProjects.map((project) => (
             <ScrollReveal key={project.id}>
               <ProjectCard project={project} />
@@ -131,7 +166,7 @@ export default function Home() {
                   <Icon key={i} name="star" size={20} filled className="text-amber-400" />
                 ))}
               </div>
-              <blockquote className="mb-6 text-xl lg:text-2xl font-medium leading-relaxed text-slate-800">
+              <blockquote className="mb-6 text-xl font-medium leading-relaxed text-slate-800 lg:text-2xl">
                 "{testimonials[0].content}"
               </blockquote>
               <div className="flex items-center gap-4">
@@ -155,7 +190,10 @@ export default function Home() {
         heading="Have a project in mind?"
         description="Let's build reliable, performant software together. I'm always open to new opportunities."
       >
-        <Link to="/contact" className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 shadow transition-all hover:shadow-md hover:-translate-y-0.5 hover:bg-slate-100">
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 shadow transition-all hover:-translate-y-0.5 hover:bg-slate-100 hover:shadow-md"
+        >
           <span>Start a Conversation</span>
           <Icon name="arrow_forward" size={18} />
         </Link>

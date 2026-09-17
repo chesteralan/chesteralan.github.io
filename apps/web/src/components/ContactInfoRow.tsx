@@ -11,10 +11,10 @@ export default function ContactInfoRow({ icon, label, value }: ContactInfoRowPro
     <div className="flex items-start gap-3.5">
       <IconBox icon={icon} size="sm" />
       <div>
-        <span className="block text-[11px] uppercase tracking-wider font-semibold text-slate-400">
+        <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500">
           {label}
         </span>
-        <p className="text-sm font-bold text-slate-900 leading-snug">{value}</p>
+        <p className="text-sm font-bold leading-snug text-slate-900">{value}</p>
       </div>
     </div>
   );
