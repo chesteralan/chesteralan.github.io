@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects - Alchie Tagudin | Full-stack Developer</title>
+<!-- Tailwind CSS CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Custom Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#007A87',
+              dark: '#0f172a',
+              navy: '#1E293B',
+              slate: '#334155',
+              gray: '#64748B',
+              light: '#F8FAFC',
+              border: '#E2E8F0',
+              accent: '#0284C7'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+<!-- Font Awesome Icons for authentic UI elements -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style data-purpose="background-pattern">
+    /* Subtle dot grid pattern seen across background */
+    .bg-dot-grid {
+      background-color: #f8fafc;
+      background-image: radial-gradient(#cbd5e1 0.75px, transparent 0.75px);
+      background-size: 16px 16px;
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(224, 242, 254, 0.6) 0%, rgba(248, 250, 252, 0) 70%);
+    }
+  </style>
+<style data-purpose="card-styling">
+    .project-card {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-dot-grid text-brand-dark antialiased font-sans min-h-screen flex flex-col justify-between">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-border" data-purpose="global-header">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<!-- Brand Logo & Status Indicator -->
+<div class="flex items-center space-x-3">
+<a class="flex items-center space-x-2.5 group" href="#">
+<span class="w-7 h-7 bg-brand-navy rounded-lg flex items-center justify-center text-white font-bold text-sm tracking-tighter shadow-sm">
+            A
+          </span>
+<span class="font-semibold text-brand-dark tracking-tight text-[15px]">Alchie Tagudin</span>
+</a>
+<div class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-medium text-slate-600">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse"></span>
+<span>Available for work</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-brand-gray">
+<a class="hover:text-brand-dark transition-colors" href="#">Home</a>
+<a class="text-teal-700 font-semibold px-3 py-1 bg-teal-50 rounded-md border border-teal-100/60" href="#">Projects</a>
+<a class="hover:text-brand-dark transition-colors" href="#">About</a>
+<a class="hover:text-brand-dark transition-colors" href="#">Contact</a>
+</nav>
+<!-- CTA & Avatar -->
+<div class="flex items-center space-x-3">
+<a class="px-4 py-2 text-xs font-semibold bg-[#005f73] hover:bg-[#004d5d] text-white rounded-lg shadow-sm transition-all flex items-center space-x-1.5" href="#contact">
+<span>Get in Touch</span>
+</a>
+<img alt="Alchie Tagudin Avatar" class="w-8 h-8 rounded-full border border-slate-200 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByPe1PrXbrw28u4Zv2X4OMCXACBMH_DiTG6USRgmJgZuI-C0183bJVRf44MNwz32p7IvRuwGHa29QZWx_DpFEOksm4ucgeY5Pm_fCOLS0XiHGD3gdReBieq5clFYdGWylnh_EJ9g76gIRhxFJkl22YTFHaiD2F-JsnpA_oc0fro-7ChaIpliOFVJrPKgT52IRf0KAK0a8hykYuBk2i9wAct8ZiSUXELBuZC2XeZK1a8_Gfh-bZfikF"/>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow">
+<!-- BEGIN: HeroSection -->
+<section class="hero-glow pt-12 pb-8 border-b border-brand-border/60" data-purpose="hero-section">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Category Pill/Breadcrumb -->
+<div class="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-teal-700 mb-3">
+<span class="bg-teal-50 px-2.5 py-1 rounded border border-teal-200/60">Engineering Portfolio</span>
+<span class="text-slate-400">•</span>
+<span class="text-slate-500 font-normal">Production Case Studies &amp; Systems</span>
+</div>
+<!-- Headline & Subtext -->
+<div class="max-w-3xl">
+<h1 class="text-3xl md:text-4xl font-extrabold text-[#0B1527] tracking-tight leading-tight mb-3">
+            Featured Work &amp; Engineering Projects
+          </h1>
+<p class="text-brand-gray text-base leading-relaxed">
+            A curated collection of distributed backend systems, low-latency microservices, and design-led web applications engineered for scale, resiliency, and optimal user experience.
+          </p>
+</div>
+<!-- Metrics Strip Cards -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8" data-purpose="metrics-strip">
+<div class="bg-white rounded-xl p-4 border border-brand-border shadow-xs">
+<div class="text-2xl font-bold text-teal-700 font-mono tracking-tight">12M+</div>
+<div class="text-[11px] font-semibold tracking-wider text-slate-500 uppercase mt-0.5">Events Processed/Mo</div>
+</div>
+<div class="bg-white rounded-xl p-4 border border-brand-border shadow-xs">
+<div class="text-2xl font-bold text-teal-700 font-mono tracking-tight">&lt;150ms</div>
+<div class="text-[11px] font-semibold tracking-wider text-slate-500 uppercase mt-0.5">Global P99 Latency</div>
+</div>
+<div class="bg-white rounded-xl p-4 border border-brand-border shadow-xs">
+<div class="text-2xl font-bold text-teal-700 font-mono tracking-tight">99.99%</div>
+<div class="text-[11px] font-semibold tracking-wider text-slate-500 uppercase mt-0.5">Architecture Uptime</div>
+</div>
+<div class="bg-white rounded-xl p-4 border border-brand-border shadow-xs">
+<div class="text-2xl font-bold text-teal-700 font-mono tracking-tight">42+</div>
+<div class="text-[11px] font-semibold tracking-wider text-slate-500 uppercase mt-0.5">OSS Releases Merged</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: ProjectsCatalogSection -->
+<section class="py-10" data-purpose="projects-catalog">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Filter & Search Toolbar -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+<!-- Category Filter Pills -->
+<div class="flex flex-wrap items-center gap-1.5 w-full md:w-auto" data-purpose="filter-pills">
+<button class="px-3.5 py-1.5 bg-[#005f73] text-white text-xs font-semibold rounded-md shadow-xs">
+              All Projects
+            </button>
+<button class="px-3.5 py-1.5 bg-white text-slate-600 hover:text-brand-dark hover:bg-slate-50 border border-brand-border text-xs font-medium rounded-md transition-colors">
+              Full-Stack Web
+            </button>
+<button class="px-3.5 py-1.5 bg-white text-slate-600 hover:text-brand-dark hover:bg-slate-50 border border-brand-border text-xs font-medium rounded-md transition-colors">
+              Cloud &amp; DevOps
+            </button>
+<button class="px-3.5 py-1.5 bg-white text-slate-600 hover:text-brand-dark hover:bg-slate-50 border border-brand-border text-xs font-medium rounded-md transition-colors">
+              Fintech &amp; API
+            </button>
+<button class="px-3.5 py-1.5 bg-white text-slate-600 hover:text-brand-dark hover:bg-slate-50 border border-brand-border text-xs font-medium rounded-md transition-colors">
+              Open Source Tools
+            </button>
+</div>
+<!-- Search Input & Sort Dropdown -->
+<div class="flex items-center space-x-2.5 w-full md:w-auto justify-end">
+<!-- Search Bar -->
+<div class="relative w-full md:w-64">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<i class="fa-solid fa-magnifying-glass text-xs"></i>
+</span>
+<input class="w-full pl-8 pr-3 py-1.5 text-xs bg-white border border-brand-border rounded-md text-brand-dark placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600" placeholder="Search tech or keywords..." type="text"/>
+</div>
+<!-- Sort By Select -->
+<div class="relative">
+<button class="flex items-center space-x-2 px-3 py-1.5 text-xs font-medium bg-white border border-brand-border rounded-md text-slate-700 hover:bg-slate-50">
+<span>Most Recent</span>
+<i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- 3-Column Project Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: CloudScale Metrics -->
+<article class="project-card bg-white rounded-xl border border-brand-border overflow-hidden flex flex-col justify-between" data-purpose="project-card">
+<div>
+<!-- Mock Preview Screen -->
+<div class="relative h-44 bg-slate-900 border-b border-brand-border overflow-hidden">
+<img alt="CloudScale Metrics Preview" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP_5Fg2iqHqhjqjsFZVZsuIiTDpEEo2Lohg6hBGx5Jr3rwfe8twFQye5Ojjp3vr3-YOL9mHTQQ8bh5YZfn_9Euq-zfeOakkV_xGFehB0D0ySUC2lXiV-9XLb77vD08o1oQinyS7KWG3NL2hu68gv5V16fA5vfQ3HRNDqqP7YNHSiBo_AV91ZTJ57ch4PxDUR6cuk5QzFXKa_w4NnVJicjM0BlnopfBGhUOsvu8o_7jR242v8b4TIyi"/>
+<!-- Status Badge -->
+<div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-teal-700 flex items-center space-x-1.5 shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>Production</span>
+</div>
+<!-- Mini Metric Pill -->
+<div class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-mono text-slate-200">
+                  12M+ Events/mo
+                </div>
+</div>
+<!-- Card Body -->
+<div class="p-5">
+<div class="flex items-center justify-between mb-1.5">
+<h3 class="font-bold text-base text-brand-dark">CloudScale Metrics</h3>
+<span class="text-[11px] font-mono font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">v2.4</span>
+</div>
+<p class="text-xs text-brand-gray leading-relaxed mb-4">
+                  Real-time telemetry and metrics streaming platform handling 12M+ monthly events with zero-lag ingestion pipelines and sub-100ms analytical queries.
+                </p>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1 mb-5">
+<span class="px-2 py-0.5 text-[10px] font-medium bg-sky-50 text-sky-700 rounded border border-sky-100">Go</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-sky-50 text-sky-700 rounded border border-sky-100">React</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-slate-100 text-slate-700 rounded border border-slate-200">TimescaleDB</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-amber-50 text-amber-700 rounded border border-amber-100">AWS ECS</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-blue-50 text-blue-700 rounded border border-blue-100">Docker</span>
+</div>
+</div>
+</div>
+<!-- Card Footer / Actions -->
+<div class="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs">
+<div class="flex items-center space-x-1.5 text-teal-700 font-medium">
+<i class="fa-solid fa-gauge-high text-xs"></i>
+<span class="text-[11px]">&lt;95ms P99</span>
+</div>
+<div class="flex items-center space-x-2">
+<a class="p-1.5 text-slate-500 hover:text-brand-dark" href="#" title="View Source"><i class="fa-solid fa-code text-xs"></i></a>
+<a class="px-3 py-1 bg-[#005f73] hover:bg-[#004d5d] text-white rounded font-medium text-[11px] flex items-center space-x-1" href="#">
+<span>Live App</span>
+<i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 2: FinFlow Pay -->
+<article class="project-card bg-white rounded-xl border border-brand-border overflow-hidden flex flex-col justify-between" data-purpose="project-card">
+<div>
+<!-- Mock Preview Screen -->
+<div class="relative h-44 bg-slate-900 border-b border-brand-border overflow-hidden">
+<img alt="FinFlow Pay Preview" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB41X5A6G3u4QaH-FIKplzKH4bI2p8bM7iZKhBBid7G0ai50GtpvMUl-cO9W5ZUUZLVMY_XHFgYmU2wCEwMhRo33_ZDuN1DOIRerEuqLKfb2mJMbpnB63OHI-IbPMyQDz-DvG_mnl54fKpPzzUXN6ydsGH4UOOSXE6ggD5t2w1ubiWPAlHUqrGAy4ChHBroPpPuPzmH0jwnMGvzvtU_CNn-HKIaDG0LIn0bQDFUTy5R55FVlVTm7efQ"/>
+<!-- Status Badge -->
+<div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-indigo-700 flex items-center space-x-1.5 shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+<span>Case Study</span>
+</div>
+<!-- Mini Metric Pill -->
+<div class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-mono text-slate-200">
+                  $4.2M Volume
+                </div>
+</div>
+<!-- Card Body -->
+<div class="p-5">
+<div class="flex items-center justify-between mb-1.5">
+<h3 class="font-bold text-base text-brand-dark">FinFlow Pay</h3>
+<span class="text-[11px] font-mono font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">v1.8</span>
+</div>
+<p class="text-xs text-brand-gray leading-relaxed mb-4">
+                  Cross-border payment settlement engine with multi-currency balance clearing, immutable audit logs, and automated reconciliations via Stripe &amp; banks.
+                </p>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1 mb-5">
+<span class="px-2 py-0.5 text-[10px] font-medium bg-violet-50 text-violet-700 rounded border border-violet-100">Next.js 14</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-blue-50 text-blue-700 rounded border border-blue-100">TypeScript</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-emerald-50 text-emerald-700 rounded border border-emerald-100">Node.js</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-indigo-50 text-indigo-700 rounded border border-indigo-100">Stripe API</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-sky-50 text-sky-800 rounded border border-sky-100">PostgreSQL</span>
+</div>
+</div>
+</div>
+<!-- Card Footer / Actions -->
+<div class="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs">
+<div class="flex items-center space-x-1.5 text-indigo-700 font-medium">
+<i class="fa-solid fa-shield-halved text-xs"></i>
+<span class="text-[11px]">SOC-2 Ready</span>
+</div>
+<div>
+<a class="px-3 py-1 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 rounded font-medium text-[11px] flex items-center space-x-1 shadow-2xs" href="#">
+<span>View Case Study</span>
+<i class="fa-regular fa-file-lines text-[10px]"></i>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 3: DevSync CLI & Hub -->
+<article class="project-card bg-white rounded-xl border border-brand-border overflow-hidden flex flex-col justify-between" data-purpose="project-card">
+<div>
+<!-- Mock Preview Screen -->
+<div class="relative h-44 bg-slate-950 border-b border-brand-border overflow-hidden">
+<img alt="DevSync CLI Preview" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf1KlpRfGv5y0TLGfNeDCcSq7HqrU01HaTS0OqvDb1h0Dx0eManfOK59pAqGIArzRaYJGMxxfgm6zOHBngxN09z7KeHq-XkDK7hIxvHBpAkwAMUuBu6ssZ0pVXkVLeIdJRqN8KGPNxJtBBVsOddYgTSqQ7WX2WT0GUIgOeCw-YrDf3cwHwG1SCKO6WyQ2TEUpQVki_pprYJ_hB_igym6K9R0hyz_We6W1YhouaQvMf8SUUpHP8CCRk"/>
+<!-- Status Badge -->
+<div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-amber-700 flex items-center space-x-1.5 shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+<span>Open Source</span>
+</div>
+<!-- Mini Metric Pill -->
+<div class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-mono text-slate-200">
+                  2.8k GitHub Stars
+                </div>
+</div>
+<!-- Card Body -->
+<div class="p-5">
+<div class="flex items-center justify-between mb-1.5">
+<h3 class="font-bold text-base text-brand-dark">DevSync CLI &amp; Hub</h3>
+<span class="text-[11px] font-mono font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">v0.9.4</span>
+</div>
+<p class="text-xs text-brand-gray leading-relaxed mb-4">
+                  High-performance developer tool written in Rust for automated cloud workspace provisioning and zero-drift encrypted team environment syncing.
+                </p>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1 mb-5">
+<span class="px-2 py-0.5 text-[10px] font-medium bg-amber-50 text-amber-800 rounded border border-amber-200">Rust</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-pink-50 text-pink-700 rounded border border-pink-100">GraphQL</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-blue-50 text-blue-700 rounded border border-blue-100">Kubernetes</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-emerald-50 text-emerald-700 rounded border border-emerald-100">Node.js</span>
+</div>
+</div>
+</div>
+<!-- Card Footer / Actions -->
+<div class="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs">
+<div class="flex items-center space-x-1.5 text-slate-600 font-medium">
+<i class="fa-regular fa-star text-xs"></i>
+<span class="text-[11px]">2,840 Stars</span>
+</div>
+<div class="flex items-center space-x-2">
+<a class="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded font-medium text-[11px] flex items-center space-x-1" href="#">
+<i class="fa-solid fa-box-archive text-[10px]"></i>
+<span>crates.io</span>
+</a>
+<a class="p-1.5 text-slate-500 hover:text-brand-dark" href="#"><i class="fa-solid fa-code text-xs"></i></a>
+</div>
+</div>
+</article>
+<!-- Card 4: Nexus Commerce -->
+<article class="project-card bg-white rounded-xl border border-brand-border overflow-hidden flex flex-col justify-between" data-purpose="project-card">
+<div>
+<!-- Mock Preview Screen -->
+<div class="relative h-44 bg-slate-900 border-b border-brand-border overflow-hidden">
+<img alt="Nexus Commerce Preview" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-CFkz3FyiiuKqwKVHFVWuloUUP-t4E0EYwbjNBFKkfd8TVfEyO5R4ISuyRMzXv2clXbCDJ7YkLdOiSh4m6qtteKqGtqF4m1PD2HvS5EtokcWOiOoLBgmtFDWLHRYWJ1ztqYS3bWld3ccp1sC-p0sVui8pzE25TmrEFcxFujquEh17oLZVLm7k-BJH03RU7PcmxmONiRoK9MvUI8RsxB52HCV4DYuTB27_2NnaC7Lo3mEz4HNxDdvw"/>
+<!-- Status Badge -->
+<div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-emerald-700 flex items-center space-x-1.5 shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>Production</span>
+</div>
+<!-- Mini Metric Pill -->
+<div class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-mono text-slate-200">
+                  99.98% Cache Hit
+                </div>
+</div>
+<!-- Card Body -->
+<div class="p-5">
+<div class="flex items-center justify-between mb-1.5">
+<h3 class="font-bold text-base text-brand-dark">Nexus Commerce</h3>
+<span class="text-[11px] font-mono font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">v3.1</span>
+</div>
+<p class="text-xs text-brand-gray leading-relaxed mb-4">
+                  Headless modular commerce platform with dynamic distributed inventory locking, Redis state synchronization, and instant edge edge page generation.
+                </p>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1 mb-5">
+<span class="px-2 py-0.5 text-[10px] font-medium bg-sky-50 text-sky-700 rounded border border-sky-100">React</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-slate-100 text-slate-800 rounded border border-slate-200">Next.js</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-teal-50 text-teal-700 rounded border border-teal-100">Tailwind CSS</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-red-50 text-red-700 rounded border border-red-100">Redis</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-emerald-50 text-emerald-700 rounded border border-emerald-100">Node.js</span>
+</div>
+</div>
+</div>
+<!-- Card Footer / Actions -->
+<div class="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs">
+<div class="flex items-center space-x-1.5 text-teal-700 font-medium">
+<i class="fa-solid fa-bolt text-xs text-amber-500"></i>
+<span class="text-[11px]">100/100 Lighthouse</span>
+</div>
+<div class="flex items-center space-x-2">
+<a class="p-1.5 text-slate-500 hover:text-brand-dark" href="#"><i class="fa-solid fa-code text-xs"></i></a>
+<a class="px-3 py-1 bg-[#005f73] hover:bg-[#004d5d] text-white rounded font-medium text-[11px] flex items-center space-x-1" href="#">
+<span>Demo</span>
+<i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 5: Pulse Health EHR -->
+<article class="project-card bg-white rounded-xl border border-brand-border overflow-hidden flex flex-col justify-between" data-purpose="project-card">
+<div>
+<!-- Mock Preview Screen -->
+<div class="relative h-44 bg-slate-900 border-b border-brand-border overflow-hidden">
+<img alt="Pulse Health EHR Preview" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA751JnNAOEct84Ooq0gs48WABjeMmHoMEVcocsGxqYsKuu-ANy-bJ1m0eZ8HybPKvic9gv-oyr9mxI1crMn5oyZIz6AgZzi3Zm6tZB8nv9LdRgl657S3dqVbRf1nycais-uP6qtgGLvhVfZUS58QdVhMq3z35hOyS1PE1fcSaV47C4-WiavfPp62uA8OtcxFhl_Eu2E4DeHMhDXUJfkdsSLmQ0GHkM8l5XZJi4wlMhucq7G64krcqK"/>
+<!-- Status Badge -->
+<div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-purple-700 flex items-center space-x-1.5 shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+<span>Case Study</span>
+</div>
+<!-- Mini Metric Pill -->
+<div class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-mono text-slate-200">
+                  HIPAA Certified
+                </div>
+</div>
+<!-- Card Body -->
+<div class="p-5">
+<div class="flex items-center justify-between mb-1.5">
+<h3 class="font-bold text-base text-brand-dark">Pulse Health EHR</h3>
+<span class="text-[11px] font-mono font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">v2.0</span>
+</div>
+<p class="text-xs text-brand-gray leading-relaxed mb-4">
+                  HIPAA-compliant telemedicine workflow platform supporting peer-to-peer encrypted WebRTC consultations and zero-knowledge patient record schemas.
+                </p>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1 mb-5">
+<span class="px-2 py-0.5 text-[10px] font-medium bg-blue-50 text-blue-700 rounded border border-blue-100">TypeScript</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-purple-50 text-purple-700 rounded border border-purple-100">WebRTC</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-sky-50 text-sky-700 rounded border border-sky-100">React</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-slate-100 text-slate-700 rounded border border-slate-200">Express</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-emerald-50 text-emerald-700 rounded border border-emerald-100">MongoDB</span>
+</div>
+</div>
+</div>
+<!-- Card Footer / Actions -->
+<div class="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs">
+<div class="flex items-center space-x-1.5 text-purple-700 font-medium">
+<i class="fa-solid fa-lock text-xs"></i>
+<span class="text-[11px]">E2E Encrypted</span>
+</div>
+<div>
+<a class="px-3 py-1 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 rounded font-medium text-[11px] flex items-center space-x-1 shadow-2xs" href="#">
+<span>View Case Study</span>
+<i class="fa-regular fa-file-lines text-[10px]"></i>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 6: OTel Trace Analyzer -->
+<article class="project-card bg-white rounded-xl border border-brand-border overflow-hidden flex flex-col justify-between" data-purpose="project-card">
+<div>
+<!-- Mock Preview Screen -->
+<div class="relative h-44 bg-slate-900 border-b border-brand-border overflow-hidden">
+<img alt="OTel Trace Analyzer Preview" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvVgS57yFyWqU-xg80Pt8d36XhhfUkOyx4b1CLWsy8aWiKY0_4MdC5A7jTdyRKDJSf_IaGpD3fokpXaN59i2uoY_33FH4YUjN1nWxi3smmTZ0-9699dZ4Nar_MoEYMaQNtqxcPtO-M8M4H-EAqmcfixH2RjYTaZtuXPCm5l01PmEtc68Y8hrdO7l5mT_vdXz63XZKYU3JwD16f_3nuD2HkX4XYlt-zn6yF0hc6nEQGl8rDKrSficjC"/>
+<!-- Status Badge -->
+<div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-amber-700 flex items-center space-x-1.5 shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+<span>Open Source</span>
+</div>
+<!-- Mini Metric Pill -->
+<div class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-mono text-slate-200">
+                  Active Library
+                </div>
+</div>
+<!-- Card Body -->
+<div class="p-5">
+<div class="flex items-center justify-between mb-1.5">
+<h3 class="font-bold text-base text-brand-dark">OTel Trace Analyzer</h3>
+<span class="text-[11px] font-mono font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">v1.1.2</span>
+</div>
+<p class="text-xs text-brand-gray leading-relaxed mb-4">
+                  Interactive D3.js visualization suite for dissecting multi-hop microservice distributed traces, bottleneck pinpointing, and DAG dependency graphing.
+                </p>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1 mb-5">
+<span class="px-2 py-0.5 text-[10px] font-medium bg-amber-50 text-amber-700 rounded border border-amber-100">D3.js</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-sky-50 text-sky-700 rounded border border-sky-100">React</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-blue-50 text-blue-700 rounded border border-blue-100">TypeScript</span>
+<span class="px-2 py-0.5 text-[10px] font-medium bg-teal-50 text-teal-700 rounded border border-teal-100">Tailwind CSS</span>
+</div>
+</div>
+</div>
+<!-- Card Footer / Actions -->
+<div class="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs">
+<div class="flex items-center space-x-1.5 text-amber-700 font-medium">
+<i class="fa-solid fa-fire-flame-curved text-xs"></i>
+<span class="text-[11px]">Flamegraphs</span>
+</div>
+<div class="flex items-center space-x-2">
+<a class="p-1.5 text-slate-500 hover:text-brand-dark" href="#"><i class="fa-solid fa-code text-xs"></i></a>
+<a class="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded font-medium text-[11px] flex items-center space-x-1" href="#">
+<span>Playground</span>
+<i class="fa-regular fa-circle-play text-[10px]"></i>
+</a>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- END: ProjectsCatalogSection -->
+<!-- BEGIN: OpenSourceSection -->
+<section class="py-12 bg-white/70 border-y border-brand-border/80" data-purpose="open-source-commitment">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+<div>
+<div class="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-teal-700 mb-1">
+<i class="fa-solid fa-code-commit"></i>
+<span>Engineering Pulse</span>
+</div>
+<h2 class="text-2xl font-bold text-brand-dark tracking-tight">Commitment to Open Source &amp; Quality</h2>
+</div>
+<a class="inline-flex items-center space-x-2 text-xs font-medium text-slate-700 bg-white border border-brand-border px-3.5 py-1.5 rounded-lg hover:bg-slate-50 transition-colors shadow-2xs" href="https://github.com/alchie-tagudin" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-github text-sm"></i>
+<span>github.com/alchie-tagudin</span>
+<i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+</a>
+</div>
+<!-- Open Source Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Left Column: Metrics Stat Cards -->
+<div class="lg:col-span-4 space-y-4">
+<div class="bg-white p-4 rounded-xl border border-brand-border shadow-xs flex items-center space-x-4">
+<div class="w-11 h-11 rounded-lg bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-700">
+<i class="fa-solid fa-arrow-trend-up text-lg"></i>
+</div>
+<div>
+<div class="text-xl font-bold text-brand-dark font-mono">1,840+</div>
+<div class="text-xs text-slate-500 font-medium">Annual Git Commits in 2024</div>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-brand-border shadow-xs flex items-center space-x-4">
+<div class="w-11 h-11 rounded-lg bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-700">
+<i class="fa-solid fa-code-pull-request text-lg"></i>
+</div>
+<div>
+<div class="text-xl font-bold text-brand-dark font-mono">42 PRs</div>
+<div class="text-xs text-slate-500 font-medium">Merged across upstream repos</div>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-brand-border shadow-xs flex items-center space-x-4">
+<div class="w-11 h-11 rounded-lg bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-700">
+<i class="fa-solid fa-box text-lg"></i>
+</div>
+<div>
+<div class="text-xl font-bold text-brand-dark font-mono">9 Packages</div>
+<div class="text-xs text-slate-500 font-medium">Published to npm, crates &amp; Go</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Contribution Heatmap Panel -->
+<div class="lg:col-span-8 bg-white p-6 rounded-xl border border-brand-border shadow-xs flex flex-col justify-between h-full">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center space-x-2">
+<span class="text-xs font-semibold text-brand-dark">Contribution Stream</span>
+<span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Last 52 Weeks</span>
+</div>
+<!-- Heatmap Legend -->
+<div class="flex items-center space-x-1.5 text-[10px] text-slate-500">
+<span>Less</span>
+<span class="w-2.5 h-2.5 rounded-2xs bg-slate-100 border border-slate-200"></span>
+<span class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></span>
+<span class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></span>
+<span class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></span>
+<span>More</span>
+</div>
+</div>
+<!-- Month Labels -->
+<div class="flex justify-between text-[10px] text-slate-400 font-mono mb-2 px-1">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+</div>
+<!-- Heatmap Grid SVG / Blocks Representation -->
+<div class="overflow-x-auto pb-2">
+<div class="grid grid-flow-col grid-rows-7 gap-1 min-w-[550px] justify-between" data-purpose="contribution-cells">
+<!-- Generated simulated 52 weeks of GitHub activity -->
+<!-- Loop Weeks Jan - Apr (Moderate to High Activity) -->
+<div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div>
+<!-- Mid-year blocks -->
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div>
+<!-- Remaining weeks up to Q4 -->
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div>
+<div class="w-2.5 h-2.5 rounded-2xs bg-slate-100"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-400"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-200"></div><div class="w-2.5 h-2.5 rounded-2xs bg-teal-700"></div>
+</div>
+</div>
+</div>
+<!-- Heatmap Footer Note -->
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+<span>Primary Focus: Microservice Runtimes &amp; Edge Compute</span>
+<span class="font-medium text-teal-700">Continuous Delivery</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: OpenSourceSection -->
+<!-- BEGIN: CollaborationCTABanner -->
+<section class="py-14" data-purpose="collaboration-cta" id="contact">
+<div class="max-w-7xl mx-auto px-6">
+<div class="relative overflow-hidden bg-gradient-to-r from-teal-50 via-sky-50 to-white border border-teal-100 rounded-2xl p-8 md:p-10 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="max-w-2xl">
+<span class="inline-block text-[11px] font-bold uppercase tracking-wider text-teal-800 bg-teal-100/70 px-2.5 py-0.5 rounded-full mb-2">
+              Ready to Collaborate
+            </span>
+<h3 class="text-2xl md:text-3xl font-bold text-brand-dark tracking-tight leading-snug">
+              Looking to architect a new platform or modernize legacy software?
+            </h3>
+<p class="text-sm text-brand-gray mt-2 leading-relaxed">
+              I partner with tech founders and engineering teams to design resilient systems, optimize frontend response latencies, and deliver scalable production code.
+            </p>
+</div>
+<div class="flex flex-wrap items-center gap-3 shrink-0">
+<a class="px-5 py-2.5 bg-[#005f73] hover:bg-[#004d5d] text-white rounded-lg text-xs font-semibold shadow-xs flex items-center space-x-2 transition-all" href="mailto:contact@alchietagudin.com">
+<span>Start a Conversation</span>
+<i class="fa-regular fa-comment-dots text-sm"></i>
+</a>
+<a class="px-4 py-2.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-lg text-xs font-medium shadow-2xs flex items-center space-x-2 transition-all" href="mailto:contact@alchietagudin.com">
+<span>Direct Email</span>
+<i class="fa-regular fa-envelope text-xs text-slate-500"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CollaborationCTABanner -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-white border-t border-brand-border py-8 text-xs text-slate-500" data-purpose="global-footer">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+<!-- Brand & Bio -->
+<div>
+<div class="font-bold text-brand-dark text-sm">Alchie Tagudin <span class="font-normal text-xs text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full ml-1">Full-stack Developer</span></div>
+<p class="text-[11px] text-slate-500 mt-1 max-w-md">Crafting clean, accessible, and high-performance digital experiences across the web with modern architectures and meticulous craft.</p>
+</div>
+<!-- Quick Links & Socials -->
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-4 font-medium text-slate-600">
+<a class="hover:text-brand-dark" href="#">Home</a>
+<a class="text-teal-700 font-semibold" href="#">Projects</a>
+<a class="hover:text-brand-dark" href="#">About</a>
+<a class="hover:text-brand-dark" href="#">Contact</a>
+</div>
+<div class="flex items-center space-x-3 text-slate-400 pl-4 border-l border-slate-200">
+<a class="hover:text-brand-dark transition-colors" href="#"><i class="fa-solid fa-code"></i></a>
+<a class="hover:text-brand-dark transition-colors" href="#"><i class="fa-solid fa-share-nodes"></i></a>
+<a class="hover:text-brand-dark transition-colors" href="#"><i class="fa-regular fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>

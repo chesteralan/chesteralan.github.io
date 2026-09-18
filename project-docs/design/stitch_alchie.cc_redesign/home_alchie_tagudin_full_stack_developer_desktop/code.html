@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Alchie Tagudin - Full-Stack Engineer &amp; Architect</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              500: '#06b6d4',
+              600: '#0891b2',
+              700: '#0e7490',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased min-h-screen flex flex-col selection:bg-cyan-100 selection:text-cyan-900">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+<div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between gap-4">
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-3 group" href="#">
+<img alt="Alchie Tagudin Monogram" class="h-9 w-9 rounded-lg shadow-sm group-hover:opacity-90 transition-opacity" src="https://lh3.googleusercontent.com/aida/AEtjO1UZAScpwr5zX9cyFB1ZHqkTI5bGRT1XUjL93FDQy7lQxluQWG8hDYqGBt2LoPoE4GiBtNta-4xScn-HgLuHj1an9EGRW-yoPtDL40uoDn4seTj8sdut8kcw6Iq8QtO1kpeiGpRKGHuvzpi1zY-th1IngqjX8TW7GI5pMdOr3W_il8ibyfN6zatfMIjFU6Tk88HQkDnqmgfzGkrQCitt7GjuPwwwnpCwliwR-L-lRXUaa8XxXH2kySmBZkI">
+<span class="font-bold text-lg text-slate-900 tracking-tight">Alchie Tagudin</span>
+</a>
+<div class="hidden sm:inline-flex items-center gap-2 bg-cyan-50 border border-cyan-200/80 px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-xs font-medium text-cyan-800">Available for work</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-xl text-sm font-medium text-slate-600">
+<a class="px-4 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm font-semibold transition-colors" href="#">Home</a>
+<a class="px-4 py-1.5 rounded-lg hover:text-slate-900 hover:bg-white/60 transition-colors" href="#projects">Projects</a>
+<a class="px-4 py-1.5 rounded-lg hover:text-slate-900 hover:bg-white/60 transition-colors" href="#about">About</a>
+<a class="px-4 py-1.5 rounded-lg hover:text-slate-900 hover:bg-white/60 transition-colors" href="#contact">Contact</a>
+</nav>
+<div class="flex items-center gap-3">
+<a class="inline-flex items-center justify-center bg-[#0891b2] hover:bg-[#0e7490] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors shadow-sm" href="#contact">
+          Get in Touch
+        </a>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="max-w-6xl mx-auto px-6 py-16 lg:py-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Left Column -->
+<div class="lg:col-span-7 flex flex-col items-start">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200 text-sm font-medium mb-6">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span>Full-Stack Engineer &amp; Architect</span>
+</div>
+<h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-6">
+            Crafting robust, scalable web applications &amp; seamless digital experiences.
+          </h1>
+<p class="text-lg text-slate-600 leading-relaxed max-w-xl mb-8">
+            Hi, I'm Alchie Tagudin — specializing in React, Node.js, TypeScript, and resilient cloud-native architectures.
+          </p>
+<div class="flex flex-wrap items-center gap-4 mb-10">
+<a class="inline-flex items-center gap-2 bg-[#0891b2] hover:bg-[#0e7490] text-white font-medium px-6 py-3 rounded-lg shadow-sm transition-all hover:shadow hover:-translate-y-0.5" href="#projects">
+<span>View Featured Work</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-2 border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 font-medium px-6 py-3 rounded-lg shadow-sm transition-colors" href="#contact">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+<span>Get in Touch</span>
+</a>
+</div>
+<!-- Tech Stack -->
+<div class="w-full pt-4 border-t border-slate-200">
+<div class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Core Tech Stack</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-xs font-medium text-slate-700 shadow-sm">React</span>
+<span class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-xs font-medium text-slate-700 shadow-sm">TypeScript</span>
+<span class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-xs font-medium text-slate-700 shadow-sm">Next.js</span>
+<span class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-xs font-medium text-slate-700 shadow-sm">Node.js</span>
+<span class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-xs font-medium text-slate-700 shadow-sm">Tailwind CSS</span>
+<span class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-xs font-medium text-slate-700 shadow-sm">PostgreSQL</span>
+</div>
+</div>
+</div>
+<!-- Right Column (Avatar & Floating Badges) -->
+<div class="lg:col-span-5 flex justify-center lg:justify-end">
+<div class="relative">
+<div class="w-72 h-72 sm:w-80 sm:h-80 rounded-full object-cover shadow-xl border-4 border-white ring-4 ring-cyan-100 overflow-hidden bg-white">
+<img alt="Alchie Tagudin portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WEfNN-6xrKA4X2-8Xc8esLqVUPNmjCuU2B_0j5MxNem8aWurKJtVclL4dL-Dldh5CnbqB4RkMqj6ptKNxbjbhxs8tXCDeNMmfsAxvI-2SSsit5RHWLG9Lawr7ktXYDTHZc1lzEpMYoQQ8ZidRXMzP0QNYmsf63C-qpaG18CGh_bePnJoLFwYPnGtMHPnFGNFVaaJpEt9r7MQ1dNUjdqK_-iX7OkiPIjc3Xw5g8PbvydNtaRUgAQ2xjUQ">
+</div>
+<!-- Floating mini badge bottom-left -->
+<div class="absolute -bottom-3 -left-4 bg-white px-4 py-2 rounded-full shadow-lg border border-slate-100 flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-xs font-semibold text-slate-800">Available for Q3/Q4</span>
+</div>
+<!-- Floating mini badge top-right -->
+<div class="absolute -top-3 -right-2 bg-white px-4 py-2 rounded-xl shadow-lg border border-slate-100 flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-cyan-50 text-[#0891b2] flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-900 leading-tight">Full-Stack Senior</span>
+<span class="text-[10px] text-slate-500">8+ Yrs Experience</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Metrics / Stats Section -->
+<section class="max-w-6xl mx-auto px-6 py-8">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white rounded-lg shadow-sm border border-slate-200/80 p-6 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-3xl font-extrabold text-[#0891b2]">5+</span>
+<span class="material-symbols-outlined text-slate-400 text-[26px]">workspace_premium</span>
+</div>
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Years Industry Exp</span>
+</div>
+<div class="bg-white rounded-lg shadow-sm border border-slate-200/80 p-6 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-3xl font-extrabold text-[#0891b2]">20+</span>
+<span class="material-symbols-outlined text-slate-400 text-[26px]">rocket_launch</span>
+</div>
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Shipped Products</span>
+</div>
+<div class="bg-white rounded-lg shadow-sm border border-slate-200/80 p-6 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-3xl font-extrabold text-[#0891b2]">99.9%</span>
+<span class="material-symbols-outlined text-slate-400 text-[26px]">verified</span>
+</div>
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Reliability Mindset</span>
+</div>
+<div class="bg-white rounded-lg shadow-sm border border-slate-200/80 p-6 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-3xl font-extrabold text-[#0891b2]">Top 1%</span>
+<span class="material-symbols-outlined text-slate-400 text-[26px]">code_blocks</span>
+</div>
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Code Quality &amp; DX</span>
+</div>
+</div>
+</section>
+<!-- Selected Work / Projects Section -->
+<section class="max-w-6xl mx-auto px-6 py-16" id="projects">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-slate-200">
+<div>
+<div class="inline-flex items-center gap-1.5 text-xs font-bold text-[#0891b2] uppercase tracking-wider mb-2">
+<span class="w-1.5 h-1.5 rounded-full bg-[#0891b2]"></span>
+            Portfolio
+          </div>
+<h2 class="text-3xl font-bold text-slate-900 tracking-tight">Selected Work</h2>
+<p class="text-slate-600 mt-1">Production systems shipped at scale</p>
+</div>
+<a class="inline-flex items-center gap-1 text-sm font-semibold text-[#0891b2] hover:text-[#0e7490] transition-colors" href="#">
+<span>View all projects</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+<!-- Project 1 -->
+<article class="bg-white rounded-xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+<div class="h-60 bg-gradient-to-br from-slate-900 to-slate-800 p-6 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between relative z-10">
+<span class="px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-xs font-semibold text-cyan-300">
+                SaaS Infrastructure Platform
+              </span>
+<span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/80">
+<span class="material-symbols-outlined text-[18px]">north_east</span>
+</span>
+</div>
+<div class="space-y-2 relative z-10">
+<div class="text-white text-xs font-mono opacity-60">telemetry_dashboard.ts</div>
+<div class="h-2 bg-white/10 rounded-full overflow-hidden w-3/4">
+<div class="bg-cyan-400 h-full w-2/3 rounded-full"></div>
+</div>
+<div class="text-emerald-400 text-xs font-mono">12M+ Monthly Events / 99.99% Uptime</div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold text-slate-900 mb-2">CloudScale Metrics</h3>
+<p class="text-sm text-slate-600 leading-relaxed">
+                High-throughput real-time telemetry and monitoring dashboard supporting 12M+ monthly events with zero-lag queries and anomaly alerts.
+              </p>
+</div>
+<div class="flex flex-wrap gap-2 pt-6">
+<span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">React</span>
+<span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Go</span>
+<span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">TimescaleDB</span>
+<span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">AWS</span>
+</div>
+</div>
+</article>
+<!-- Project 2 -->
+<article class="bg-white rounded-xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+<div class="h-60 bg-gradient-to-br from-indigo-950 to-slate-900 p-6 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between relative z-10">
+<span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-500/30 text-xs font-semibold text-purple-300">
+                Global Fintech Core
+              </span>
+<span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/80">
+<span class="material-symbols-outlined text-[18px]">north_east</span>
+</span>
+</div>
+<div class="space-y-2 relative z-10">
+<div class="text-white text-xs font-mono opacity-60">multi_currency_settlement.ts</div>
+<div class="h-2 bg-white/10 rounded-full overflow-hidden w-4/5">
+<div class="bg-purple-400 h-full w-4/5 rounded-full"></div>
+</div>
+<div class="text-purple-300 text-xs font-mono">Biometric Auth &amp; Instant FX Transfers</div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold text-slate-900 mb-2">FinFlow Pay</h3>
+<p class="text-sm text-slate-600 leading-relaxed">
+                Next-gen cross-border payments application providing multi-currency settlements, regulatory compliance, and sub-second transaction clearing.
+              </p>
+</div>
+<div class="flex flex-wrap gap-2 pt-6">
+<span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Next.js</span>
+<span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Node.js</span>
+<span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Stripe API</span>
+<span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Docker</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Testimonial & Contact Callout -->
+<section class="max-w-6xl mx-auto px-6 pb-20 space-y-10">
+<!-- Testimonial Card -->
+<div class="bg-white rounded-2xl p-8 lg:p-10 border border-slate-200/80 shadow-sm relative overflow-hidden">
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="text-xl lg:text-2xl font-medium text-slate-800 leading-relaxed mb-6">
+          “Alchie is an extraordinary engineer. His obsession with code cleanliness and rapid delivery accelerated our release cycle by over 40%.”
+        </blockquote>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#0891b2] text-white flex items-center justify-center font-bold text-base shadow-sm">
+            DM
+          </div>
+<div>
+<div class="font-bold text-slate-900">David Miller</div>
+<div class="text-sm text-slate-500">VP of Engineering at FinScale</div>
+</div>
+</div>
+</div>
+<!-- Contact Banner -->
+<div class="bg-gradient-to-r from-slate-900 via-slate-800 to-cyan-950 text-white rounded-2xl p-8 lg:p-12 shadow-lg relative overflow-hidden" id="contact">
+<div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+<div class="max-w-xl space-y-3">
+<div class="inline-flex items-center gap-1.5 text-cyan-400 text-xs uppercase tracking-wider font-bold">
+<span class="material-symbols-outlined text-[20px]">handshake</span>
+<span>Collaboration</span>
+</div>
+<h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-white">Have a project in mind?</h2>
+<p class="text-slate-300 text-base leading-relaxed">
+              Let's build reliable, performant software together. Now taking select contracts for Q3/Q4.
+            </p>
+</div>
+<div class="flex-shrink-0">
+<a class="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-slate-100 px-6 py-3.5 rounded-lg text-sm font-semibold transition-all shadow hover:shadow-md hover:-translate-y-0.5" href="mailto:contact@alchie.dev">
+<span>Start a Conversation</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-white border-t border-slate-200 py-10 mt-auto">
+<div class="max-w-6xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-slate-100">
+<div class="space-y-2">
+<div class="flex items-center gap-2.5">
+<img alt="Alchie Tagudin Monogram" class="h-7 w-7 rounded-md" src="https://lh3.googleusercontent.com/aida/AEtjO1UZAScpwr5zX9cyFB1ZHqkTI5bGRT1XUjL93FDQy7lQxluQWG8hDYqGBt2LoPoE4GiBtNta-4xScn-HgLuHj1an9EGRW-yoPtDL40uoDn4seTj8sdut8kcw6Iq8QtO1kpeiGpRKGHuvzpi1zY-th1IngqjX8TW7GI5pMdOr3W_il8ibyfN6zatfMIjFU6Tk88HQkDnqmgfzGkrQCitt7GjuPwwwnpCwliwR-L-lRXUaa8XxXH2kySmBZkI">
+<span class="font-bold text-slate-900 text-base">Alchie Tagudin</span>
+</div>
+<p class="text-xs text-slate-500 max-w-sm">
+            Senior Full-Stack Developer architecting high-performance web applications and design systems.
+          </p>
+</div>
+<div class="flex flex-wrap items-center gap-6 text-sm font-medium text-slate-600">
+<a class="hover:text-slate-900 transition-colors" href="#">Home</a>
+<a class="hover:text-slate-900 transition-colors" href="#projects">Projects</a>
+<a class="hover:text-slate-900 transition-colors" href="#about">About</a>
+<a class="hover:text-slate-900 transition-colors" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-2">
+<a aria-label="GitHub Profile" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</a>
+<a aria-label="LinkedIn Profile" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">work</span>
+</a>
+<a aria-label="Email" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors" href="mailto:contact@alchie.dev">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</a>
+</div>
+</div>
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+<p>© 2026 Alchie Tagudin. All rights reserved.</p>
+<p>Designed &amp; Built with precision.</p>
+</div>
+</div>
+</footer>
+</body></html>
