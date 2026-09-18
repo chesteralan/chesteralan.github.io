@@ -148,7 +148,7 @@ export default function Contact() {
                     <PulseDot color="cyan" size="md" />
                     <span className="text-sm font-bold text-slate-900">Available for Projects</span>
                   </div>
-                  <Badge>Remote &amp; Hybrid</Badge>
+                  <Badge>Remote Only</Badge>
                 </div>
                 <p className="text-sm leading-relaxed text-slate-500">
                   Accepting scoped deliverables, feature builds, and consulting engagements.

@@ -88,7 +88,9 @@ export default function Home() {
                 {/* Floating badge bottom-left */}
                 <div className="absolute -bottom-3 -left-4 flex items-center gap-2 rounded-full border border-slate-100 bg-white px-4 py-2 shadow-lg">
                   <PulseDot color="emerald" size="md" />
-                  <span className="text-xs font-semibold text-slate-800">Available for work</span>
+                  <span className="text-xs font-semibold text-slate-800">
+                    Available for Projects
+                  </span>
                 </div>
                 {/* Floating badge top-right */}
                 <div className="absolute -right-2 -top-3 flex items-center gap-2.5 rounded-xl border border-slate-100 bg-white px-4 py-2 shadow-lg">

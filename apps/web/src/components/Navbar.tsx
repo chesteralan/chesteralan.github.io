@@ -45,13 +45,11 @@ export default function Navbar() {
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-900 text-lg font-bold text-white shadow-sm">
               A
             </div>
-            <span className="text-lg font-bold tracking-tight text-slate-900">
-              Alchie Tagudin
-            </span>
+            <span className="text-lg font-bold tracking-tight text-slate-900">Alchie Tagudin</span>
           </Link>
           <div className="hidden items-center gap-1.5 rounded-full border border-cyan-200/80 bg-cyan-50 px-3 py-1 sm:inline-flex">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs font-medium text-cyan-800">Available for work</span>
+            <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+            <span className="text-xs font-medium text-cyan-800">Available for Projects</span>
           </div>
         </div>
 
@@ -65,7 +63,7 @@ export default function Navbar() {
                 'rounded-lg px-4 py-1.5 transition-colors',
                 isActive(link.path)
                   ? 'bg-white font-semibold text-slate-900 shadow-sm'
-                  : 'hover:text-slate-900 hover:bg-white/60'
+                  : 'hover:bg-white/60 hover:text-slate-900'
               )}
             >
               {link.label}
@@ -78,7 +76,7 @@ export default function Navbar() {
           <Link to="/contact" className="btn-primary hidden sm:inline-flex">
             Get in Touch
           </Link>
-          
+
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -113,7 +111,11 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link to="/contact" onClick={closeMenu} className="btn-primary mt-2 w-full justify-center">
+          <Link
+            to="/contact"
+            onClick={closeMenu}
+            className="btn-primary mt-2 w-full justify-center"
+          >
             Get in Touch
           </Link>
         </div>
