@@ -39,7 +39,7 @@ export default function About() {
         </ScrollReveal>
         <ScrollReveal>
           <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
-            Full-stack developer leveraging AI-assisted development to ship production applications,
+            Frontend developer leveraging AI-assisted development to ship production applications,
             developer platforms, and resilient cloud infrastructure — faster iteration, sharper
             code, better outcomes.
           </p>
