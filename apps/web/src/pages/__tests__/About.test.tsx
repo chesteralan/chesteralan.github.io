@@ -15,7 +15,7 @@ describe('About', () => {
   it('renders bio section', () => {
     renderAbout();
     expect(screen.getByText(/About Me & Engineering Philosophy/)).toBeInTheDocument();
-    expect(screen.getByText(/Full-stack developer leveraging/)).toBeInTheDocument();
+    expect(screen.getByText(/Frontend developer leveraging/)).toBeInTheDocument();
   });
 
   it('renders career timeline section', () => {
