@@ -6,11 +6,7 @@ interface PageHeadingProps {
   className?: string;
 }
 
-export default function PageHeading({
-  children,
-  size = 'lg',
-  className = '',
-}: PageHeadingProps): JSX.Element {
+export default function PageHeading({ children, size = 'lg', className = '' }: PageHeadingProps) {
   const sizeClasses =
     size === 'lg' ? 'text-4xl sm:text-5xl leading-tight' : 'text-3xl sm:text-4xl leading-tight';
 

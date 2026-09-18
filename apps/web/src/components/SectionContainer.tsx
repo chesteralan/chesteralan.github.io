@@ -12,7 +12,7 @@ export default function SectionContainer({
   padding = 'py-20',
   className = '',
   id,
-}: SectionContainerProps): JSX.Element {
+}: SectionContainerProps) {
   return (
     <section id={id} className={cn('mx-auto max-w-7xl px-6', padding, className)}>
       {children}

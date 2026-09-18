@@ -15,7 +15,7 @@ export default function StatCard({
   icon,
   layout = 'vertical',
   className = '',
-}: StatCardProps): JSX.Element {
+}: StatCardProps) {
   if (layout === 'horizontal') {
     return (
       <div

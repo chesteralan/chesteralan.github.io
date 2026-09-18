@@ -14,11 +14,7 @@ const variantStyles = {
   overlay: 'bg-white/10 text-white/80 backdrop-blur',
 };
 
-export default function Tag({
-  children,
-  variant = 'default',
-  className = '',
-}: TagProps): JSX.Element {
+export default function Tag({ children, variant = 'default', className = '' }: TagProps) {
   return (
     <span
       className={cn(

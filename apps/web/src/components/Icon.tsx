@@ -105,7 +105,7 @@ interface IconProps {
   className?: string;
 }
 
-export default function Icon({ name, size = 24, className = '' }: IconProps): JSX.Element | null {
+export default function Icon({ name, size = 24, className = '' }: IconProps) {
   const LucideIcon = icons[name];
   if (!LucideIcon) {
     return null;

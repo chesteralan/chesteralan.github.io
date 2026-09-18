@@ -30,7 +30,7 @@ export default function IconBox({
   size = 'md',
   rounded = 'xl',
   className = '',
-}: IconBoxProps): JSX.Element {
+}: IconBoxProps) {
   return (
     <div
       className={cn(

@@ -39,7 +39,7 @@ const SOCIALS = [
   { label: 'Email', handle: socialLinks.email, href: `mailto:${socialLinks.email}`, icon: 'mail' },
 ];
 
-export default function Contact(): JSX.Element {
+export default function Contact() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
