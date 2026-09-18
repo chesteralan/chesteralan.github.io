@@ -29,7 +29,7 @@ const metrics = [
   },
 ];
 
-const filterPills = ['All Projects', 'Full-Stack Web', 'Chrome Extensions', 'Open Source'];
+const filterPills = ['All Projects', 'Frontend', 'Chrome Extensions', 'Open Source'];
 
 const heatmapCells = [
   // Row 1

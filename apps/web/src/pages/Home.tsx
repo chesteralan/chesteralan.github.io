@@ -39,7 +39,7 @@ export default function Home() {
             </ScrollReveal>
             <ScrollReveal>
               <p className="mb-8 max-w-xl text-lg leading-relaxed text-slate-600">
-                Hi, I'm Alchie Tagudin — a full-stack developer using AI tooling to ship production
+                Hi, I'm Alchie Tagudin — a frontend developer using AI tooling to ship production
                 apps faster. Based in Davao City, Philippines.
               </p>
             </ScrollReveal>
