@@ -15,14 +15,6 @@ export interface Project {
   status?: 'Production' | 'Open Source' | 'Side Project';
 }
 
-export interface Extension {
-  id: string;
-  title: string;
-  description: string;
-  tags: string[];
-  link: string;
-}
-
 export interface Skill {
   name: string;
   category: string;

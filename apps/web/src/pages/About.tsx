@@ -26,7 +26,7 @@ export default function About() {
   return (
     <div>
       {/* Hero Section */}
-      <SectionContainer padding="!pb-0">
+      <SectionContainer padding="pt-10 md:pt-15 pb-0">
         <ScrollReveal>
           <BadgePill icon="info" className="mb-4">
             About Alchie Tagudin
@@ -127,7 +127,7 @@ export default function About() {
               <div className="relative">
                 {/* Timeline dot */}
                 <div
-                  className={`absolute -left-[30px] top-6 h-4 w-4 rounded-full border-4 border-white ring-4 ring-slate-100 sm:-left-[39px] ${exp.dotColor}`}
+                  className={`absolute -left-[20px] top-3 h-4 w-4 rounded-full border-4 border-white ring-4 ring-slate-100 sm:-left-[25px] sm:top-0 ${exp.dotColor}`}
                 />
                 {/* Card */}
                 <Card padding="lg" className="space-y-4">
@@ -166,13 +166,13 @@ export default function About() {
           <div className="overflow-hidden rounded-3xl border border-cyan-100/80 bg-gradient-to-r from-cyan-50/70 via-cyan-50/50 to-purple-50/50 p-8 shadow-sm sm:p-12">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div className="max-w-xl space-y-3">
-                <Badge icon="description">Documented Background</Badge>
+                <Badge icon="description">My Background</Badge>
                 <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
-                  Interested in working together or hiring?
+                  Want to learn more about my experience?
                 </h2>
                 <p className="text-sm text-slate-600 sm:text-base">
-                  Grab a detailed PDF copy of my technical track record or start a direct
-                  conversation regarding contract or full-time opportunities.
+                  Take a look at my detailed resume and technical background, or reach out to
+                  discuss a project, contract, or full-time opportunity.
                 </p>
               </div>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">

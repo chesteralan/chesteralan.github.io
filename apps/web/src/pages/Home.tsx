@@ -188,9 +188,9 @@ export default function Home() {
       {/* Contact CTA */}
       <CTASection
         variant="dark"
-        badge={{ icon: 'handshake', text: 'Collaboration' }}
+        badge={{ icon: 'handshake', text: 'Let’s Build Something' }}
         heading="Have a project in mind?"
-        description="Let's build reliable, performant software together. I'm always open to new opportunities."
+        description="Let’s build a fast, reliable, and scalable web solution together."
       >
         <Link
           to="/contact"

@@ -21,7 +21,7 @@ export default function Footer() {
 
         {/* Links & Socials */}
         <div className="flex min-w-0 flex-wrap items-center gap-6 sm:gap-8">
-          <nav className="flex items-center gap-6 text-xs font-semibold text-slate-600">
+          <nav className="mx-auto flex items-center gap-6 text-xs font-semibold text-slate-600">
             <Link to="/" className="transition-colors hover:text-slate-900">
               Home
             </Link>
@@ -35,7 +35,7 @@ export default function Footer() {
               Contact
             </Link>
           </nav>
-          <div className="flex items-center gap-3 border-l border-slate-200 pl-6 text-slate-500">
+          <div className="mx-auto flex items-center gap-3 border-slate-200 text-slate-500 md:border-l md:pl-6">
             <SocialIcon href={socialLinks.github} icon="code" label="GitHub" />
             <SocialIcon href={socialLinks.linkedin} icon="work" label="LinkedIn" />
             <SocialIcon

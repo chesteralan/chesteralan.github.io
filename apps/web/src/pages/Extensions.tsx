@@ -5,7 +5,9 @@ import Tag from '../components/Tag';
 import IconBox from '../components/IconBox';
 import Card from '../components/Card';
 import SectionContainer from '../components/SectionContainer';
-import { extensions } from '../data/portfolio';
+import { projects } from '../data/portfolio';
+
+const extensions = projects.filter((p) => p.category === 'extension');
 
 export default function Extensions() {
   return (
@@ -22,7 +24,12 @@ export default function Extensions() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {extensions.map((ext) => (
             <ScrollReveal key={ext.id}>
-              <a href={ext.link} target="_blank" rel="noopener noreferrer" className="group block">
+              <a
+                href={ext.links.chrome}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
                 <Card hoverable padding="default" className="h-full group-hover:border-cyan-200">
                   <div className="mb-4">
                     <IconBox icon="extension" color="cyan" size="lg" />
