@@ -22,7 +22,7 @@ export default function CardFooter({
       )}
     >
       {left && <span className="text-slate-500">{left}</span>}
-      {right && <span className="font-bold text-[#0891b2]">{right}</span>}
+      {right && <span className="font-bold text-brand-600">{right}</span>}
     </div>
   );
 }

@@ -165,14 +165,14 @@ export default function Home() {
             <Card padding="lg" className="relative overflow-hidden">
               <div className="mb-4 flex items-center gap-1 text-amber-400">
                 {[...Array(5)].map((_, i) => (
-                  <Icon key={i} name="star" size={20} filled className="text-amber-400" />
+                  <Icon key={i} name="star" size={20} className="text-amber-400" />
                 ))}
               </div>
               <blockquote className="mb-6 text-xl font-medium leading-relaxed text-slate-800 lg:text-2xl">
                 "{testimonials[0].content}"
               </blockquote>
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0891b2] text-sm font-bold text-white shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white shadow-sm">
                   {testimonials[0].initials}
                 </div>
                 <div>

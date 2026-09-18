@@ -25,7 +25,7 @@ export default function StatCard({
         )}
       >
         {icon && (
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-cyan-50 text-[#0891b2]">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-cyan-50 text-brand-600">
             <Icon name={icon} size={22} />
           </div>
         )}
@@ -42,7 +42,7 @@ export default function StatCard({
   return (
     <div className={cn('rounded-xl border border-slate-200/80 bg-white p-6 shadow-sm', className)}>
       <div className="mb-2 flex items-center justify-between">
-        <span className="text-3xl font-extrabold text-[#0891b2]">{value}</span>
+        <span className="text-3xl font-extrabold text-brand-600">{value}</span>
         {icon && <Icon name={icon} size={26} className="text-slate-500" />}
       </div>
       <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">{label}</span>

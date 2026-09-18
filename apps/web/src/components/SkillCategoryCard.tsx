@@ -46,7 +46,7 @@ export default function SkillCategoryCard({
       </div>
       <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-xs">
         <span className="text-slate-500">{footerLabel}</span>
-        <span className="font-bold text-[#0891b2]">{footerValue}</span>
+        <span className="font-bold text-brand-600">{footerValue}</span>
       </div>
     </Card>
   );

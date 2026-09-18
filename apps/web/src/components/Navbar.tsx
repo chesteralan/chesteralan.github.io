@@ -24,7 +24,7 @@ export default function Navbar() {
 
   const closeMenu = () => setIsOpen(false);
 
-  const isActive = (path: string) => {
+  const isActive = (path: string): boolean => {
     const p = stripBase(location.pathname);
     return path === '/' ? p === '/' : p.startsWith(path);
   };
@@ -104,7 +104,7 @@ export default function Navbar() {
               className={cn(
                 'block rounded-lg px-4 py-3 text-sm font-medium transition-colors',
                 isActive(link.path)
-                  ? 'bg-cyan-50 text-[#0891b2]'
+                  ? 'bg-cyan-50 text-brand-600'
                   : 'text-slate-600 hover:bg-slate-50'
               )}
             >

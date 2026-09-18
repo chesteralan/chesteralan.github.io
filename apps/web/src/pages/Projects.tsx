@@ -325,7 +325,7 @@ export default function Projects() {
               </div>
               <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-[11px] text-slate-500">
                 <span>Primary Focus: Web Apps &amp; Developer Tools</span>
-                <span className="font-medium text-[#0891b2]">Continuous Delivery</span>
+                <span className="font-medium text-brand-600">Continuous Delivery</span>
               </div>
             </ScrollReveal>
           </div>
@@ -342,7 +342,7 @@ export default function Projects() {
         <div className="flex flex-wrap items-center gap-3">
           <Link
             to="/contact"
-            className="shadow-xs flex items-center space-x-2 rounded-lg bg-[#0891b2] px-5 py-2.5 text-xs font-semibold text-white transition-all hover:bg-[#0e7490]"
+            className="shadow-xs flex items-center space-x-2 rounded-lg bg-brand-600 px-5 py-2.5 text-xs font-semibold text-white transition-all hover:bg-brand-700"
           >
             <span>Start a Conversation</span>
             <Icon name="chat_bubble_outline" size={14} />

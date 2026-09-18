@@ -41,13 +41,12 @@ export function ScrollRevealProvider({ children }: { children: React.ReactNode }
   return <ObserverContext.Provider value={{ observe }}>{children}</ObserverContext.Provider>;
 }
 
-export default function ScrollReveal({
-  children,
-  className = '',
-}: {
+interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
-}) {
+}
+
+export default function ScrollReveal({ children, className = '' }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const ctx = useContext(ObserverContext);

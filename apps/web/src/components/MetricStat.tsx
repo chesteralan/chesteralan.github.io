@@ -6,7 +6,7 @@ interface MetricStatProps {
 export default function MetricStat({ value, label }: MetricStatProps) {
   return (
     <div>
-      <div className="text-2xl font-extrabold text-[#0891b2] sm:text-3xl">{value}</div>
+      <div className="text-2xl font-extrabold text-brand-600 sm:text-3xl">{value}</div>
       <div className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-slate-500">
         {label}
       </div>

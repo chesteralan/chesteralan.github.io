@@ -19,37 +19,32 @@ export default function Extensions() {
 
       {/* Extensions Grid */}
       <SectionContainer padding="py-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {extensions.map((ext) => (
-              <ScrollReveal key={ext.id}>
-                <a
-                  href={ext.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group"
-                >
-                  <Card hoverable padding="default" className="h-full group-hover:border-cyan-200">
-                    <div className="mb-4">
-                      <IconBox icon="extension" color="cyan" size="lg" />
-                    </div>
-                    <h3 className="mb-2 text-lg font-bold text-slate-900 tracking-tight group-hover:text-[#0891b2] transition-colors">
-                      {ext.title}
-                    </h3>
-                    <p className="mb-4 text-sm leading-relaxed text-slate-600">{ext.description}</p>
-                    <div className="mb-5 flex flex-wrap gap-2">
-                      {ext.tags.map((tag) => (
-                        <Tag key={tag}>{tag}</Tag>
-                      ))}
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0891b2] group-hover:text-[#0e7490] transition-colors">
-                      View in Chrome Web Store
-                      <Icon name="open_in_new" size={14} />
-                    </span>
-                  </Card>
-                </a>
-              </ScrollReveal>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {extensions.map((ext) => (
+            <ScrollReveal key={ext.id}>
+              <a href={ext.link} target="_blank" rel="noopener noreferrer" className="group block">
+                <Card hoverable padding="default" className="h-full group-hover:border-cyan-200">
+                  <div className="mb-4">
+                    <IconBox icon="extension" color="cyan" size="lg" />
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold tracking-tight text-slate-900 transition-colors group-hover:text-brand-600">
+                    {ext.title}
+                  </h3>
+                  <p className="mb-4 text-sm leading-relaxed text-slate-600">{ext.description}</p>
+                  <div className="mb-5 flex flex-wrap gap-2">
+                    {ext.tags.map((tag) => (
+                      <Tag key={tag}>{tag}</Tag>
+                    ))}
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-600 transition-colors group-hover:text-brand-700">
+                    View in Chrome Web Store
+                    <Icon name="open_in_new" size={14} />
+                  </span>
+                </Card>
+              </a>
+            </ScrollReveal>
+          ))}
+        </div>
       </SectionContainer>
     </div>
   );

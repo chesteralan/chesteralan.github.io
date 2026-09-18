@@ -33,7 +33,7 @@ export default function FormField({
         value={value}
         onChange={onChange}
         required={required}
-        className="w-full rounded-lg border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-sm text-slate-800 outline-none transition-all focus:border-transparent focus:bg-white focus:ring-2 focus:ring-[#0891b2]"
+        className="w-full rounded-lg border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-sm text-slate-800 outline-none transition-all focus:border-transparent focus:bg-white focus:ring-2 focus:ring-brand-600"
         placeholder={placeholder}
         aria-describedby={errorId}
       />

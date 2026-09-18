@@ -3,11 +3,20 @@ import { cn } from '../lib/cn';
 import Tag from './Tag';
 import Icon from './Icon';
 
-export default function ProjectCard({ project }: { project: Project }) {
+interface ProjectCardProps {
+  project: Project;
+}
+
+export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="card-hover group overflow-hidden">
       {/* Header: dark gradient with preview */}
-      <div className={cn('relative -m-6 mb-6 flex h-40 items-center justify-center bg-gradient-to-br', project.previewGradient || 'from-slate-900 to-slate-800')}>
+      <div
+        className={cn(
+          'relative -m-6 mb-6 flex h-40 items-center justify-center bg-gradient-to-br',
+          project.previewGradient || 'from-slate-900 to-slate-800'
+        )}
+      >
         {project.featured && (
           <Tag variant="overlay" className="absolute left-4 top-4">
             Featured
@@ -24,11 +33,11 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* Body */}
-      <h3 className="mb-1 text-lg font-semibold text-slate-900 transition-colors group-hover:text-[#0891b2]">
+      <h3 className="mb-1 text-lg font-semibold text-slate-900 transition-colors group-hover:text-brand-600">
         {project.title}
       </h3>
       {project.metric && (
-        <p className="mb-2 text-xs font-medium text-[#0891b2]">{project.metric}</p>
+        <p className="mb-2 text-xs font-medium text-brand-600">{project.metric}</p>
       )}
       <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-slate-600">
         {project.description}
@@ -37,7 +46,9 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* Tags */}
       <div className="mb-4 flex flex-wrap gap-1.5">
         {project.tags.map((tag) => (
-          <Tag key={tag} className="text-[11px]">{tag}</Tag>
+          <Tag key={tag} className="text-[11px]">
+            {tag}
+          </Tag>
         ))}
       </div>
 
@@ -59,7 +70,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             href={project.links.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#0891b2] transition-colors hover:text-[#0e7490]"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-brand-600 transition-colors hover:text-brand-700"
           >
             <Icon name="open_in_new" size={16} />
             Live Demo
@@ -70,7 +81,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             href={project.links.chrome}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#0891b2] transition-colors hover:text-[#0e7490]"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-brand-600 transition-colors hover:text-brand-700"
           >
             <Icon name="extension" size={16} />
             Chrome Store

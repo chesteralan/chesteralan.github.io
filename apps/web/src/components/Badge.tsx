@@ -16,17 +16,20 @@ export default function Badge({
   icon,
   className = '',
 }: BadgeProps) {
-  const base = variant === 'active'
-    ? 'border border-purple-200 bg-purple-50 text-purple-700'
-    : 'border border-cyan-200/60 bg-cyan-50 text-[#0891b2]';
+  const base =
+    variant === 'active'
+      ? 'border border-purple-200 bg-purple-50 text-purple-700'
+      : 'border border-cyan-200/60 bg-cyan-50 text-brand-600';
 
   return (
     <span
-      className={cn('inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold', base, className)}
-    >
-      {dot && (
-        <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+      className={cn(
+        'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold',
+        base,
+        className
       )}
+    >
+      {dot && <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />}
       {icon && <Icon name={icon} size={14} />}
       {children}
     </span>

@@ -134,7 +134,7 @@ export default function About() {
                   <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
                     <div>
                       <h3 className="text-lg font-bold text-slate-900">{exp.role}</h3>
-                      <div className="text-sm font-semibold text-[#0891b2]">{exp.company}</div>
+                      <div className="text-sm font-semibold text-brand-600">{exp.company}</div>
                     </div>
                     <span className="self-start rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 sm:self-auto">
                       {exp.period}

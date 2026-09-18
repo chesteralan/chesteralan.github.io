@@ -181,7 +181,7 @@ export const experience: Experience[] = [
       'Strapi CMS',
       'Netlify',
     ],
-    dotColor: 'bg-[#0891b2]',
+    dotColor: 'bg-brand-600',
   },
   {
     id: 'freelance',

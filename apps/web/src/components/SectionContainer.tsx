@@ -14,7 +14,7 @@ export default function SectionContainer({
   id,
 }: SectionContainerProps) {
   return (
-    <section id={id} className={cn('max-w-7xl mx-auto px-6', padding, className)}>
+    <section id={id} className={cn('mx-auto max-w-7xl px-6', padding, className)}>
       {children}
     </section>
   );

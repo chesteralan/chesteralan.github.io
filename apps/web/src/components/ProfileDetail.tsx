@@ -10,7 +10,7 @@ interface ProfileDetailProps {
 }
 
 const colorMap = {
-  cyan: 'bg-cyan-50 text-[#0891b2]',
+  cyan: 'bg-cyan-50 text-brand-600',
   purple: 'bg-purple-50 text-purple-700',
 };
 

@@ -167,7 +167,7 @@ export default function Contact() {
                       <FieldLabel>Direct Email</FieldLabel>
                       <a
                         href={`mailto:${socialLinks.email}`}
-                        className="text-sm font-bold text-slate-900 transition-colors hover:text-[#0891b2]"
+                        className="text-sm font-bold text-slate-900 transition-colors hover:text-brand-600"
                       >
                         {socialLinks.email}
                       </a>
@@ -289,7 +289,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={4}
-                      className="w-full resize-y rounded-lg border border-slate-200 bg-slate-50/70 p-3.5 text-sm text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-transparent focus:bg-white focus:ring-2 focus:ring-[#0891b2]"
+                      className="w-full resize-y rounded-lg border border-slate-200 bg-slate-50/70 p-3.5 text-sm text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-transparent focus:bg-white focus:ring-2 focus:ring-brand-600"
                       placeholder="Your message..."
                       aria-describedby={status === 'error' ? 'contact-form-error' : undefined}
                     />
@@ -311,7 +311,7 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={status === 'sending'}
-                      className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#0891b2] px-6 py-3.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-all hover:bg-[#0e7490] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-600 px-6 py-3.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-all hover:bg-brand-700 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       {status === 'sending' ? (
                         <>

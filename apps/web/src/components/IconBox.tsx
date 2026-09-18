@@ -10,7 +10,7 @@ interface IconBoxProps {
 }
 
 const colorMap = {
-  cyan: 'bg-cyan-50 text-[#0891b2]',
+  cyan: 'bg-cyan-50 text-brand-600',
   purple: 'bg-purple-50 text-purple-700',
   slate: 'bg-slate-100 text-slate-700',
   green: 'bg-green-50 text-green-700',

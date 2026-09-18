@@ -19,7 +19,7 @@ export default function PageHero({
     <section className="hero-glow border-b border-slate-200/60 pb-8 pt-12">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
-          <div className="mb-3 flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-[#0891b2]">
+          <div className="mb-3 flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-brand-600">
             <span className="rounded border border-cyan-200/60 bg-cyan-50 px-2.5 py-1">
               {badge}
             </span>

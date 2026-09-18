@@ -19,7 +19,10 @@ export default function CyanActionLink({
   iconSize = 14,
   className = '',
 }: CyanActionLinkProps) {
-  const classes = cn('inline-flex items-center gap-1.5 text-xs font-semibold text-[#0891b2] hover:text-[#0e7490] transition-colors', className);
+  const classes = cn(
+    'inline-flex items-center gap-1.5 text-xs font-semibold text-brand-600 hover:text-brand-700 transition-colors',
+    className
+  );
 
   const content = (
     <>
@@ -29,7 +32,11 @@ export default function CyanActionLink({
   );
 
   if (to) {
-    return <Link to={to} className={classes}>{content}</Link>;
+    return (
+      <Link to={to} className={classes}>
+        {content}
+      </Link>
+    );
   }
 
   return (
