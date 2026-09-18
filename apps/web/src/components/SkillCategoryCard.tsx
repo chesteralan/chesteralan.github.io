@@ -22,7 +22,7 @@ export default function SkillCategoryCard({
   skills,
   footerLabel,
   footerValue,
-}: SkillCategoryCardProps) {
+}: SkillCategoryCardProps): JSX.Element {
   return (
     <Card className="flex h-full flex-grow flex-col">
       <div className="space-y-4">

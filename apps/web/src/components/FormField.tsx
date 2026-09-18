@@ -20,7 +20,7 @@ export default function FormField({
   value,
   onChange,
   errorId,
-}: FormFieldProps) {
+}: FormFieldProps): JSX.Element {
   return (
     <div>
       <label htmlFor={id} className="mb-1.5 block text-xs font-semibold text-slate-700">

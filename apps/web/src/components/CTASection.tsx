@@ -17,7 +17,7 @@ export default function CTASection({
   description,
   children,
   className = '',
-}: CTASectionProps) {
+}: CTASectionProps): JSX.Element {
   const bg =
     variant === 'dark'
       ? 'bg-gradient-to-r from-slate-900 via-slate-800 to-cyan-950'

@@ -15,7 +15,7 @@ export default function BadgePill({
   size = 'sm',
   variant = 'cyan',
   className = '',
-}: BadgePillProps) {
+}: BadgePillProps): JSX.Element {
   const sizeClasses = size === 'md' ? 'px-4 py-1.5 text-sm' : 'px-3 py-1 text-xs';
   const variantClasses =
     variant === 'white'

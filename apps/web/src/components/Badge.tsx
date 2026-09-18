@@ -15,7 +15,7 @@ export default function Badge({
   dot = false,
   icon,
   className = '',
-}: BadgeProps) {
+}: BadgeProps): JSX.Element {
   const base =
     variant === 'active'
       ? 'border border-purple-200 bg-purple-50 text-purple-700'

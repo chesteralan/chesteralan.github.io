@@ -17,6 +17,21 @@ import { socialLinks } from '../data/portfolio';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
+interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+  website: string;
+}
+
+interface ContactPayload {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  timestamp: string;
+}
+
 const SOCIALS = [
   { label: 'GitHub', handle: '@chesteralan', href: socialLinks.github, icon: 'code' },
   { label: 'LinkedIn', handle: '/in/chesteralan', href: socialLinks.linkedin, icon: 'person' },
@@ -24,8 +39,8 @@ const SOCIALS = [
   { label: 'Email', handle: socialLinks.email, href: `mailto:${socialLinks.email}`, icon: 'mail' },
 ];
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
+export default function Contact(): JSX.Element {
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     message: '',
@@ -37,7 +52,7 @@ export default function Contact() {
 
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     if (status === 'error') {
       setStatus('idle');
@@ -45,7 +60,7 @@ export default function Contact() {
     }
   };
 
-  const handleCopyEmail = async () => {
+  const handleCopyEmail = async (): Promise<void> => {
     try {
       await navigator.clipboard.writeText(socialLinks.email);
       setCopied(true);
@@ -66,7 +81,7 @@ export default function Contact() {
     return null;
   };
 
-  const buildPayload = () => ({
+  const buildPayload = (): ContactPayload => ({
     name: formData.name,
     email: formData.email,
     subject: 'Contact Form Message',
@@ -74,7 +89,7 @@ export default function Contact() {
     timestamp: new Date().toISOString(),
   });
 
-  const resetForm = () =>
+  const resetForm = (): void =>
     setFormData({
       name: '',
       email: '',
@@ -82,7 +97,7 @@ export default function Contact() {
       website: '',
     });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
     if (formData.website) return;
 
