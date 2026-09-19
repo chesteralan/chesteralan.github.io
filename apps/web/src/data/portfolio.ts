@@ -1,4 +1,4 @@
-export type { Project, Skill, SkillCategory, Experience, Testimonial, Stats } from './types';
+export type { Project } from './types';
 export { projects } from './projects';
 export { skills, skillCategories } from './skills';
 export { experience } from './experience';
