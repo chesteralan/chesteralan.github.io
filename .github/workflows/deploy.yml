@@ -14,20 +14,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'yarn'
-
-      - name: Enable Corepack
-        run: corepack enable
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build site
-        run: yarn build
+        run: pnpm --filter web build
 
       - name: Set up Git
         run: |
@@ -37,7 +37,7 @@ jobs:
       - name: Copy build to docs/
         run: |
           rm -rf docs/
-          cp -r dist docs/
+          cp -r apps/web/dist docs/
           cp docs/index.html docs/404.html
 
       - name: Commit and push docs/
