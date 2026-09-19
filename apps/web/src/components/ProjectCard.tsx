@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { Project } from '../data/portfolio';
 import { cn } from '../lib/cn';
 import Tag from './Tag';
@@ -7,7 +8,7 @@ interface ProjectCardProps {
   project: Project;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default memo(function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="card-hover group overflow-hidden">
       {/* Header: dark gradient with preview */}
@@ -90,4 +91,4 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
     </div>
   );
-}
+});

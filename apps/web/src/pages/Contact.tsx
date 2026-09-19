@@ -15,6 +15,8 @@ import SectionContainer from '../components/SectionContainer';
 import SocialCard from '../components/SocialCard';
 import { socialLinks } from '../data/portfolio';
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 interface ContactFormData {
@@ -49,8 +51,6 @@ export default function Contact() {
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [copied, setCopied] = useState(false);
-
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -311,18 +311,20 @@ export default function Contact() {
                   </div>
 
                   {/* Status Messages */}
-                  {status === 'success' && (
-                    <FormAlert
-                      type="success"
-                      message="Thanks for reaching out. I'll get back to you soon!"
-                    />
-                  )}
-                  {status === 'error' && (
-                    <FormAlert id="contact-form-error" type="error" message={errorMsg} />
-                  )}
+                  <div aria-live="polite" aria-atomic="true">
+                    {status === 'success' && (
+                      <FormAlert
+                        type="success"
+                        message="Thanks for reaching out. I'll get back to you soon!"
+                      />
+                    )}
+                    {status === 'error' && (
+                      <FormAlert id="contact-form-error" type="error" message={errorMsg} />
+                    )}
+                  </div>
 
                   {/* Submit */}
-                  <div className="space-y-3 pt-2">
+                  <div className="space-y-3 pt-2" role="status" aria-live="polite">
                     <button
                       type="submit"
                       disabled={status === 'sending'}

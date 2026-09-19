@@ -59,6 +59,7 @@ export default function Navbar() {
             <Link
               key={link.path}
               to={link.path}
+              aria-current={isActive(link.path) ? 'page' : undefined}
               className={cn(
                 'rounded-lg px-4 py-1.5 transition-colors',
                 isActive(link.path)
@@ -82,6 +83,8 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 md:hidden"
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             <Icon name={isOpen ? 'close' : 'menu'} size={22} />
           </button>
@@ -90,6 +93,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
+        id="mobile-menu"
+        role="menu"
         className={cn(
           'overflow-hidden transition-all duration-300 md:hidden',
           isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'

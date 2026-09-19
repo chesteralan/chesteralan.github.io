@@ -26,7 +26,7 @@ export default function About() {
   return (
     <div>
       {/* Hero Section */}
-      <SectionContainer padding="pt-10 md:pt-15 pb-0">
+      <SectionContainer padding="pt-10 md:pt-16 pb-0">
         <ScrollReveal>
           <BadgePill icon="info" className="mb-4">
             About Alchie Tagudin

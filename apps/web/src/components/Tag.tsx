@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { cn } from '../lib/cn';
 
 interface TagProps {
@@ -14,7 +15,7 @@ const variantStyles = {
   overlay: 'bg-white/10 text-white/80 backdrop-blur',
 };
 
-export default function Tag({ children, variant = 'default', className = '' }: TagProps) {
+export default memo(function Tag({ children, variant = 'default', className = '' }: TagProps) {
   return (
     <span
       className={cn(
@@ -26,4 +27,4 @@ export default function Tag({ children, variant = 'default', className = '' }: T
       {children}
     </span>
   );
-}
+});

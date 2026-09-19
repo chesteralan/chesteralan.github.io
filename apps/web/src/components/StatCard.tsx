@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { cn } from '../lib/cn';
 import Icon from './Icon';
 
@@ -9,7 +10,7 @@ interface StatCardProps {
   className?: string;
 }
 
-export default function StatCard({
+export default memo(function StatCard({
   value,
   label,
   icon,
@@ -48,4 +49,4 @@ export default function StatCard({
       <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">{label}</span>
     </div>
   );
-}
+});

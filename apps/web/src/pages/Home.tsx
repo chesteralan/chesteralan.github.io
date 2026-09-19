@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import BadgePill from '../components/BadgePill';
 import CyanActionLink from '../components/CyanActionLink';
@@ -17,7 +18,7 @@ import { projects, skills, stats, testimonials } from '../data/portfolio';
 import AlchieImage from '../assets/alchietagudin.jpg';
 
 export default function Home() {
-  const featuredProjects = projects.filter((p) => p.featured);
+  const featuredProjects = useMemo(() => projects.filter((p) => p.featured), []);
 
   return (
     <div>
@@ -83,6 +84,10 @@ export default function Home() {
                     src={AlchieImage}
                     alt="Alchie Tagudin"
                     className="h-full w-full object-cover"
+                    loading="lazy"
+                    fetchPriority="high"
+                    width="320"
+                    height="320"
                   />
                 </div>
                 {/* Floating badge bottom-left */}
