@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Projects from '../Projects';
-import { projects } from '../../data/portfolio';
+import Projects from '@/pages/Projects';
+import { projects } from '@/data/portfolio';
 
 describe('Projects', () => {
   function renderProjects() {

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import SubHeading from '../SubHeading';
+import SubHeading from '@/components/shared/SubHeading';
 
 describe('SubHeading', () => {
   it('renders children text', () => {

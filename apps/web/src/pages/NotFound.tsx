@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import ScrollReveal from '../components/ScrollReveal';
-import Icon from '../components/Icon';
+import ScrollReveal from '@/components/layout/ScrollReveal';
+import Icon from '@/components/ui/Icon';
 
 export default function NotFound() {
   return (

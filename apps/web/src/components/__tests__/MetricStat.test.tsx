@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import MetricStat from '../MetricStat';
+import MetricStat from '@/components/shared/MetricStat';
 
 describe('MetricStat', () => {
   it('renders value', () => {

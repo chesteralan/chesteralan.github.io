@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter, useLocation } from 'react-router-dom';
-import NotFound from '../NotFound';
+import NotFound from '@/pages/NotFound';
 
 function LocationDisplay() {
   const { pathname } = useLocation();

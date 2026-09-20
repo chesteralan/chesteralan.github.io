@@ -1,17 +1,17 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Layout from '../Layout';
+import Layout from '@/components/layout/Layout';
 
-vi.mock('../Navbar', () => ({
+vi.mock('@/components/layout/Navbar', () => ({
   default: () => <nav data-testid="navbar">Navbar</nav>,
 }));
 
-vi.mock('../Footer', () => ({
+vi.mock('@/components/layout/Footer', () => ({
   default: () => <footer data-testid="footer">Footer</footer>,
 }));
 
-vi.mock('../ScrollToTop', () => ({
+vi.mock('@/components/layout/ScrollToTop', () => ({
   default: () => null,
 }));
 

@@ -1,7 +1,7 @@
 import { it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import ProjectCard from '../ProjectCard';
-import type { Project } from '../../data/portfolio';
+import ProjectCard from '@/components/shared/ProjectCard';
+import type { Project } from '@/data/portfolio';
 
 const baseProject: Project = {
   id: 'test',

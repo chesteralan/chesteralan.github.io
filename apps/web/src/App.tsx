@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { BASE_PATH } from './lib/config';
-import { ScrollRevealProvider } from './components/ScrollReveal';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Extensions from './pages/Extensions';
-import Contact from './pages/Contact';
-import NotFound from './pages/NotFound';
+import { BASE_PATH } from '@/lib/config';
+import { ScrollRevealProvider } from '@/components/layout/ScrollReveal';
+import Layout from '@/components/layout/Layout';
+import Home from '@/pages/Home';
+import About from '@/pages/About';
+import Projects from '@/pages/Projects';
+import Extensions from '@/pages/Extensions';
+import Contact from '@/pages/Contact';
+import NotFound from '@/pages/NotFound';
 
 function App() {
   return (

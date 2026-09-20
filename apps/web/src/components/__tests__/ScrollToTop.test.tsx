@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import ScrollToTop from '../ScrollToTop';
+import ScrollToTop from '@/components/layout/ScrollToTop';
 
 describe('ScrollToTop', () => {
   beforeEach(() => {
