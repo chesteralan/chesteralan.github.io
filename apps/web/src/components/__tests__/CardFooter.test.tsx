@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import CardFooter from '../CardFooter';
+import CardFooter from '@/components/ui/CardFooter';
 
 describe('CardFooter', () => {
   it('renders left and right content', () => {

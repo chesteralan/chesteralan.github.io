@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import ProfileDetail from '../ProfileDetail';
+import ProfileDetail from '@/components/shared/ProfileDetail';
 
 describe('ProfileDetail', () => {
   it('renders label, value, and description', () => {

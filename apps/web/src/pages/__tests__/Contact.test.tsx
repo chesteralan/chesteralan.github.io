@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Contact from '../Contact';
-import { socialLinks } from '../../data/portfolio';
+import Contact from '@/pages/Contact';
+import { socialLinks } from '@/data/portfolio';
 
 describe('Contact', () => {
   function renderContact() {
