@@ -30,6 +30,13 @@ export function ScrollRevealProvider({ children }: { children: React.ReactNode }
   }, []);
 
   const observe = (el: Element, callback: () => void) => {
+    // If already in viewport, fire immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      callback();
+      return () => {};
+    }
+
     callbacksRef.current.set(el, callback);
     observerRef.current?.observe(el);
     return () => {
@@ -55,6 +62,13 @@ export default function ScrollReveal({ children, className = '' }: ScrollRevealP
     const el = ref.current;
     /* istanbul ignore next -- ref is always set in jsdom */
     if (!el) return;
+
+    // If already in viewport, show immediately (avoids flash on page load)
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVisible(true);
+      return;
+    }
 
     if (ctx) {
       return ctx.observe(el, () => setVisible(true));
