@@ -85,6 +85,21 @@ export const projects: Project[] = [
     links: {
       chrome:
         'https://chromewebstore.google.com/detail/tailwind-css-cheat-sheet/fndbnfnjnhldjeppmglocapmfjdjkleh',
+      live: 'https://tailwind-css-cheat-sheet.alchie.cc',
+    },
+    featured: false,
+    category: 'extension',
+    previewGradient: 'from-sky-950 to-slate-900',
+    metric: 'Chrome Extension',
+  },
+  {
+    id: 'novastyle-extension',
+    title: 'NovaStyle Extension',
+    description: "Visually edit any webpage's CSS — spacing, typography, colors, and layout.",
+    tags: ['Web Development', 'Productivity'],
+    links: {
+      chrome: 'https://chromewebstore.google.com/detail/novastyle/giehjjenppeelhlabnhannafhpeboapa',
+      github: 'https://github.com/chesteralan/NovaStyle',
     },
     featured: false,
     category: 'extension',
