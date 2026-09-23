@@ -44,7 +44,7 @@ function buildPayload(data: ContactFormData): ContactPayload {
 function getEndpoint(): string {
   return (
     import.meta.env.VITE_CONTACT_ENDPOINT ||
-    `https://us-central1-${import.meta.env.VITE_FIREBASE_PROJECT_ID || 'YOUR_PROJECT_ID'}.cloudfunctions.net/sendContactToSlack`
+    'https://contact-form-alchie-cc.chesteralan.workers.dev/'
   );
 }
 
