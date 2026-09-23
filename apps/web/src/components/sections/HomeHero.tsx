@@ -8,7 +8,7 @@ import Icon from '@/components/ui/Icon';
 import Tag from '@/components/ui/Tag';
 import IconBox from '@/components/ui/IconBox';
 import { skills } from '@/data/portfolio';
-import AlchieImage from '@/assets/alchietagudin.jpg';
+import AlchieImage from '@/assets/alchietagudin-312x312.jpg';
 
 export default function HomeHero() {
   return (
