@@ -61,6 +61,18 @@
 - [ ] Replace Firebase Cloud Function (`functions/`) with Cloudflare Worker for sending contact form submissions to Viber
 - [ ] Remove `@functions/` directory and Firebase Functions dependencies
 
+## Contact Notification Providers
+
+- [x] Extract shared contact payload, environment, and provider types into dedicated TypeScript modules
+- [x] Move Resend email and Slack delivery into separate provider modules while preserving current behavior
+- [x] Add Discord and Google Chat incoming-webhook providers
+- [x] Add Telegram bot and Microsoft Teams/Workflows webhook providers
+- [x] Add an optional generic JSON webhook provider for Zapier, Make, and similar services
+- [x] Dispatch configured providers concurrently and report required email failures separately from optional notification failures
+- [x] Document provider setup, required secrets, and configuration in the worker documentation
+- [x] Add focused tests for provider payloads and delivery behavior
+- [x] Run worker tests and TypeScript/Wrangler build validation
+
 ## Features to Add
 
 - [ ] Add blog section for articles/tutorials

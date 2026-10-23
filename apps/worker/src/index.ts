@@ -1,115 +1,102 @@
-interface Env {
-  SLACK_WEBHOOK_URL: string;
-}
-
-interface ContactPayload {
-  name: string;
-  email: string;
-  subject?: string;
-  message: string;
-  timestamp?: string;
-}
-
-function jsonResponse(data: Record<string, unknown>, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  });
-}
-
-async function parseBody(request: Request): Promise<ContactPayload | null> {
-  try {
-    return (await request.json()) as ContactPayload;
-  } catch {
-    return null;
-  }
-}
-
-function validatePayload(body: ContactPayload): string | null {
-  if (!body.name || !body.email || !body.message) {
-    return 'Missing required fields: name, email, message';
-  }
-  return null;
-}
-
-function buildSlackMessage(body: ContactPayload) {
-  const { name, email, subject, message, timestamp } = body;
-  return {
-    blocks: [
-      {
-        type: 'header',
-        text: { type: 'plain_text', text: 'New Contact Form Submission', emoji: true },
-      },
-      {
-        type: 'section',
-        fields: [
-          { type: 'mrkdwn', text: `*Name:*\n${sanitize(name)}` },
-          { type: 'mrkdwn', text: `*Email:*\n<mailto:${sanitize(email)}|${sanitize(email)}>` },
-          { type: 'mrkdwn', text: `*Subject:*\n${sanitize(subject || 'N/A')}` },
-          {
-            type: 'mrkdwn',
-            text: `*Time:*\n${new Date(timestamp || Date.now()).toLocaleString('en-PH', { timeZone: 'Asia/Manila' })}`,
-          },
-        ],
-      },
-      { type: 'divider' },
-      {
-        type: 'section',
-        text: { type: 'mrkdwn', text: `*Message:*\n${sanitize(message)}` },
-      },
-      {
-        type: 'context',
-        elements: [
-          {
-            type: 'mrkdwn',
-            text: `From alchie.cc — ${sanitize(name)} (${sanitize(email)})`,
-          },
-        ],
-      },
-    ],
-  };
-}
-
-async function sendToSlack(webhookUrl: string, payload: unknown): Promise<boolean> {
-  const response = await fetch(webhookUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  });
-  if (!response.ok) {
-    console.error('Slack webhook error:', response.status, await response.text());
-    return false;
-  }
-  return true;
-}
-
-async function handlePost(request: Request, env: Env): Promise<Response> {
-  const body = await parseBody(request);
-  if (!body) return jsonResponse({ error: 'Invalid JSON' }, 400);
-
-  const validationError = validatePayload(body);
-  if (validationError) return jsonResponse({ error: validationError }, 400);
-
-  const sent = await sendToSlack(env.SLACK_WEBHOOK_URL, buildSlackMessage(body));
-  if (!sent) return jsonResponse({ error: 'Failed to send to Slack' }, 500);
-
-  return jsonResponse({ success: true });
-}
+import { validateContactSubmission } from './contact';
+import { getConfiguredNotificationProviders } from './providers';
+import { sendContactEmail } from './providers/resend';
+import type { Env } from './types';
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    if (request.method !== 'POST') {
-      return jsonResponse({ error: 'Method not allowed' }, 405);
+    const origin = request.headers.get('Origin');
+    const allowedOrigin = origin === env.ALLOWED_ORIGIN ? origin : env.ALLOWED_ORIGIN;
+
+    const corsHeaders: Record<string, string> = {
+      'Access-Control-Allow-Origin': allowedOrigin,
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      Vary: 'Origin',
+    };
+
+    if (request.method === 'OPTIONS') {
+      return new Response(null, {
+        status: 204,
+        headers: corsHeaders,
+      });
     }
-    return handlePost(request, env);
+
+    if (request.method !== 'POST') {
+      return Response.json(
+        { error: 'Method not allowed' },
+        {
+          status: 405,
+          headers: corsHeaders,
+        }
+      );
+    }
+
+    let data: unknown;
+    try {
+      data = await request.json();
+    } catch {
+      return Response.json(
+        { error: 'Invalid request body' },
+        {
+          status: 400,
+          headers: corsHeaders,
+        }
+      );
+    }
+
+    const validation = validateContactSubmission(data);
+    if (!validation.valid) {
+      return Response.json(
+        { error: validation.error },
+        {
+          status: 400,
+          headers: corsHeaders,
+        }
+      );
+    }
+
+    const { contact } = validation;
+    const { providers, configurationErrors } = getConfiguredNotificationProviders(env);
+
+    for (const error of configurationErrors) {
+      console.error('Notification provider configuration error:', error);
+    }
+
+    const deliveries: Array<{ name: string; promise: Promise<void> }> = [
+      { name: 'Resend', promise: sendContactEmail(env, contact) },
+      ...providers.map((provider) => ({
+        name: provider.name,
+        promise: provider.send(env, contact),
+      })),
+    ];
+    const results = await Promise.allSettled(deliveries.map(({ promise }) => promise));
+    const [emailResult, ...notificationResults] = results;
+
+    if (emailResult.status === 'rejected') {
+      console.error('Resend error:', String(emailResult.reason));
+
+      return Response.json(
+        { error: 'Unable to send your message. Please try again later.' },
+        {
+          status: 500,
+          headers: corsHeaders,
+        }
+      );
+    }
+
+    notificationResults.forEach((result, index) => {
+      if (result.status === 'rejected') {
+        console.error(`${deliveries[index + 1].name} notification error:`, String(result.reason));
+      }
+    });
+
+    return Response.json(
+      { success: true },
+      {
+        status: 200,
+        headers: corsHeaders,
+      }
+    );
   },
 };
-
-function sanitize(text: string): string {
-  if (!text) return '';
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/\n/g, '\n');
-}

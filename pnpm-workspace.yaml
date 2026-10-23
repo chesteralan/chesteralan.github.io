@@ -1,2 +1,8 @@
 packages:
   - 'apps/*'
+allowBuilds:
+  esbuild: true
+  workerd: true
+permissions:
+  fallow:
+    skills: true
